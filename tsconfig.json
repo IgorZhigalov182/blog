@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    // То куда производится сборка
+    "outDir": "./dist/",
+    // Подсвечивает все места, где у переменных не указан тип
+    "noImplicitAny": true,
+    "module": "ESNext",
+    // во что код компилируется (для поддержки большинства браузеров)
+    "target": "es5",
+    "jsx": "react",
+    // компилятор обрабатывает не только js файлы но и ts
+    "allowJs": true,
+    "moduleResolution": "node",
+    // Позволяет работать с пакетами, которые используют
+    // common js как с обычными пакетами с помощью import
+    "esModuleInterop": true,
+    // Позволяет импортировать без * as
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
