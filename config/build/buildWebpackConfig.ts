@@ -25,7 +25,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
       /**
        * Правила для обработки loader(ов)
        */
-      rules: buildLoaders()
+      rules: buildLoaders(options)
     },
     resolve: buildResolvers(),
     /**

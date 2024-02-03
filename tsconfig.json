@@ -9,7 +9,7 @@
     "baseUrl": ".",
     // во что код компилируется (для поддержки большинства браузеров)
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     // компилятор обрабатывает не только js файлы но и ts
     "allowJs": true,
     "moduleResolution": "node",
