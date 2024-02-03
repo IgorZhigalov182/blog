@@ -4,9 +4,10 @@ import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
 import { BuildOptions } from './types/config';
 import webpack from 'webpack';
+import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
-  const { paths, mode } = options;
+  const { paths, mode, isDev } = options;
 
   return {
     mode,
@@ -26,6 +27,13 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
        */
       rules: buildLoaders()
     },
-    resolve: buildResolvers()
+    resolve: buildResolvers(),
+    /**
+     * При сжатии бандла не разобрать в каком месте случилась ошибка
+     * при помощи этого свойства в последствии можно отследить место,
+     *  где приложение свалилось
+     */
+    devtool: isDev ? 'inline-source-map' : undefined,
+    devServer: isDev ? buildDevServer(options) : undefined
   };
 }
