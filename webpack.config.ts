@@ -6,7 +6,6 @@ import path from 'path';
 export default (env: BuildEnv) => {
   const mode: BuildMode = env.mode || 'development';
   const PORT = env.port || 3001;
-
   const isDev = mode === 'development';
 
   const paths: BuildPaths = {
