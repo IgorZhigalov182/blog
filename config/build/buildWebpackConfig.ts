@@ -27,7 +27,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
        */
       rules: buildLoaders(options)
     },
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     /**
      * При сжатии бандла не разобрать в каком месте случилась ошибка
      * при помощи этого свойства в последствии можно отследить место,
