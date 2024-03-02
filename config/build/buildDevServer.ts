@@ -5,6 +5,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
   return {
     port: options.port,
     open: true,
-    historyApiFallback: true // For SPA refresh pages
+    historyApiFallback: true, // For SPA refresh pages
+    hot: true // for HotModuleReplacementPlugin
   };
 }
