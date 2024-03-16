@@ -2,5 +2,8 @@
   "Текстовый перевод": "Text translate",
   "Перевод": "Translate",
   "Язык": "Русский",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "Произошла ошибка": "An error has occurred",
+  "Обновить страницу": "Reload page",
+  "Создать ошибку": "Create mistake"
 }
