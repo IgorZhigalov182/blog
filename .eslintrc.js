@@ -33,10 +33,21 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttributes: ['data-testid'] }],
     'max-len': ['warning', { ignoreComments: true }]
   },
   globals: {
     __IS_DEV__: true
-  }
+  },
+  // Переопределения
+  overrides: [
+    {
+      // Для каких файлов
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      // Что переопределяем
+      rule: {
+        'i18next/no-literal-string': 'off'
+      }
+    }
+  ]
 };
