@@ -9,20 +9,20 @@ interface SidebarProps {
 }
 
 export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
-  const { className } = props;
-  const [collapsed, setCollapsed] = useState(false);
+    const { className } = props;
+    const [collapsed, setCollapsed] = useState(false);
 
-  const onToggle = () => {
-    setCollapsed((prev) => !prev);
-  };
+    const onToggle = () => {
+        setCollapsed((prev) => !prev);
+    };
 
-  return (
-    <div data-testid='sidebar' className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}>
-      <button data-testid='toggle-test-id' type="button" onClick={onToggle}>Toggle</button>
-      <div className={cls.switchers}>
-        <ThemeSwitcher />
-        <LangSwitcher className={cls.lang} />
-      </div>
-    </div>
-  );
+    return (
+        <div data-testid="sidebar" className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}>
+            <button data-testid="toggle-test-id" type="button" onClick={onToggle}>Toggle</button>
+            <div className={cls.switchers}>
+                <ThemeSwitcher />
+                <LangSwitcher className={cls.lang} />
+            </div>
+        </div>
+    );
 };

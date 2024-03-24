@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import cls from './NotFound.module.scss';
-
 import type { PropsWithChildren } from 'react';
+import cls from './NotFound.module.scss';
 
 interface NotFoundProps {
     className?: string;
@@ -9,9 +8,9 @@ interface NotFoundProps {
 
 export const NotFound = (props: PropsWithChildren<NotFoundProps>) => {
     const { className } = props;
-    const { t } = useTranslation()
+    const { t } = useTranslation();
 
     return (
         <div className={cls.notFound}>{t('Страница не найдена')}</div>
-    )
-}
+    );
+};

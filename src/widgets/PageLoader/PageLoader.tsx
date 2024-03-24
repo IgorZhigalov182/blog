@@ -1,7 +1,6 @@
 import { Loader } from 'shared/ui/Loader/Loader';
-import cls from './PageLoader.module.scss';
-
 import type { PropsWithChildren } from 'react';
+import cls from './PageLoader.module.scss';
 
 interface PageLoaderProps {
     className?: string;
@@ -14,5 +13,5 @@ export const PageLoader = (props: PropsWithChildren<PageLoaderProps>) => {
         <div className={cls.pageLoader}>
             <Loader />
         </div>
-    )
-}
+    );
+};

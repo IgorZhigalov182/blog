@@ -4,23 +4,22 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
-  className?: string;
+    className?: string;
 }
 
 export const Navbar = (props: NavbarProps) => {
-  const { className } = props;
+    const { className } = props;
 
-  return (
-    <div className={classNames(cls.navbar, {}, [className])}>
-      {/* <ThemeSwitcher /> */}
-      <div className={classNames(cls.links)}>
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/">
-          Главная
-        </AppLink>
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/about">
-          О сайте
-        </AppLink>
-      </div>
-    </div>
-  );
+    return (
+        <div className={classNames(cls.navbar, {}, [className])}>
+            <div className={classNames(cls.links)}>
+                <AppLink theme={AppLinkTheme.SECONDARY} to="/">
+                    Главная
+                </AppLink>
+                <AppLink theme={AppLinkTheme.SECONDARY} to="/about">
+                    О сайте
+                </AppLink>
+            </div>
+        </div>
+    );
 };

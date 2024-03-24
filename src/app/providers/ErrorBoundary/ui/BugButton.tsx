@@ -3,13 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 
 interface BugButtonProps {
-    className?: string;
 }
 
 // Компонент для тестирования ErrorBoundary
 export const BugButton = (props: PropsWithChildren<BugButtonProps>) => {
     const [error, setError] = useState(false);
-    const { t } = useTranslation()
+    const { t } = useTranslation();
 
     const onThrow = () => setError(true);
 
@@ -17,11 +16,11 @@ export const BugButton = (props: PropsWithChildren<BugButtonProps>) => {
         if (error) {
             throw new Error();
         }
-    }, [error])
+    }, [error]);
 
     return (
         <Button onClick={onThrow}>
             {t('Создать ошибку')}
         </Button>
-    )
-}
+    );
+};

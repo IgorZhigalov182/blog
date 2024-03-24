@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import cls from './PageError.module.scss';
 import type { PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
+import cls from './PageError.module.scss';
 
 interface PageErrorProps {
     className?: string;
@@ -10,7 +10,7 @@ interface PageErrorProps {
 
 export const PageError = (props: PropsWithChildren<PageErrorProps>) => {
     const { className } = props;
-    const { t } = useTranslation()
+    const { t } = useTranslation();
 
     return (
         <div className={classNames(cls.errorPage, {}, [className])}>
@@ -19,5 +19,5 @@ export const PageError = (props: PropsWithChildren<PageErrorProps>) => {
                 {t('Обновить страницу')}
             </Button>
         </div>
-    )
-}
+    );
+};
