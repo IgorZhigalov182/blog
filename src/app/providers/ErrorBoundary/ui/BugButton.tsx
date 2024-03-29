@@ -1,12 +1,9 @@
-import { useEffect, useState, type PropsWithChildren } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
-
-interface BugButtonProps {
-}
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // Компонент для тестирования ErrorBoundary
-export const BugButton = (props: PropsWithChildren<BugButtonProps>) => {
+export const BugButton = () => {
     const [error, setError] = useState(false);
     const { t } = useTranslation();
 
@@ -19,8 +16,10 @@ export const BugButton = (props: PropsWithChildren<BugButtonProps>) => {
     }, [error]);
 
     return (
-        <Button onClick={onThrow}>
-            {t('Создать ошибку')}
+        <Button
+            onClick={onThrow}
+        >
+            {t('throw error')}
         </Button>
     );
 };

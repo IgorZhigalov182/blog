@@ -1,54 +1,56 @@
-import MiniCssExtractPlugin, { loader } from 'mini-css-extract-plugin';
 import webpack from 'webpack';
+import { buildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/config';
-import { buildCssLoader } from './loaders/buildCssLoaders';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-    /**
-   * babel не нужен, тк как есть tsLoader
-   */
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-    };
-
     const svgLoader = {
         test: /\.svg$/,
-        use: ['@svgr/webpack']
+        use: ['@svgr/webpack'],
     };
 
     const babelLoader = {
         test: /\.(js|jsx|tsx)$/,
-        exclude: /node_module/,
+        exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
-                plugins: [['i18next-extract', { locales: ['ru', 'en'], keyAsDefaultValue: true }]]
-            }
-        }
-    };
-
-    const fileLoader = {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-            {
-                loader: 'file-loader'
-            }
-        ]
+                plugins: [
+                    [
+                        'i18next-extract',
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: true,
+                        },
+                    ],
+                ],
+            },
+        },
     };
 
     const cssLoader = buildCssLoader(isDev);
 
+    // Если не используем тайпскрипт - нужен babel-loader
+    const typescriptLoader = {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+    };
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    };
+
     return [
-    /**
-     * для всех типов файлов, не являющихся js. (ts, gif, png...)
-     */
         fileLoader,
+        svgLoader,
         babelLoader,
         typescriptLoader,
         cssLoader,
-        svgLoader
     ];
 }

@@ -1,26 +1,40 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 
-describe('classnames', () => {
-    test('with only first params', () => {
-        expect(classNames('testClass')).toBe('testClass');
+describe('classNames', () => {
+    test('with only first param', () => {
+        expect(classNames('someClass')).toBe('someClass');
     });
+
     test('with additional class', () => {
-        expect(classNames('testClass', {}, ['add'])).toBe('testClass add');
+        const expected = 'someClass class1 class2';
+        expect(classNames('someClass', {}, ['class1', 'class2']))
+            .toBe(expected);
     });
+
     test('with mods', () => {
-        const expected = 'testClass add active hover';
-        expect(classNames('testClass', { active: true, hover: true }, ['add'])).toBe(expected);
+        const expected = 'someClass class1 class2 hovered scrollable';
+        expect(classNames(
+            'someClass',
+            { hovered: true, scrollable: true },
+            ['class1', 'class2'],
+        )).toBe(expected);
     });
 
-    test('with mods (true/false)', () => {
-        const expected = 'testClass add active';
-        expect(classNames('testClass', { active: true, scrollable: false }, ['add'])).toBe(expected);
+    test('with mods false', () => {
+        const expected = 'someClass class1 class2 hovered';
+        expect(classNames(
+            'someClass',
+            { hovered: true, scrollable: false },
+            ['class1', 'class2'],
+        )).toBe(expected);
     });
 
-    test('with mods undefinded', () => {
-        const expected = 'testClass add active';
-        expect(
-            classNames('testClass', { active: true, scrollable: undefined, light: null }, ['add']),
-        ).toBe(expected);
+    test('with mods undefined', () => {
+        const expected = 'someClass class1 class2 hovered';
+        expect(classNames(
+            'someClass',
+            { hovered: true, scrollable: undefined },
+            ['class1', 'class2'],
+        )).toBe(expected);
     });
 });
