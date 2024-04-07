@@ -1,8 +1,7 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Modal, ButtonSize, ThemeButton } from './Modal';
+import { Modal } from './Modal';
 
 export default {
     title: 'shared/Modal',
@@ -35,4 +34,4 @@ Dark.args = {
     boriosam quam.Consequatur quo corrupti eum reprehenderit
     vel modi voluptatem maiores.`,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
