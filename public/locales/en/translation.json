@@ -10,5 +10,7 @@
   "throw error": "throw error",
   "Главная": "Main",
   "О сайте": "About us",
-  "Короткий язык": "Ru"
+  "Короткий язык": "Ru",
+  "Войти": "Enter",
+  "Введите username": "Enter username"
 }
