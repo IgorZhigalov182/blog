@@ -1,4 +1,6 @@
-import React, { memo, useEffect, useRef, useState, type InputHTMLAttributes, type PropsWithChildren } from 'react';
+import React, {
+    memo, useEffect, useRef, useState, type InputHTMLAttributes, type PropsWithChildren,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
@@ -70,8 +72,7 @@ export const Input = memo((props: PropsWithChildren<InputProps>) => {
                             className={cls.caret}
                             style={{ left: `${caretPosition * 9}px` }}
                         />
-                    )
-                }
+                    )}
             </div>
         </div>
     );

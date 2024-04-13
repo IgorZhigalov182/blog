@@ -21,5 +21,5 @@ export const LoginForm = (props: PropsWithChildren<LoginFormProps>) => {
                 {t('Войти')}
             </Button>
         </div>
-    )
-}
+    );
+};
