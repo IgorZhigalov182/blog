@@ -12,5 +12,8 @@
   "О сайте": "About us",
   "Короткий язык": "Ru",
   "Войти": "Enter",
-  "Введите username": "Enter username"
+  "Введите username": "Enter username",
+  "Форма авторизации": "Auth Form",
+  "Выйти": "Log out",
+  "Неверный логин или пароль": "Uncorrect username or password"
 }
