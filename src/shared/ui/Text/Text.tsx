@@ -1,5 +1,4 @@
-import type { PropsWithChildren } from 'react';
-import { useTranslation } from 'react-i18next';
+import { memo, type PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
@@ -15,9 +14,13 @@ interface TextProps {
     theme?: TextTheme
 }
 
-export const Text = (props: PropsWithChildren<TextProps>) => {
-    const { className, title, text, theme = TextTheme.PRIMARY } = props;
-    const { t } = useTranslation();
+export const Text = memo((props: PropsWithChildren<TextProps>) => {
+    const {
+        className,
+        title,
+        text,
+        theme = TextTheme.PRIMARY
+    } = props;
 
     const mods = {
         [cls[theme]]: true,
@@ -28,5 +31,5 @@ export const Text = (props: PropsWithChildren<TextProps>) => {
             {title && <p className={cls.title}>{title}</p>}
             {text && <p className={cls.text}>{text}</p>}
         </div>
-    )
-}
+    );
+});
