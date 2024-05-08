@@ -11,6 +11,7 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername/inedx';
 import { NavigateOptions, To } from 'react-router-dom';
+import { Dispatch } from 'redux';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -36,7 +37,7 @@ export interface ReduxStoreWithManager extends EnhancedStore {
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate: (to: To, options?: NavigateOptions) => void;
+  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

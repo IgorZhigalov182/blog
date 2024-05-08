@@ -12,13 +12,13 @@ export const userSlice = createSlice({
       state.authData = action.payload;
     },
     initAuthData: (state) => {
-      const user = JSON.parse(localStorage.getItem(USER_LOCALSTORAGE_KEY));
+      const user = JSON.parse(localStorage.getItem(USER_LOCALSTORAGE_KEY) || '');
       if (user) {
         state.authData = user;
       }
     },
     logout: (state) => {
-      state.authData = null;
+      state.authData = undefined;
       localStorage.removeItem(USER_LOCALSTORAGE_KEY);
     }
   }

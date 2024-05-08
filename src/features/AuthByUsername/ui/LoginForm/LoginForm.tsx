@@ -46,6 +46,7 @@ const LoginForm = memo((props: PropsWithChildren<LoginFormProps>) => {
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
+
         if (result?.meta?.requestStatus === 'fulfilled') {
             onSuccess();
         }
@@ -58,11 +59,10 @@ const LoginForm = memo((props: PropsWithChildren<LoginFormProps>) => {
         >
             <div className={classNames(cls.loginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
-                {error &&
-                    <Text
-                        text={t(`Неверный логин или пароль`)}
-                        theme={TextTheme.ERROR}
-                    />}
+                {error && <Text
+                    text={t(`Неверный логин или пароль`)}
+                    theme={TextTheme.ERROR}
+                />}
                 <Input
                     onChange={onChangeUsername}
                     value={username}

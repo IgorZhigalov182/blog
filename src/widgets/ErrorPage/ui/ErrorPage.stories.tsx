@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -13,7 +12,7 @@ export default {
     },
 } as ComponentMeta<typeof ErrorPage>;
 
-const Template: ComponentStory<typeof ErrorPage> = (args) => <ErrorPage {...args} />;
+const Template: ComponentStory<typeof ErrorPage> = () => <ErrorPage />;
 
 export const Light = Template.bind({});
 Light.args = {};
