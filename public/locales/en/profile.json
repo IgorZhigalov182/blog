@@ -2,5 +2,9 @@
   "Профиль": "Profile",
   "Редактировать": "Edit",
   "Введите ваше имя": "Enter your firstname",
-  "Введите вашу фамилию": "Enter your lastname"
+  "Введите вашу фамилию": "Enter your lastname",
+  "Произошла ошибка при загрузке профиля": "Occurred due to a profile enable error",
+  "Попробуйте обновить страницу": "Try refreshing the page",
+  "Отменить": "Cancel",
+  "Сохранить":"Save",
 }
