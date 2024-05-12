@@ -3,8 +3,12 @@
   "Редактировать": "Edit",
   "Введите ваше имя": "Enter your firstname",
   "Введите вашу фамилию": "Enter your lastname",
+  "Введите ваш возраст": "Enter your age",
+  "Введите ваш город": "Enter your city",
+  "Введите имя профиля": "Enter your username",
+  "Введите ссылку на аватар": "Enter link to avatar",
   "Произошла ошибка при загрузке профиля": "Occurred due to a profile enable error",
   "Попробуйте обновить страницу": "Try refreshing the page",
   "Отменить": "Cancel",
-  "Сохранить":"Save",
+  "Сохранить": "Save"
 }

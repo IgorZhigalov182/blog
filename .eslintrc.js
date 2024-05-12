@@ -50,7 +50,8 @@ module.exports = {
     'linebreak-style': 'off',
     'no-param-reassign': 'off',
     'no-undef': 'off',
-    'implicit-arrow-linebreak': 'off'
+    'implicit-arrow-linebreak': 'off',
+    'prefer-regex-literals': 'off'
   },
   globals: {
     __IS_DEV__: true,

@@ -48,6 +48,26 @@ const ProfilePage = (props: PropsWithChildren<ProfilePageProps>) => {
         dispatch(profileActions.updateProfile({ lastname: value || '' }));
     }, [dispatch]);
 
+    const onChangeAge = useCallback((value?: string) => {
+        const regex = new RegExp(/^\d+$/);
+
+        if (regex?.test(value!)) {
+            dispatch(profileActions.updateProfile({ age: Number(value || '') }));
+        }
+    }, [dispatch]);
+
+    const onChangeCity = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ city: value || '' }));
+    }, [dispatch]);
+
+    const onChangeUsername = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ username: value || '' }));
+    }, [dispatch]);
+
+    const onChangeAvatar = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ avatar: value || '' }));
+    }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('cls.ProfilePage', {}, [className])}>
@@ -59,10 +79,14 @@ const ProfilePage = (props: PropsWithChildren<ProfilePageProps>) => {
                     readonly={readonly}
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
                 />
             </div>
         </DynamicModuleLoader>
     );
 };
 
-export default ProfilePage;
+export default ProfilePage
