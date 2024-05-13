@@ -13,11 +13,12 @@ interface SelectProps {
     label?: string;
     options?: SelectOption[];
     value?: string;
-    onChange?: (value: string) => void
+    onChange?: (value: string) => void;
+    readonly?: boolean;
 }
 
 export const Select = memo((props: PropsWithChildren<SelectProps>) => {
-    const { className, label, options, value, onChange } = props;
+    const { className, label, options, value, onChange, readonly } = props;
     const { t } = useTranslation();
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -43,6 +44,7 @@ export const Select = memo((props: PropsWithChildren<SelectProps>) => {
                 className={cls.select}
                 value={value}
                 onChange={onChangeHandler}
+                disabled={readonly}
             >
                 {optionList}
             </select>
