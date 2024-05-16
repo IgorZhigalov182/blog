@@ -1,7 +1,7 @@
 import { Country, CountrySelect } from 'entities/Country';
 import { CurrencySelect } from 'entities/Currency';
 import { Currency } from 'entities/Currency/model/types/currency';
-import type { PropsWithChildren } from 'react';
+import { useEffect, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
@@ -10,6 +10,8 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
+import { validateProfileData } from 'entities/Profile/model/services/validateProfileData/validateProfileData';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ProfileCardProps {
     className?: string;
@@ -45,6 +47,7 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
     } = props;
 
     const { t } = useTranslation('profile');
+    const dispatch = useAppDispatch();
 
     if (isLoading) {
         return (
@@ -69,16 +72,15 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
 
     const mods: Mods = {
         [cls.editing]: !readonly
-    }
+    };
 
     return (
         <div className={classNames(cls.profileCard, mods, [className])}>
             <div className={classNames(cls.data)}>
-                {data?.avatar && <div className={classNames(cls.avatarWrapper)}>
-                    < Avatar
-                        src={data?.avatar}
-                    />
-                </div>}
+                {data?.avatar
+                    && <div className={classNames(cls.avatarWrapper)}>
+                        < Avatar src={data?.avatar} />
+                    </div>}
                 <Input
                     value={data?.firstname}
                     placeholder={t('Введите ваше имя')}
@@ -136,4 +138,4 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
             </div>
         </div>
     );
-}
+};

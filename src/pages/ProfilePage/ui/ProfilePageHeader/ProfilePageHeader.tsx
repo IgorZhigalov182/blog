@@ -7,6 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile';
 import cls from './ProfilePageHeader.module.scss';
+import { validateProfileData } from 'entities/Profile/model/services/validateProfileData/validateProfileData';
 
 interface ProfilePageHeaderProps {
     className?: string;
