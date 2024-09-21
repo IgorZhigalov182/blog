@@ -1,10 +1,10 @@
 import { memo, type PropsWithChildren } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './CommentList.module.scss';
-import { CommentCard } from '../CommentCard/CommentCard';
-import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Text } from 'shared/ui/Text/Text';
 import { Comment } from '../../model/types/comment';
+import { CommentCard } from '../CommentCard/CommentCard';
+import cls from './CommentList.module.scss';
 
 interface CommentListProps {
   className?: string;

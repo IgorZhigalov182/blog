@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import { useCallback, type PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
+import { AddCommentForm } from 'features/addCommentForm';
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
@@ -29,6 +31,13 @@ const ArticleDetailsPage = (props: PropsWithChildren<ArticleDetailsPageProps>) =
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
 
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch]
+  );
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
@@ -42,6 +51,7 @@ const ArticleDetailsPage = (props: PropsWithChildren<ArticleDetailsPageProps>) =
       <div className={classNames(cls.articleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={cls.articleDetailsTitle} title={t('Комментарии')} />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>

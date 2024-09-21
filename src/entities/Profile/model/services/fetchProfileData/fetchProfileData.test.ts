@@ -14,13 +14,13 @@ const data = {
   city: 'Saint-Petersburg',
   currency: Currency.RUB,
   avatar:
-    'https://img01.rl0.ru/afisha/e1200x800i/daily.afisha.ru/uploads/images/b/1e/b1e50b3d4d29c03bda90bde2593ead14.jpeg'
+    'https://img01.rl0.ru/afisha/e1200x800i/daily.afisha.ru/uploads/images/b/1e/b1e50b3d4d29c03bda90bde2593ead14.jpeg',
 };
 describe('fetchProfileData.test', () => {
   test('Success', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -30,7 +30,7 @@ describe('fetchProfileData.test', () => {
   test('403, Error login', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.meta.requestStatus).toBe('rejected');
   });

@@ -1,10 +1,8 @@
-import axios from 'axios';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { userActions } from 'entities/User';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { updateProfileData } from './updateProfileData';
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { ValidateProfileError } from '../../types/profile';
+import { updateProfileData } from './updateProfileData';
 
 const data = {
   username: 'admin',
@@ -15,14 +13,14 @@ const data = {
   city: 'Saint-Petersburg',
   currency: Currency.RUB,
   avatar:
-    'https://img01.rl0.ru/afisha/e1200x800i/daily.afisha.ru/uploads/images/b/1e/b1e50b3d4d29c03bda90bde2593ead14.jpeg'
+    'https://img01.rl0.ru/afisha/e1200x800i/daily.afisha.ru/uploads/images/b/1e/b1e50b3d4d29c03bda90bde2593ead14.jpeg',
 };
 describe('updateProfileData.test', () => {
   test('Success', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
-        form: data
-      }
+        form: data,
+      },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
@@ -36,8 +34,8 @@ describe('updateProfileData.test', () => {
   test('403, Server Error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
-        form: data
-      }
+        form: data,
+      },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
 
@@ -50,8 +48,8 @@ describe('updateProfileData.test', () => {
   test('403, validate error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
-        form: { ...data, lastname: undefined }
-      }
+        form: { ...data, lastname: undefined },
+      },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
 

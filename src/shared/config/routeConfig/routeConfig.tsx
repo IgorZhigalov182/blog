@@ -7,56 +7,57 @@ import { ArticlePage } from 'pages/ArticlePage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 
 export type AppRoutesProps = RouteProps & {
-    authOnly?: boolean;
-}
+  authOnly?: boolean;
+};
 
 export enum AppRoutes {
-    MAIN = 'main',
-    ABOUT = 'about',
-    PROFILE = 'profile',
-    ARTICLE = 'article',
-    ARTICLE_DETAILS = 'articles',
+  MAIN = 'main',
+  ABOUT = 'about',
+  PROFILE = 'profile',
+  ARTICLE = 'article',
+  ARTICLE_DETAILS = 'articles',
 
-    NOT_FOUND = 'not_found',
+  NOT_FOUND = 'not_found',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/',
-    [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.PROFILE]: '/profile',
-    [AppRoutes.ARTICLE]: '/article',
-    [AppRoutes.ARTICLE_DETAILS]: '/articles/', // + id
+  [AppRoutes.MAIN]: '/',
+  [AppRoutes.ABOUT]: '/about',
+  [AppRoutes.PROFILE]: '/profile/', // + id
+  [AppRoutes.ARTICLE]: '/article',
+  [AppRoutes.ARTICLE_DETAILS]: '/articles/', // + id
 
-    // последний
-    [AppRoutes.NOT_FOUND]: '*',
+  // последний
+  [AppRoutes.NOT_FOUND]: '*',
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
-    [AppRoutes.MAIN]: {
-        path: RoutePath.main,
-        element: <MainPage />,
-    },
-    [AppRoutes.ABOUT]: {
-        path: RoutePath.about,
-        element: <AboutPage />,
-    },
-    [AppRoutes.PROFILE]: {
-        path: RoutePath.profile,
-        element: <ProfilePage />,
-        authOnly: true
-    },
-    [AppRoutes.ARTICLE]: {
-        path: RoutePath.article,
-        element: <ArticlePage />,
-        authOnly: true
-    },
-    [AppRoutes.ARTICLE_DETAILS]: {
-        path: `${RoutePath.articles}:id`,
-        element: <ArticleDetailsPage />,
-        authOnly: true
-    },
-    [AppRoutes.NOT_FOUND]: {
-        path: RoutePath.not_found,
-        element: <NotFoundPage />,
-    },
+  [AppRoutes.MAIN]: {
+    path: RoutePath.main,
+    element: <MainPage />,
+  },
+  [AppRoutes.ABOUT]: {
+    path: RoutePath.about,
+    element: <AboutPage />,
+  },
+  [AppRoutes.PROFILE]: {
+    path: `${RoutePath.profile}:id`,
+    element: <ProfilePage />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLE]: {
+    path: RoutePath.article,
+    element: <ArticlePage />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLE_DETAILS]: {
+    path: `${RoutePath.articles}:id`,
+    element: <ArticleDetailsPage />,
+    authOnly: true,
+  },
+  [AppRoutes.NOT_FOUND]: {
+    path: RoutePath.not_found,
+    element: <NotFoundPage />,
+  },
 };
+

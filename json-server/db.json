@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -99,7 +101,19 @@
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Кузя кузь",
+      "id": "z-HIOOH"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "cw",
+      "id": "CQBvuqU"
     }
   ],
   "users": [
@@ -115,19 +129,33 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://sun9-78.userapi.com/c5776/u43743957/-14/x_36e2b530.jpg"
+      "avatar": "https://www.film.ru/sites/default/files/images/1-21(15).jpg"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "К.Шрут",
-    "age": 4651,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://sun9-78.userapi.com/c5776/u43743957/-14/x_36e2b530.jpg",
-    "firstname": "Дуайт"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "jgh",
+      "lastname": "К.Шрут",
+      "age": 4,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://sun9-78.userapi.com/c5776/u43743957/-14/x_36e2b530.jpg",
+      "firstname": "Дуайт"
+    },
+    {
+      "id": "2",
+      "first": "jgh",
+      "lastname": "Халперт",
+      "age": 21,
+      "currency": "RUB",
+      "country": "USA",
+      "city": "San Francisco",
+      "username": "admin213",
+      "avatar": "https://www.film.ru/sites/default/files/images/1-21(15).jpg",
+      "firstname": "Джим"
+    }
+  ]
 }
-
