@@ -1,5 +1,4 @@
 import { memo, ReactNode, type PropsWithChildren } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -21,12 +20,6 @@ const getSkeletons = (view: ArticleView): ReactNode => {
 
 export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => {
   const { className, articles, view = ArticleView.GRID, isLoading } = props;
-  const { t } = useTranslation();
-
-  const renderArticles = () =>
-    articles.map((article: Article) => (
-      <ArticleListItem key={article.id} article={article} view={view} className={cls.card} />
-    ));
 
   if (isLoading) {
     return <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>{getSkeletons(view)}</div>;
@@ -34,7 +27,11 @@ export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => 
 
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-      {articles.length ? articles.map(renderArticles) : 'No articles'}
+      {articles.length
+        ? articles.map((article: Article) => (
+            <ArticleListItem key={article.id} article={article} view={view} className={cls.card} />
+          ))
+        : 'No articles'}
     </div>
   );
 });
