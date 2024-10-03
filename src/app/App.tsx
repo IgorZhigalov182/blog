@@ -7,27 +7,29 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Sidebar } from 'widgets/Sidebar';
 import { getUserInited, userActions } from 'entities/User';
 import { useTheme } from './providers/ThemeProvider';
+import { PageLoader } from 'shared/ui/PageLoader/PageLoader';
 
 function App() {
-    const { theme } = useTheme();
-    const dispatch = useAppDispatch();
-    const inited = useSelector(getUserInited);
+  const { theme } = useTheme();
+  const dispatch = useAppDispatch();
+  const inited = useSelector(getUserInited);
 
-    useEffect(() => {
-        dispatch(userActions.initAuthData());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
-    return (
-        <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback="">
-                <Navbar />
-                <div className="content-page">
-                    <Sidebar />
-                    {inited && <AppRouter />}
-                </div>
-            </Suspense>
+  return (
+    <div className={classNames('app', {}, [theme])}>
+      <Suspense fallback={<PageLoader />}>
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          {inited && <AppRouter />}
         </div>
-    );
+      </Suspense>
+    </div>
+  );
 }
 
 export default App;
+

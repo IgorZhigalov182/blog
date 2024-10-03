@@ -33,7 +33,11 @@ const ArticlePage = (props: PropsWithChildren<ArticleDetailsPageProps>) => {
   const view = useSelector(getArticlePageView);
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
+    dispatch(
+      fetchArticlesList({
+        page: 1,
+      })
+    );
   });
 
   const onChangeView = useCallback(

@@ -21,12 +21,22 @@ export const articlePageSlice = createSlice({
     error: undefined,
     ids: [],
     entities: {},
-    view: (localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView) || ArticleView.GRID,
+    view: ArticleView.GRID,
+    page: 1,
+    hasMore: true,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload;
       localStorage.setItem(ARTICLE_VIEW_LOCALSTORAGE_KEY, action.payload);
+    },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
+    initState: state => {
+      const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+      state.view = view;
+      state.limit = view === ArticleView.GRID ? 9 : 4;
     },
   },
   extraReducers: builder => {
