@@ -5,7 +5,7 @@ import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/addCommentForm';
-import { LoginSchema } from 'features/AuthByUsername/inedx';
+import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlePageSchema } from 'pages/ArticlePage/model/types/ArticlePageSchema';
 import { NavigateOptions, To } from 'react-router-dom';

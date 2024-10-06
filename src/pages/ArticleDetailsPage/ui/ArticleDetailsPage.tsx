@@ -16,6 +16,7 @@ import { addCommentForArticle } from '../model/services/addCommentForArticle/add
 import { AddCommentForm } from 'features/addCommentForm';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/ui/Page';
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
@@ -50,12 +51,12 @@ const ArticleDetailsPage = (props: PropsWithChildren<ArticleDetailsPageProps>) =
   });
 
   if (!id) {
-    return <div className={classNames(cls.articleDetailsPage, {}, [className])}>{t('Статья не найдена')}</div>;
+    return <Page className={classNames(cls.articleDetailsPage, {}, [className])}>{t('Статья не найдена')}</Page>;
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
         <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
           {t('Назад к списку')}
         </Button>
@@ -63,7 +64,7 @@ const ArticleDetailsPage = (props: PropsWithChildren<ArticleDetailsPageProps>) =
         <Text className={cls.articleDetailsTitle} title={t('Комментарии')} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

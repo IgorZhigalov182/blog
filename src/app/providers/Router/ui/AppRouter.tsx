@@ -5,31 +5,22 @@ import { PageLoader } from 'shared/ui/PageLoader/PageLoader';
 import { RequireAuth } from './RequireAuth';
 
 const AppRouter = () => {
-    const renderWithWpapper = useCallback((route: AppRoutesProps) => {
-
-        const element = (
-            <Suspense fallback={<PageLoader />}>
-                <div className="page-wrapper">
-                    {route.element}
-                </div>
-            </Suspense>
-        );
-
-        return (
-            <Route
-                key={route.path}
-                path={route.path}
-                element={
-                    route.authOnly ? <RequireAuth>{element}</RequireAuth> : element
-                }
-            />
-        );
-    }, []);
+  const renderWithWpapper = useCallback((route: AppRoutesProps) => {
+    const element = <Suspense fallback={<PageLoader />}>{route.element}</Suspense>;
 
     return (
-        <Routes>
-            {Object.values(routeConfig).map(renderWithWpapper)}
-            {/* {routes.map(({ element, path }) => (
+      <Route
+        key={route.path}
+        path={route.path}
+        element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+      />
+    );
+  }, []);
+
+  return (
+    <Routes>
+      {Object.values(routeConfig).map(renderWithWpapper)}
+      {/* {routes.map(({ element, path }) => (
                 <Route
                     key={path}
                     path={path}
@@ -42,8 +33,9 @@ const AppRouter = () => {
                     )}
                 />
             ))} */}
-        </Routes>
-    )
-}
+    </Routes>
+  );
+};
 
 export default memo(AppRouter);
+
