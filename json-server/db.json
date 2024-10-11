@@ -17,8 +17,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1043,
+      "createdAt": "08.02.2022",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -157,8 +157,8 @@
       "title": "NodeJS news",
       "subtitle": "Что нового в NodeJS за 2020 год?",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQveVgzOI_tzSLm_WiaEWDuTLy4bx32js2Neg&s",
-      "views": 83,
-      "createdAt": "31.12.2020",
+      "views": 555,
+      "createdAt": "21.12.2020",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -224,11 +224,11 @@
     },
     {
       "id": "4",
-      "title": "Javascript news",
+      "title": "Javascript is dead",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 43324,
+      "createdAt": "01.05.2022",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -297,8 +297,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 556,
+      "createdAt": "15.07.2022",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -367,8 +367,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 22,
+      "createdAt": "11.04.2022",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -437,8 +437,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 323,
+      "createdAt": "26.12.2022",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -507,7 +507,7 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
+      "views": 10122,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": ["IT"],
@@ -790,7 +790,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -927,8 +927,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1938,
+      "createdAt": "19.03.1999",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -997,8 +997,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 33333,
+      "createdAt": "04.07.1987",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -1064,11 +1064,11 @@
     },
     {
       "id": "16",
-      "title": "Javascript news",
+      "title": "Javascript news in 2012",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "12.04.2000",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -1303,6 +1303,12 @@
       "userId": "1",
       "text": "cw",
       "id": "CQBvuqU"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "СЫЧ",
+      "id": "AD89kii"
     }
   ],
   "users": [
@@ -1332,7 +1338,7 @@
       "city": "Moscow",
       "username": "admin213",
       "avatar": "https://sun9-78.userapi.com/c5776/u43743957/-14/x_36e2b530.jpg",
-      "firstname": "Дуайт"
+      "firstname": "Дуайcт"
     },
     {
       "id": "2",
@@ -1348,4 +1354,3 @@
     }
   ]
 }
-

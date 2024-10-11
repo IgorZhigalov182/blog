@@ -1,5 +1,3 @@
-import { ArticleViewSelector } from 'entities/Article';
-import { ArticleView } from 'entities/Article/model/types/article';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import { PropsWithChildren, useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -7,16 +5,18 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'shared/ui/Page/ui/Page';
+import { Page } from 'widgets/Page/ui/Page';
 import {
   getArticlePageIsError,
   getArticlePageIsLoading,
   getArticlePageView,
-} from '../model/selectors/articlePageSelectors';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
-import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage';
-import { articlePageActions, articlePageReducer, getArticles } from '../model/slice/articlePageSlice';
+} from '../../model/selectors/articlePageSelectors';
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import cls from './ArticlePage.module.scss';
+import { useSearchParams } from 'react-router-dom';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -33,36 +33,25 @@ const ArticlePage = (props: PropsWithChildren<ArticleDetailsPageProps>) => {
   const isLoading = useSelector(getArticlePageIsLoading);
   const view = useSelector(getArticlePageView);
   const isError = useSelector(getArticlePageIsError);
+  const [searchParams] = useSearchParams();
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlePageActions.initState());
-    dispatch(
-      fetchArticlesList({
-        page: 1,
-      })
-    );
+    dispatch(initArticlesPage(searchParams));
   });
-
-  const onChangeView = useCallback(
-    (newView: ArticleView) => {
-      dispatch(articlePageActions.setView(newView));
-    },
-    [dispatch]
-  );
 
   if (isError) {
     return <div className={classNames(cls.ArticlePage, {}, [className])}>Произошла ошибка при загрузке статей</div>;
   }
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlePage, {}, [className])}>
-        <ArticleViewSelector view={view} onViewClick={onChangeView} />
-        <ArticleList isLoading={isLoading} view={view} articles={articles} />
+        <ArticlePageFilters />
+        <ArticleList isLoading={isLoading} view={view} articles={articles} className={cls.list} />
       </Page>
     </DynamicModuleLoader>
   );

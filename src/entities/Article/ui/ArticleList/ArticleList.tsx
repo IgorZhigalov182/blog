@@ -1,5 +1,7 @@
 import { memo, ReactNode, type PropsWithChildren } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextAlign } from 'shared/ui/Text/Text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -20,6 +22,15 @@ const getSkeletons = (view: ArticleView): ReactNode => {
 
 export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => {
   const { className, articles, view = ArticleView.GRID, isLoading } = props;
+  const { t } = useTranslation('');
+
+  if (articles.length === 0 && !isLoading) {
+    return (
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <Text title={t('Статьи не найдены')} align={TextAlign.CENTER} />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
