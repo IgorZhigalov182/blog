@@ -1,4 +1,4 @@
-import { memo, ReactNode, type PropsWithChildren } from 'react';
+import { HTMLAttributeAnchorTarget, memo, ReactNode, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextAlign } from 'shared/ui/Text/Text';
@@ -12,6 +12,7 @@ interface ArticleListProps {
   articles: Article[];
   view?: ArticleView;
   isLoading?: boolean;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView): ReactNode => {
@@ -21,7 +22,7 @@ const getSkeletons = (view: ArticleView): ReactNode => {
 };
 
 export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => {
-  const { className, articles, view = ArticleView.GRID, isLoading } = props;
+  const { className, articles, view = ArticleView.GRID, isLoading, target } = props;
   const { t } = useTranslation('');
 
   if (articles.length === 0 && !isLoading) {
@@ -36,7 +37,7 @@ export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => 
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length
         ? articles.map((article: Article) => (
-            <ArticleListItem key={article.id} article={article} view={view} className={cls.card} />
+            <ArticleListItem target={target} key={article.id} article={article} view={view} className={cls.card} />
           ))
         : ''}
       {isLoading && getSkeletons(view)}

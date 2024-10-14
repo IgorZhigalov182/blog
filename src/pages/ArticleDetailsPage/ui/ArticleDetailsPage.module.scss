@@ -1,3 +1,10 @@
 .articleDetailsTitle {
   margin-top: 15px;
 }
+
+.recommendations {
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  margin-top: 10px;
+}
