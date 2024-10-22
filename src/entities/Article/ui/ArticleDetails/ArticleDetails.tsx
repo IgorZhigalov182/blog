@@ -25,6 +25,7 @@ import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/Articl
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { HStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -77,18 +78,18 @@ export const ArticleDetails = memo((props: PropsWithChildren<ArticleDetailsProps
   } else {
     content = (
       <>
-        <div className={cls.avatarWrapper}>
+        <HStack justify="center">
           <Avatar size={200} src={article?.img} className={cls.avatar} />
-        </div>
+        </HStack>
         <Text title={article?.title} text={article?.subtitle} size={TextSize.L} className={cls.title} />
-        <div className={cls.articleInfo}>
+        <HStack gap="8">
           <Icon Svg={EyeIcon} />
           <Text text={String(article?.views)} />
-        </div>
-        <div className={cls.articleInfo}>
+        </HStack>
+        <HStack gap="8">
           <Icon Svg={CalendarIcon} />
           <Text text={article?.createdAt} />
-        </div>
+        </HStack>
         {article?.blocks?.map(renderBlock)}
       </>
     );

@@ -9,6 +9,7 @@ import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 export interface AddCommentFormProps {
   className?: string;
@@ -40,7 +41,7 @@ const AddCommentForm = memo((props: PropsWithChildren<AddCommentFormProps>) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.AddCommentForm, {}, [className])}>
+      <HStack justify="between" className={classNames(cls.AddCommentForm, {}, [className])}>
         <Input
           placeholder={t('Введите текст комментария')}
           value={text}
@@ -48,7 +49,7 @@ const AddCommentForm = memo((props: PropsWithChildren<AddCommentFormProps>) => {
           className={cls.input}
         />
         <Button onClick={onSendDecorator}>{t('Отправить')}</Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 });

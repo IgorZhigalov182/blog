@@ -5,6 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { SortOrder } from 'shared/types/SortOrder';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import cls from './ArticleSortSelector.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -51,7 +52,7 @@ export const ArticleSortSelector = memo((props: PropsWithChildren<ArticleSortSel
   );
 
   return (
-    <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+    <HStack gap="8" className={classNames(cls.ArticleSortSelector, {}, [className])}>
       <Select<ArticleSortField>
         onChange={onChangeSort}
         label={t('Сортировать по')}
@@ -59,6 +60,6 @@ export const ArticleSortSelector = memo((props: PropsWithChildren<ArticleSortSel
         value={sort}
       />
       <Select<SortOrder> onChange={onChangeOrder} label={t('по')} options={orderOptions} value={order} />
-    </div>
+    </HStack>
   );
 });

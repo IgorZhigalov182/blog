@@ -69,6 +69,13 @@ ErrorDark.args = {
 };
 ErrorDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const STextSize = Template.bind({});
+STextSize.args = {
+  title: 'Title m size',
+  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus architecto ad nihil quod a dolores dignissimos ullam',
+  size: TextSize.S,
+};
+
 export const MTextSize = Template.bind({});
 MTextSize.args = {
   title: 'Title m size',

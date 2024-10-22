@@ -1352,6 +1352,12 @@
       "userId": "1",
       "text": "e",
       "id": "kmZXqcZ"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "sss",
+      "id": "Ba8ywwa"
     }
   ],
   "users": [
@@ -1376,7 +1382,7 @@
       "first": "jgh",
       "lastname": "К.Шрут",
       "age": 4,
-      "currency": "RUB",
+      "currency": "USD",
       "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",

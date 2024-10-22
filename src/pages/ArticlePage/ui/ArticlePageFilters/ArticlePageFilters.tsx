@@ -19,6 +19,7 @@ import { SortOrder } from 'shared/types/SortOrder';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import cls from './ArticlePageFilters.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ArticlePageFiltersProps {
   className?: string;
@@ -83,11 +84,11 @@ export const ArticlePageFilters = memo((props: PropsWithChildren<ArticlePageFilt
   );
 
   return (
-    <div className={classNames(cls.ArticlePageFilters, {}, [className])}>
-      <div className={cls.sortWrapper}>
+    <div className={classNames('', {}, [className])}>
+      <HStack justify="between">
         <ArticleSortSelector sort={sort} order={order} onChangeSort={onChangeSort} onChangeOrder={onChangeOrder} />
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
-      </div>
+      </HStack>
       <ArticleTypeTabs value={type} onChangeType={onChangeType} className={cls.tabs} />
       <Card className={cls.search}>
         <Input placeholder={t('Поиск')} onChange={onChangeSearch} />

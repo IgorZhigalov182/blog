@@ -10,6 +10,7 @@ import cls from './ProfilePageHeader.module.scss';
 import { validateProfileData } from 'entities/Profile/model/services/validateProfileData/validateProfileData';
 import { useParams } from 'react-router-dom';
 import { getUserAuthData } from 'entities/User';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -38,10 +39,10 @@ export const ProfilePageHeader = (props: PropsWithChildren<ProfilePageHeaderProp
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.profilePageHeader, {}, [className])}>
+    <HStack justify="between" className={classNames(cls.profilePageHeader, {}, [className])}>
       <Text title={t('Профиль')} />
       {isCanEdit && (
-        <div>
+        <>
           {readonly ? (
             <Button className={classNames(cls.editBtn)} theme={ThemeButton.OUTLINE} onClick={onEdit}>
               {t('Редактировать')}
@@ -56,8 +57,8 @@ export const ProfilePageHeader = (props: PropsWithChildren<ProfilePageHeaderProp
               </Button>
             </>
           )}
-        </div>
+        </>
       )}
-    </div>
+    </HStack>
   );
 };

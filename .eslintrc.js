@@ -34,7 +34,7 @@
 //       'error',
 //       {
 //         markupOnly: true,
-//         ignoreAttribute: ['data-testid', 'to', 'target],
+//         ignoreAttribute: ['role', 'data-testid', 'to', 'target'],
 //       },
 //     ],
 //     'max-len': ['error', { ignoreComments: true, code: 120 }],
