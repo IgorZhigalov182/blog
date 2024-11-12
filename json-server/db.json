@@ -1,4 +1,31 @@
 {
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Произошло событие",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Уведомление 2",
+      "description": "Произошло событие",
+      "userId": "2",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "3",
+      "title": "Уведомление 3",
+      "description": "Произошло событие",
+      "userId": "2"
+    },
+    {
+      "id": "4",
+      "title": "Уведомление 4",
+      "description": "Произошло событие",
+      "userId": "2"
+    }
+  ],
   "posts": [
     {
       "id": "1",
@@ -1358,6 +1385,90 @@
       "userId": "1",
       "text": "sss",
       "id": "Ba8ywwa"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "New Comment",
+      "id": "WyPGlqK"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "Some comments",
+      "id": "2Lfp9zn"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "k",
+      "id": "1T7oEyM"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "s",
+      "id": "B8m49rK"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "c",
+      "id": "c5L29fz"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "x",
+      "id": "3S835SL"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "w",
+      "id": "Ls4vGNc"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "cs",
+      "id": "gd1Grvc"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "xs",
+      "id": "QJtVe6l"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "s",
+      "id": "mcWY_Sc"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "s",
+      "id": "r5jwTkU"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": ".",
+      "id": "10K5DX5"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "x",
+      "id": "bLBZjtl"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "xw",
+      "id": "nOQMce2"
     }
   ],
   "users": [
@@ -1365,14 +1476,18 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://sun9-78.userapi.com/c5776/u43743957/-14/x_36e2b530.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://www.film.ru/sites/default/files/images/1-21(15).jpg"
     }
   ],
@@ -1381,13 +1496,13 @@
       "id": "1",
       "first": "jgh",
       "lastname": "К.Шрут",
-      "age": 4,
+      "age": 42,
       "currency": "USD",
       "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
       "avatar": "https://sun9-78.userapi.com/c5776/u43743957/-14/x_36e2b530.jpg",
-      "firstname": "Дуайcт"
+      "firstname": "Дуайт"
     },
     {
       "id": "2",
@@ -1400,6 +1515,114 @@
       "username": "admin213",
       "avatar": "https://www.film.ru/sites/default/files/images/1-21(15).jpg",
       "firstname": "Джим"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "articleId": "1",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "Very good article"
+    },
+    {
+      "id": "2",
+      "articleId": "2",
+      "userId": "2",
+      "rate": 3,
+      "feedback": "Very good article"
+    },
+    {
+      "id": "3",
+      "articleId": "3",
+      "userId": "1",
+      "rate": 1,
+      "feedback": "Very bad article"
+    },
+    {
+      "id": "4",
+      "articleId": "4",
+      "userId": "2",
+      "rate": 2,
+      "feedback": "Some bad article"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 3,
+      "feedback": "Прекол",
+      "id": "QT74yVo"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 2,
+      "feedback": "s",
+      "id": "PpdU1l0"
+    },
+    {
+      "userId": "1",
+      "articleId": "16",
+      "rate": 2,
+      "feedback": "жх",
+      "id": "jL8_-8Q"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 4,
+      "id": "PMNT_Nm"
+    },
+    {
+      "userId": "1",
+      "articleId": "11",
+      "rate": 3,
+      "feedback": "Pp",
+      "id": "kEeK1yy"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 2,
+      "feedback": "=[",
+      "id": "S1BfrmA"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "profileId": "1",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "Very good article"
+    },
+    {
+      "id": "2",
+      "profileId": "2",
+      "userId": "2",
+      "rate": 3,
+      "feedback": "Very good article"
+    },
+    {
+      "id": "3",
+      "profileId": "3",
+      "userId": "1",
+      "rate": 1,
+      "feedback": "Very bad article"
+    },
+    {
+      "id": "4",
+      "profileId": "4",
+      "userId": "2",
+      "rate": 2,
+      "feedback": "Some bad article"
+    },
+    {
+      "userId": "1",
+      "profileId": "2",
+      "rate": 3,
+      "feedback": "Хер с горы",
+      "id": "YUoVisJ"
     }
   ]
 }

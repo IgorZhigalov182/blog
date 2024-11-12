@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { getArticleDetailsData } from './articleDetails';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { getArticleDetailsData, getArticleDetailsIsLoading } from './articleDetails';
 
 describe('articleDetails', () => {
   test('should return data', () => {
@@ -23,7 +23,7 @@ describe('articleDetails', () => {
       },
     };
 
-    expect(getArticleDetailsData(state as StateSchema)).toEqual(true);
+    expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(true);
   });
 
   test('should return error', () => {

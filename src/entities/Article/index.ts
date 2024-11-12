@@ -1,6 +1,7 @@
-export { ArticleType } from './model/types/article';
+export { ArticleView, ArticleSortField } from './model/contst/articleConsts';
+export { ArticleType } from './model/contst/articleConsts';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
-export { ArticleSortField, ArticleView } from './model/types/article';
+export {} from './model/types/article';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { articleDetailsSlice } from './model/slice/articleDetailsSlice';

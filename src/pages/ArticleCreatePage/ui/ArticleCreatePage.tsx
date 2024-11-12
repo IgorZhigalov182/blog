@@ -1,7 +1,7 @@
 import cls from './ArticleCreatePage.module.scss';
 import { memo, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface ArticleCreatePageProps {
   className?: string;

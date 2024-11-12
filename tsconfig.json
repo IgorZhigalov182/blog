@@ -12,10 +12,11 @@
     // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
     "moduleResolution": "node",
+    "isolatedModules": true,
     // Для абсолютного импорта
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     "strict": true,
     // esModuleInterop позволяет работать с пакетами, которые используют
@@ -41,3 +42,4 @@
   },
   "include": ["./config/jest/setupTests.ts", "./src/**/*.ts", "./src/**/*.tsx"]
 }
+

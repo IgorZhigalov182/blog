@@ -4,7 +4,7 @@ module.exports = componentName => {
   const upperName = firstCharToUppercase(componentName);
 
   return `
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {  memo, PropsWithChildren } from 'react';
 import cls from './${upperName}.module.scss';
 

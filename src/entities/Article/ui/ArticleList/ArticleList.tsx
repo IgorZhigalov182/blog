@@ -1,11 +1,12 @@
 import { HTMLAttributeAnchorTarget, memo, ReactNode, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
-import { Article, ArticleView } from '../../model/types/article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextAlign } from '@/shared/ui/Text/Text';
+import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
+import { ArticleView } from '../../model/contst/articleConsts';
 
 interface ArticleListProps {
   className?: string;
@@ -35,7 +36,7 @@ export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => 
 
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-      {articles.length
+      {articles.length && !isLoading
         ? articles.map((article: Article) => (
             <ArticleListItem target={target} key={article.id} article={article} view={view} className={cls.card} />
           ))

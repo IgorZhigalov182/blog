@@ -1,25 +1,24 @@
-import { ArticleTypeTabs, ArticleViewSelector } from 'entities/Article';
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article/model/types/article';
-import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
+import { ArticleTypeTabs, ArticleViewSelector, ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+import { ArticleSortSelector } from '@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 import {
   getArticlePageOrder,
   getArticlePageSort,
   getArticlePageType,
   getArticlePageView,
-} from 'pages/ArticlePage/model/selectors/articlePageSelectors';
-import { fetchArticlesList } from 'pages/ArticlePage/model/services/fetchArticlesList/fetchArticlesList';
-import { articlePageActions } from 'pages/ArticlePage/model/slice/articlePageSlice';
+} from '@/pages/ArticlePage/model/selectors/articlePageSelectors';
+import { fetchArticlesList } from '@/pages/ArticlePage/model/services/fetchArticlesList/fetchArticlesList';
+import { articlePageActions } from '@/pages/ArticlePage/model/slice/articlePageSlice';
 import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { SortOrder } from 'shared/types/SortOrder';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { SortOrder } from '@/shared/types/SortOrder';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
 import cls from './ArticlePageFilters.module.scss';
-import { HStack } from 'shared/ui/Stack';
+import { HStack } from '@/shared/ui/Stack';
 
 interface ArticlePageFiltersProps {
   className?: string;
@@ -66,7 +65,7 @@ export const ArticlePageFilters = memo((props: PropsWithChildren<ArticlePageFilt
   );
 
   const onChangeSearch = useCallback(
-    e => {
+    (e: string) => {
       dispatch(articlePageActions.setSearch(e));
       dispatch(articlePageActions.setPage(1));
       debouncedFetchData();

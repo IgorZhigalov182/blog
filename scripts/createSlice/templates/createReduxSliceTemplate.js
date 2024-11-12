@@ -7,13 +7,15 @@ module.exports = sliceName => {
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ${typeName} } from '../types/${sliceName}Schema';
 
-const initialState: ${typeName} = {}
+const initialState: ${typeName} = {
+  isLoading: false,
+}
 
 export const ${sliceName}Slice = createSlice({
   name: '${sliceName}',
   initialState,
   reducers: {
-    template: {state, action PayloadAction<string>} => {}
+    template: (state, action PayloadAction<string>) => {}
   }
 });
 

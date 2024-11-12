@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { Sidebar } from './Sidebar';
 
 export default {
-  title: 'widget/Sidebar',
+  title: 'widgets/Sidebar',
   component: Sidebar,
   argTypes: {
     backgroundColor: { control: 'color' },

@@ -1,11 +1,11 @@
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/getCanEditArticle';
+import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/getCanEditArticle';
 import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { HStack } from 'shared/ui/Stack';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import { HStack } from '@/shared/ui/Stack';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;

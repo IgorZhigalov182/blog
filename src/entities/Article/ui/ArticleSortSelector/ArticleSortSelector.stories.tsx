@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleSortField } from '../../model/types/article';
 import { ArticleSortSelector } from './ArticleSortSelector';
+import { ArticleSortField } from '../../model/contst/articleConsts';
 
 export default {
   title: 'entities/article/ArticleSortSelector',

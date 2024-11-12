@@ -1,9 +1,7 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Text, TextSize, TextTheme } from './Text';
-import { title } from 'process';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 export default {
   title: 'shared/Text',
@@ -17,14 +15,12 @@ const Template: ComponentStory<typeof Text> = args => <Text {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'Text',
   title: 'Title',
   text: 'Text',
 };
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-  children: 'Text',
   title: 'Title',
   text: 'Text',
 };
@@ -32,13 +28,11 @@ PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OnlyTitle = Template.bind({});
 OnlyTitle.args = {
-  children: 'Text',
   title: 'Title',
 };
 
 export const OnlyTitleDark = Template.bind({});
 OnlyTitleDark.args = {
-  children: 'Text',
   title: 'Title',
 };
 OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];

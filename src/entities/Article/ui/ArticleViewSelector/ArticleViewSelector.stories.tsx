@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/contst/articleConsts';
 import { ArticleViewSelector } from './ArticleViewSelector';
 
 export default {

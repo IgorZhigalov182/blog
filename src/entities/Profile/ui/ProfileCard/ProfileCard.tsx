@@ -1,15 +1,14 @@
-import { Country, CountrySelect } from 'entities/Country';
-import { CurrencySelect } from 'entities/Currency';
-import { Currency } from 'entities/Currency/model/types/currency';
+import { Country, CountrySelect } from '@/entities/Country';
+import { CurrencySelect } from '@/entities/Currency';
+import { Currency } from '@/entities/Currency/model/types/currency';
 import { type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Input } from 'shared/ui/Input/Input';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Input } from '@/shared/ui/Input/Input';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -47,11 +46,10 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
   } = props;
 
   const { t } = useTranslation('profile');
-  const dispatch = useAppDispatch();
 
   if (isLoading) {
     return (
-      <HStack justify="center" className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+      <HStack justify="center" max className={classNames(cls.profileCard, {}, [className, cls.loading])}>
         <Loader />
       </HStack>
     );
@@ -87,6 +85,7 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
         className={cls.input}
         onChange={onChangeFirstname}
         readonly={readonly}
+        data-testid="ProfileCard.firstname"
       />
       <Input
         value={data?.lastname}
@@ -94,6 +93,7 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
         className={cls.input}
         onChange={onChangeLastname}
         readonly={readonly}
+        data-testid="ProfileCard.lastname"
       />
       <Input
         value={data?.age}

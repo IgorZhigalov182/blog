@@ -1,35 +1,35 @@
 import { memo, useCallback, useEffect, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
+import { fetchArticleById } from '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
 import cls from './ArticleDetails.module.scss';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
 
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
-
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import CalendarIcon from 'shared/assets/icons/CalendarIcon.svg';
-import EyeIcon from 'shared/assets/icons/EyeIcon.svg';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import CalendarIcon from '@/shared/assets/icons/CalendarIcon.svg';
+import EyeIcon from '@/shared/assets/icons/EyeIcon.svg';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { HStack } from 'shared/ui/Stack';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { HStack } from '@/shared/ui/Stack';
+import { ArticleBlockType } from '../../model/contst/articleConsts';
 
 interface ArticleDetailsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const reducers: ReducersList = {

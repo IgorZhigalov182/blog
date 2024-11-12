@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { getLoginUsername } from './getLoginUsername';
 
 describe('getLoginUsername.test', () => {
@@ -9,6 +9,6 @@ describe('getLoginUsername.test', () => {
 
   test('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getLoginUsername(state as StateSchema)).toEqual(undefined);
+    expect(getLoginUsername(state as StateSchema)).toEqual('');
   });
 });
