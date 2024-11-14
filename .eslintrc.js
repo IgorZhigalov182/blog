@@ -71,7 +71,10 @@ module.exports = {
     'operator-linebreak': 'off',
     'react/jsx-no-useless-fragment': 'warn',
     'fsd-arch-path/path-checker': ['error', { alias: '@' }],
-    'fsd-arch-path/public-api-imports': ['error', { alias: '@' }],
+    'fsd-arch-path/public-api-imports': [
+      'error',
+      { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'] },
+    ],
   },
   globals: {
     __IS_DEV__: true,
