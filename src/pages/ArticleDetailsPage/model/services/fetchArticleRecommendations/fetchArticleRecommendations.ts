@@ -8,7 +8,7 @@ export const fetchArticleRecommendations = createAsyncThunk<Article[], void, Thu
     const { extra, rejectWithValue, getState } = thunkApi;
 
     try {
-      const response = await extra.api.get<Article[]>(`/articles`, {
+      const response = await extra.api.get<Article[]>('/articles', {
         params: {
           _limit: 4,
         },
@@ -22,5 +22,5 @@ export const fetchArticleRecommendations = createAsyncThunk<Article[], void, Thu
     } catch (error) {
       return rejectWithValue('Неверный логин или пароль');
     }
-  }
+  },
 );

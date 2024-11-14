@@ -11,7 +11,9 @@ interface SkeletonProps {
 }
 
 export const Skeleton = memo((props: PropsWithChildren<SkeletonProps>) => {
-  const { className, height, width, border } = props;
+  const {
+    className, height, width, border,
+  } = props;
   const { t } = useTranslation();
 
   const styles: CSSProperties = {

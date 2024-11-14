@@ -13,20 +13,20 @@ export function useTheme(): UseThemeResult {
     let newTheme: Theme;
 
     switch (theme) {
-      case Theme.DARK:
-        newTheme = Theme.LIGHT;
-        break;
+    case Theme.DARK:
+      newTheme = Theme.LIGHT;
+      break;
 
-      case Theme.LIGHT:
-        newTheme = Theme.DEEP_PURPLE;
-        break;
+    case Theme.LIGHT:
+      newTheme = Theme.DEEP_PURPLE;
+      break;
 
-      case Theme.DEEP_PURPLE:
-        newTheme = Theme.DARK;
-        break;
+    case Theme.DEEP_PURPLE:
+      newTheme = Theme.DARK;
+      break;
 
-      default:
-        newTheme = Theme.LIGHT;
+    default:
+      newTheme = Theme.LIGHT;
     }
 
     // const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
@@ -37,6 +37,7 @@ export function useTheme(): UseThemeResult {
 
   return {
     theme: theme || Theme.LIGHT,
-    toggleTheme
+    toggleTheme,
   };
 }
+

@@ -12,5 +12,5 @@ export const Overlay = memo((props: PropsWithChildren<OverlayProps>) => {
   const { className, onClick } = props;
   const { t } = useTranslation();
 
-  return <div onClick={onClick} className={classNames(cls.Overlay, {}, [className])}></div>;
+  return <div onClick={onClick} className={classNames(cls.Overlay, {}, [className])} />;
 });

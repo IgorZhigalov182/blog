@@ -1,4 +1,6 @@
-import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  CombinedState, configureStore, Reducer, ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { userReducer } from '@/entities/User';
 import { scrollReducer } from '@/features/scrollSave';
 import { $api } from '@/shared/api/api';
@@ -24,7 +26,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: getDefaultMiddleware =>
+    middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
           extraArgument: extraArg,

@@ -1,17 +1,19 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { Article, ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+import {
+  Article, ArticleSortField, ArticleType, ArticleView,
+} from '@/entities/Article';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlePageSchema } from '../types/ArticlePageSchema';
 import { SortOrder } from '@/shared/types/SortOrder';
 
 const articlesAdapter = createEntityAdapter<Article>({
-  selectId: article => article.id,
+  selectId: (article) => article.id,
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-  state => state.articlesPage || articlesAdapter.getInitialState()
+  (state) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
 export const articlePageSlice = createSlice({
@@ -40,7 +42,7 @@ export const articlePageSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
-    initState: state => {
+    initState: (state) => {
       const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
       state.view = view;
       state.limit = view === ArticleView.GRID ? 9 : 4;
@@ -59,7 +61,7 @@ export const articlePageSlice = createSlice({
       state.type = action.payload;
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder.addCase(fetchArticlesList.pending, (state, action) => {
       state.isLoading = true;
       state.error = undefined;

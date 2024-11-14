@@ -1,21 +1,16 @@
-import { ArticleList } from '@/entities/Article/ui/ArticleList/ArticleList';
-import cls from './ArticleInfiniteList.module.scss';
-import { memo, useCallback, type PropsWithChildren } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
-import { getArticles } from '../../model/slice/articlePageSlice';
+import { useTranslation } from 'react-i18next';
+import { memo, type PropsWithChildren } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text/Text';
 import {
   getArticlePageIsError,
   getArticlePageIsLoading,
   getArticlePageView,
 } from '../../model/selectors/articlePageSelectors';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSearchParams } from 'react-router-dom';
-import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { Text } from '@/shared/ui/Text/Text';
+import { getArticles } from '../../model/slice/articlePageSlice';
+import cls from './ArticleInfiniteList.module.scss';
+import { ArticleList } from '@/entities/Article';
 
 interface ArticleInfiniteListProps {
   className?: string;
@@ -32,7 +27,10 @@ export const ArticleInfiniteList = memo((props: PropsWithChildren<ArticleInfinit
 
   if (isError) {
     return (
-      <Text text={t('Произошла ошибка при загрузке статей')} className={classNames(cls.ArticlePage, {}, [className])} />
+      <Text
+        text={t('Произошла ошибка при загрузке статей')}
+        className={classNames(cls.ArticlePage, {}, [className])}
+      />
     );
   }
 

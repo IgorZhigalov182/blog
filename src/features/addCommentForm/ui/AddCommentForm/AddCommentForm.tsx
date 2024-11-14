@@ -1,4 +1,3 @@
-import { addCommentFormActions, addCommentFormReducer } from '@/features/addCommentForm/model/slice/addCommentFormSlice';
 import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -10,6 +9,7 @@ import { Input } from '@/shared/ui/Input/Input';
 import { HStack } from '@/shared/ui/Stack';
 import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 
 export interface AddCommentFormProps {
   className?: string;

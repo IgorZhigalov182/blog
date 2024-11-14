@@ -1,10 +1,10 @@
 import { Reducer } from '@reduxjs/toolkit';
-import { ReduxStoreWithManager } from '@/app/providers/StoreProvider';
-import { StateSchemaKey } from '@/app/providers/StoreProvider/config/StateSchema';
 import { useEffect } from 'react';
-import type { FC, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useStore } from 'react-redux';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { StateSchemaKey } from '@/app/providers/StoreProvider/config/StateSchema';
+import { ReduxStoreWithManager } from '@/app/providers/StoreProvider';
+import { useAppDispatch } from '../../hooks';
 
 export type ReducersList = {
   [name in StateSchemaKey]?: Reducer;
@@ -43,11 +43,11 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
         });
       }
     };
-    //eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   return (
-    //eslint-disable-next-line
+    // eslint-disable-next-line
     <>{children}</>
   );
 };

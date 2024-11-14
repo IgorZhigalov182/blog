@@ -18,7 +18,7 @@ export const profileSlice = createSlice({
     setReadonly: (state, action: PayloadAction<boolean>) => {
       state.readonly = action.payload;
     },
-    cancelEdit: state => {
+    cancelEdit: (state) => {
       state.readonly = true;
       state.form = state.data;
       state.validateErrors = undefined;
@@ -30,7 +30,7 @@ export const profileSlice = createSlice({
       };
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder.addCase(fetchProfileData.pending, (state, action) => {
       state.isLoading = true;
       state.error = undefined;

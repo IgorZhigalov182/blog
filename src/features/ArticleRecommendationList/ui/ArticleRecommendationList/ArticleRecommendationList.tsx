@@ -1,10 +1,10 @@
-import { ArticleList } from '@/entities/Article/ui/ArticleList/ArticleList';
-import { useGetArticleRecommendationListQuery } from '../../api/articleRecommendationsApi';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useGetArticleRecommendationListQuery } from '../../api/articleRecommendationsApi';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text/Text';
+import { ArticleList } from '@/entities/Article';
 
 interface ArticleRecommendationListProps {
   className?: string;
@@ -16,17 +16,17 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
   const { data: articles, isLoading, error } = useGetArticleRecommendationListQuery(4);
 
   if (isLoading) {
-    return <Text className={''} title={t('Загрузка рекоммендаций')} />;
+    return <Text className="" title={t('Загрузка рекоммендаций')} />;
   }
 
   if (error || !articles) {
-    return <Text className={''} title={t('Не удалось загрузить рекоммендации')} />;
+    return <Text className="" title={t('Не удалось загрузить рекоммендации')} />;
   }
 
   return (
     <VStack gap="8" className={classNames('', {}, [className])}>
-      <Text className={''} title={t('Рекомендуем')} />
-      <ArticleList target="_blank" className={''} articles={articles} />
+      <Text className="" title={t('Рекомендуем')} />
+      <ArticleList target="_blank" className="" articles={articles} />
     </VStack>
   );
 });

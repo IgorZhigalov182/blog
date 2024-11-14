@@ -14,7 +14,7 @@ export const Code = memo((props: PropsWithChildren<CodeProps>) => {
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(text);
-  }, []);
+  }, [text]);
 
   return (
     <pre className={classNames(cls.Code, {}, [className])}>

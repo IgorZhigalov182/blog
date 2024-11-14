@@ -1,31 +1,33 @@
-import { memo, useCallback, useEffect, type PropsWithChildren } from 'react';
+import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
-import { fetchArticleById } from '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
-import cls from './ArticleDetails.module.scss';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleBlock } from '../../model/types/article';
-
+import cls from './ArticleDetails.module.scss';
+import CalendarIcon from '@/shared/assets/icons/CalendarIcon.svg';
+import EyeIcon from '@/shared/assets/icons/EyeIcon.svg';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
+import { ArticleBlockType } from '../../model/contst/articleConsts';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import CalendarIcon from '@/shared/assets/icons/CalendarIcon.svg';
-import EyeIcon from '@/shared/assets/icons/EyeIcon.svg';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { HStack } from '@/shared/ui/Stack';
-import { ArticleBlockType } from '../../model/contst/articleConsts';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -46,14 +48,14 @@ export const ArticleDetails = memo((props: PropsWithChildren<ArticleDetailsProps
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
-      case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent block={block} className={cls.block} key={block.id} />;
-      case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent block={block} className={cls.block} key={block.id} />;
-      case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent block={block} className={cls.block} key={block.id} />;
-      default:
-        return null;
+    case ArticleBlockType.CODE:
+      return <ArticleCodeBlockComponent block={block} className={cls.block} key={block.id} />;
+    case ArticleBlockType.TEXT:
+      return <ArticleTextBlockComponent block={block} className={cls.block} key={block.id} />;
+    case ArticleBlockType.IMAGE:
+      return <ArticleImageBlockComponent block={block} className={cls.block} key={block.id} />;
+    default:
+      return null;
     }
   }, []);
 
@@ -69,8 +71,8 @@ export const ArticleDetails = memo((props: PropsWithChildren<ArticleDetailsProps
         <Skeleton className={cls.avatar} height={200} width={200} border="50%" />
         <Skeleton className={cls.title} width={300} height={32} />
         <Skeleton className={cls.skeleton} width={600} height={24} />
-        <Skeleton className={cls.skeleton} width={'100%'} height={200} />
-        <Skeleton className={cls.skeleton} width={'100%'} height={200} />
+        <Skeleton className={cls.skeleton} width="100%" height={200} />
+        <Skeleton className={cls.skeleton} width="100%" height={200} />
       </>
     );
   } else if (error) {

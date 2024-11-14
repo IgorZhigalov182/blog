@@ -1,8 +1,7 @@
-import { Country, CountrySelect } from '@/entities/Country';
-import { CurrencySelect } from '@/entities/Currency';
-import { Currency } from '@/entities/Currency/model/types/currency';
 import { type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Country, CountrySelect } from '@/entities/Country';
+import { Currency, CurrencySelect } from '@/entities/Currency';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Input } from '@/shared/ui/Input/Input';
@@ -123,8 +122,18 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
         onChange={onChangeAvatar}
         readonly={readonly}
       />
-      <CurrencySelect className={cls.input} value={data?.currency} onChange={onChangeCurrency} readonly={readonly} />
-      <CountrySelect className={cls.input} value={data?.country} onChange={onChangeCountry} readonly={readonly} />
+      <CurrencySelect
+        className={cls.input}
+        value={data?.currency}
+        onChange={onChangeCurrency}
+        readonly={readonly}
+      />
+      <CountrySelect
+        className={cls.input}
+        value={data?.country}
+        onChange={onChangeCountry}
+        readonly={readonly}
+      />
     </VStack>
   );
 };

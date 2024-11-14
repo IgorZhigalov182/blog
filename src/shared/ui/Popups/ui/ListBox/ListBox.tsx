@@ -14,7 +14,7 @@ export interface ListBoxItem {
   disabled?: boolean;
 }
 
-interface ListBox {
+interface IListBox {
   items?: ListBoxItem[];
   className?: string;
   value?: string;
@@ -25,7 +25,7 @@ interface ListBox {
   label?: string;
 }
 
-export const ListBox = memo((props: PropsWithChildren<ListBox>) => {
+export const ListBox = memo((props: PropsWithChildren<IListBox>) => {
   const { items, className, value, defaultValue, onChange, readonly, direction = 'bottom left', label } = props;
 
   return (

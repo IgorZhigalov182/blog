@@ -1,4 +1,6 @@
-import { memo, useCallback, useMemo, type PropsWithChildren } from 'react';
+import {
+  memo, useCallback, useMemo, type PropsWithChildren,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
@@ -34,7 +36,7 @@ export const ArticleTypeTabs = memo((props: PropsWithChildren<ArticleTypeTabsPro
         content: t('Наука'),
       },
     ],
-    []
+    [],
   );
 
   const onTabClick = useCallback((tab: TabItem) => {

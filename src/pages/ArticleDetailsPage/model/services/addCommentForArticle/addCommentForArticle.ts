@@ -7,7 +7,9 @@ import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchComme
 export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
   'articleDetails/addCommentForArticle',
   async (text, thunkApi) => {
-    const { extra, dispatch, rejectWithValue, getState } = thunkApi;
+    const {
+      extra, dispatch, rejectWithValue, getState,
+    } = thunkApi;
 
     const userId = getUserAuthData(getState())?.id;
     const articleId = getArticleDetailsData(getState())?.id;
@@ -33,5 +35,5 @@ export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfi
     } catch (error) {
       return rejectWithValue('Не удалось оставить комментарий');
     }
-  }
+  },
 );

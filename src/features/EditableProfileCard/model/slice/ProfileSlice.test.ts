@@ -47,8 +47,8 @@ describe('ProfileSlice.test', () => {
         state as ProfileSchema,
         profileActions.updateProfile({
           username: '123456',
-        })
-      )
+        }),
+      ),
     ).toEqual({
       form: { username: '123456' },
     });

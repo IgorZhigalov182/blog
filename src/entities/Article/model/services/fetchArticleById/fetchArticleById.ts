@@ -24,5 +24,5 @@ export const fetchArticleById = createAsyncThunk<Article, string | undefined, Th
     } catch (error) {
       return rejectWithValue('Неверный логин или пароль');
     }
-  }
+  },
 );

@@ -1,13 +1,13 @@
+import { createSelector } from '@reduxjs/toolkit';
 import AboutIcon from '@/shared/assets/icons/about-20-20.svg';
 import MainIcon from '@/shared/assets/icons/main-20-20.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
 import ArticleIcon from '@/shared/assets/icons/article.svg';
-import { createSelector } from '@reduxjs/toolkit';
 import { getUserAuthData } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { SidebarItemType } from '../types/sidebar';
 
-export const getSidebarItems = createSelector(getUserAuthData, userData => {
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   const sidebarItemsList: SidebarItemType[] = [
     {
       path: RoutePath.main,
@@ -34,7 +34,7 @@ export const getSidebarItems = createSelector(getUserAuthData, userData => {
         Icon: ArticleIcon,
         text: 'Статьи',
         authOnly: true,
-      }
+      },
     );
   }
 

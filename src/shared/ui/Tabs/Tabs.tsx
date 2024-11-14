@@ -16,16 +16,19 @@ type TabsProps = {
 };
 
 export const Tabs = memo((props: TabsProps) => {
-  const { className, tabs, value, onTabClick } = props;
+  const {
+    className, tabs, value, onTabClick,
+  } = props;
 
   return (
     <div className={classNames(cls.tabs, {}, [className])}>
-      {tabs.map(tab => (
+      {tabs.map((tab) => (
         <Card
           theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINE}
           key={tab.value}
           className={cls.tab}
-          onClick={() => onTabClick(tab)}>
+          onClick={() => onTabClick(tab)}
+        >
           {tab.content}
         </Card>
       ))}

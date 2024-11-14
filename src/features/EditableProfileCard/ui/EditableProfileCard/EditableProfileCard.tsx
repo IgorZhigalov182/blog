@@ -1,11 +1,13 @@
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
-import { ProfileCard } from '@/entities/Profile/ui/ProfileCard/ProfileCard';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
@@ -19,6 +21,7 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/ProfileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { ProfileCard } from '@/entities/Profile';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -118,16 +121,14 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
       <VStack max className={classNames('', {}, [className])}>
         <EditableProfileCardHeader />
         {validateErrors?.length &&
-          validateErrors.map((err: ValidateProfileError) => {
-            return (
-              <Text
-                key={err}
-                theme={TextTheme.ERROR}
-                text={validateErrorTranslate[err]}
-                data-testid="EditableProfileCard.Error"
-              />
-            );
-          })}
+          validateErrors.map((err: ValidateProfileError) => (
+            <Text
+              key={err}
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslate[err]}
+              data-testid="EditableProfileCard.Error"
+            />
+          ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}

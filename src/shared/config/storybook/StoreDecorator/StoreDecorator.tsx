@@ -1,14 +1,20 @@
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
-import { profileReducer } from '@/features/EditableProfileCard/model/slice/ProfileSlice';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+// eslint-disable-next-line
+import { articleDetailsCommentsReducer } from '@/pages/ArticleDetailsPage/model/slices/articleDetailsCommentSlice';
+// eslint-disable-next-line
+import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
+// eslint-disable-next-line
+import { profileReducer } from '@/features/EditableProfileCard/model/slice/ProfileSlice';
+// eslint-disable-next-line
+import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
 
 const defaultAsyncReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
   loginForm: loginReducer,
   profile: profileReducer,
+  articleDetailsComments: articleDetailsCommentsReducer,
 };
 
 export const StoreDecorator =

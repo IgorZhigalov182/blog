@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@/shared/ui/Popups';
-import { Page } from '@/widgets/Page/ui/Page';
-import { StarRaiting } from '@/shared/ui/StarRaiting/StarRaiting';
 import { RaitingCard } from '@/entities/Raiting';
+import { Page } from '@/widgets/Page';
 
 const MainPage = () => {
   const { t } = useTranslation();

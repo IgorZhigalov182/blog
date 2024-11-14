@@ -23,4 +23,3 @@ export interface BuildOptions {
   apiUrl: string;
   project: 'storybook' | 'frontend' | 'jest';
 }
-

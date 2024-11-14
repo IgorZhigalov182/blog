@@ -1,7 +1,7 @@
-import { Article, ArticleType } from '@/entities/Article';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
+import { Article, ArticleType } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleRecommendationList } from './ArticleRecommendationList';
 
 export default {
@@ -48,4 +48,3 @@ Default.parameters = {
     },
   ],
 };
-

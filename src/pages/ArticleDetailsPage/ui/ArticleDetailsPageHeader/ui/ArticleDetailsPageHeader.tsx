@@ -1,8 +1,8 @@
-import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/getCanEditArticle';
 import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { getCanEditArticle } from '../../../model/selectors/getCanEditArticle';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import { HStack } from '@/shared/ui/Stack';
@@ -12,6 +12,7 @@ interface ArticleDetailsPageHeaderProps {
 }
 
 export const ArticleDetailsPageHeader = memo((props: PropsWithChildren<ArticleDetailsPageHeaderProps>) => {
+  const { className } = props;
   const { t } = useTranslation();
   const isCanEdit = useSelector(getCanEditArticle);
   const { id } = useParams<{ id: string }>();
@@ -23,7 +24,7 @@ export const ArticleDetailsPageHeader = memo((props: PropsWithChildren<ArticleDe
   }, [id, navigate]);
 
   const onEdit = useCallback(() => {
-    navigate(RoutePath.articles + id + '/edit');
+    navigate(`${RoutePath.articles + id}/edit`);
   }, [id, navigate]);
 
   return (

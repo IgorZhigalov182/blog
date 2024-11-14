@@ -1,8 +1,8 @@
-import { RaitingCard } from '@/entities/Raiting';
-import { getUserAuthData } from '@/entities/User';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { getUserAuthData } from '@/entities/User';
+import { RaitingCard } from '@/entities/Raiting';
 import { useGetArticleRaitingQuery, useRateArticleMutation } from '../../model/api/articleRaitingApi';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
@@ -15,7 +15,7 @@ const ArticleRaiting = memo((props: ArticleRaitingProps) => {
   const { className, articleId } = props;
   const userId = useSelector(getUserAuthData)?.id;
   const { t } = useTranslation();
-  const { data, isLoading } = useGetArticleRaitingQuery({ userId: userId ?? '', articleId: articleId });
+  const { data, isLoading } = useGetArticleRaitingQuery({ userId: userId ?? '', articleId });
   const [postRate] = useRateArticleMutation();
   const rating = data?.[0];
 
@@ -24,29 +24,29 @@ const ArticleRaiting = memo((props: ArticleRaitingProps) => {
       try {
         postRate({
           userId: userId ?? '',
-          articleId: articleId,
+          articleId,
           rate: starsCount,
-          feedback: feedback,
+          feedback,
         });
       } catch (error) {
         console.error(error);
       }
     },
-    [articleId, postRate, userId]
+    [articleId, postRate, userId],
   );
 
   const onAccept = useCallback(
     (starsCount: number, feedback?: string) => {
       handleRateArticle(starsCount, feedback);
     },
-    [handleRateArticle]
+    [handleRateArticle],
   );
 
   const onCancel = useCallback(
     (starsCount: number) => {
       handleRateArticle(starsCount);
     },
-    [handleRateArticle]
+    [handleRateArticle],
   );
 
   if (isLoading) {
@@ -67,4 +67,3 @@ const ArticleRaiting = memo((props: ArticleRaitingProps) => {
 });
 
 export default ArticleRaiting;
-

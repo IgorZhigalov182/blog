@@ -1,9 +1,9 @@
-import { RaitingCard } from '@/entities/Raiting';
-import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { RaitingCard } from '@/entities/Raiting';
+import { getUserAuthData } from '@/entities/User';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { useGetProfileRaitingQuery, useRateProfileMutation } from '../model/api/profileRaitingApi';
 import cls from './ProfileRaiting.module.scss';
 
@@ -13,7 +13,7 @@ interface ProfileRaitingProps {
 }
 
 export const ProfileRaiting = memo((props: PropsWithChildren<ProfileRaitingProps>) => {
-  const { profileId } = props;
+  const { profileId, className } = props;
   const { t } = useTranslation();
   const userId = useSelector(getUserAuthData)?.id ?? '';
 

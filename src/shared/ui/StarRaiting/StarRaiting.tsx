@@ -1,5 +1,5 @@
-import cls from './StarRaiting.module.scss';
 import { memo, useState, type PropsWithChildren } from 'react';
+import cls from './StarRaiting.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Icon } from '../Icon/Icon';
 import Star from '@/shared/assets/icons/star.svg';
@@ -14,7 +14,9 @@ interface StarRaitingProps {
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRaiting = memo((props: PropsWithChildren<StarRaitingProps>) => {
-  const { className, size = 30, selectedStars = 0, onSelect } = props;
+  const {
+    className, size = 30, selectedStars = 0, onSelect,
+  } = props;
   const [hoveredRaiting, setHoveredRating] = useState(selectedStars);
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
@@ -39,7 +41,7 @@ export const StarRaiting = memo((props: PropsWithChildren<StarRaitingProps>) => 
 
   return (
     <div className={classNames(cls.StarRaiting, {}, [className])}>
-      {stars.map(star => (
+      {stars.map((star) => (
         <Icon
           onMouseEnter={onHover(star)}
           onMouseLeave={onLeave}
@@ -50,7 +52,7 @@ export const StarRaiting = memo((props: PropsWithChildren<StarRaitingProps>) => 
               [hoveredRaiting >= star ? cls.hovered : cls.normal]: true,
               [cls.selected]: isSelected,
             },
-            []
+            [],
           )}
           width={size}
           height={size}

@@ -5,7 +5,7 @@ import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById'
 const initialState: ArticleDetailsSchema = {
   isLoading: false,
   error: undefined,
-  data: undefined
+  data: undefined,
 };
 
 export const articleDetailsSlice = createSlice({
@@ -25,7 +25,7 @@ export const articleDetailsSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload as string;
     });
-  }
+  },
 });
 
 export const { actions: articleDetailsActions } = articleDetailsSlice;

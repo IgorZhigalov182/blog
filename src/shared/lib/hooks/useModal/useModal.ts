@@ -25,6 +25,7 @@ export function useModal({ isOpen, onClose, animationDelay }: useModalProps) {
         setIsClosing(false);
       }, animationDelay);
     }
+    // eslint-disable-next-line
   }, [onClose]);
 
   const onKeyDown = useCallback(

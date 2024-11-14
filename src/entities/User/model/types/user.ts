@@ -1,4 +1,4 @@
-import { UserRole } from "../consts/userRole";
+import { UserRole } from '../consts/userRole';
 
 export interface User {
   id: string;

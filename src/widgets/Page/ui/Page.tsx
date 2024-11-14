@@ -1,8 +1,10 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
-import { getScrollByPath, scrollActions } from '@/features/scrollSave';
-import { memo, MutableRefObject, UIEvent, useRef, type PropsWithChildren } from 'react';
+import {
+  memo, MutableRefObject, UIEvent, useRef, type PropsWithChildren,
+} from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { getScrollByPath, scrollActions } from '@/features/scrollSave';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';

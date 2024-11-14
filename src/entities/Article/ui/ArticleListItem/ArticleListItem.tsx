@@ -1,5 +1,8 @@
-import { HTMLAttributeAnchorTarget, memo, useCallback, type PropsWithChildren } from 'react';
+import {
+  HTMLAttributeAnchorTarget, memo, useCallback, type PropsWithChildren,
+} from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import EyeIcon from '@/shared/assets/icons/EyeIcon.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
@@ -11,7 +14,6 @@ import cls from './ArticleListItem.module.scss';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { useNavigate } from 'react-router-dom';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { ArticleBlockType, ArticleView } from '../../model/contst/articleConsts';
 
@@ -23,8 +25,12 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: PropsWithChildren<ArticleListItemProps>) => {
-  const { className, article, view, target } = props;
-  const { createdAt, title, type, views, img, user, blocks, id } = article;
+  const {
+    className, article, view, target,
+  } = props;
+  const {
+    createdAt, title, type, views, img, user, blocks, id,
+  } = article;
   const { t } = useTranslation('articles');
   const navigate = useNavigate();
 

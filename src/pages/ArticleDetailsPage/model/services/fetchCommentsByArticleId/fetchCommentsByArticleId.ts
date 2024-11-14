@@ -12,7 +12,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string | und
     }
 
     try {
-      const response = await extra.api.get<Comment[]>(`/comments`, {
+      const response = await extra.api.get<Comment[]>('/comments', {
         params: {
           articleId,
           _expand: 'user',
@@ -27,5 +27,5 @@ export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string | und
     } catch (error) {
       return rejectWithValue('Неверный логин или пароль');
     }
-  }
+  },
 );

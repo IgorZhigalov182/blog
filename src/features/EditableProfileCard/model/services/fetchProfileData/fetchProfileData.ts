@@ -9,7 +9,7 @@ export const fetchProfileData = createAsyncThunk<Profile, string | undefined, Th
 
     try {
       if (!profileId) {
-        throw new Error(`Absent profile id`);
+        throw new Error('Absent profile id');
       }
 
       const response = await extra.api.get<Profile>(`/profile/${profileId}`);
@@ -23,5 +23,5 @@ export const fetchProfileData = createAsyncThunk<Profile, string | undefined, Th
     } catch (error) {
       return rejectWithValue('Неверный логин или пароль');
     }
-  }
+  },
 );

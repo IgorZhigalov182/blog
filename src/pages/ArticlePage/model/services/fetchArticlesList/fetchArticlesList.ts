@@ -34,7 +34,7 @@ export const fetchArticlesList = createAsyncThunk<Article[], FetchArticleListPro
         search,
         type,
       });
-      const response = await extra.api.get<Article[]>(`/articles`, {
+      const response = await extra.api.get<Article[]>('/articles', {
         params: {
           _expand: 'user',
           _limit: limit,
@@ -54,5 +54,5 @@ export const fetchArticlesList = createAsyncThunk<Article[], FetchArticleListPro
     } catch (error) {
       return rejectWithValue('Неверный логин или пароль');
     }
-  }
+  },
 );

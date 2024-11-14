@@ -1,3 +1,8 @@
+import {
+  memo, PropsWithChildren, useCallback, useState,
+} from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
+import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import { Card } from '@/shared/ui/Card/Card';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
@@ -6,9 +11,6 @@ import { Modal } from '@/shared/ui/Modal/Modal';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { StarRaiting } from '@/shared/ui/StarRaiting/StarRaiting';
 import { Text } from '@/shared/ui/Text/Text';
-import { memo, PropsWithChildren, useCallback, useState } from 'react';
-import { BrowserView, MobileView } from 'react-device-detect';
-import { useTranslation } from 'react-i18next';
 
 interface RaitingProps {
   className?: string;
@@ -21,7 +23,9 @@ interface RaitingProps {
 }
 
 export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
-  const { className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate = 0 } = props;
+  const {
+    className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate = 0,
+  } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
@@ -87,4 +91,3 @@ export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
     </Card>
   );
 });
-

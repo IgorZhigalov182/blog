@@ -1,7 +1,7 @@
-import { getUserAuthData, getUserRoles, UserRole } from '@/entities/User';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
+import { getUserAuthData, getUserRoles, UserRole } from '@/entities/User';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 interface RequireAuthProps {
@@ -21,7 +21,7 @@ export const RequireAuth = (props: RequireAuthProps) => {
       return true;
     }
 
-    return roles.some(role => userRoles?.includes(role));
+    return roles.some((role) => userRoles?.includes(role));
   }, []);
 
   if (!auth) {

@@ -14,7 +14,7 @@ export default {
   },
 } as ComponentMeta<typeof ArticleListItemSkeleton>;
 
-const Template: ComponentStory<typeof ArticleListItemSkeleton> = args => <ArticleListItemSkeleton {...args} />;
+const Template: ComponentStory<typeof ArticleListItemSkeleton> = (args) => <ArticleListItemSkeleton {...args} />;
 
 const article = {
   id: '1',

@@ -12,18 +12,18 @@ interface LoginModalProps {
 }
 
 export const LoginModal = (props: PropsWithChildren<LoginModalProps>) => {
-    const { className, isOpen, onClose } = props;
+  const { className, isOpen, onClose } = props;
 
-    return (
-        <Modal
-            isOpen={isOpen}
-            onClose={onClose}
-            className={classNames(cls.loginModal, {}, [className])}
-            lazy
-        >
-            <Suspense fallback={<Loader />}>
-                <LoginFormAsync onSuccess={onClose} />
-            </Suspense>
-        </Modal>
-    );
+  return (
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      className={classNames(cls.loginModal, {}, [className])}
+      lazy
+    >
+      <Suspense fallback={<Loader />}>
+        <LoginFormAsync onSuccess={onClose} />
+      </Suspense>
+    </Modal>
+  );
 };

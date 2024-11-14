@@ -1,7 +1,7 @@
-import cls from './ArticleEditPage.module.scss';
 import { memo, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import cls from './ArticleEditPage.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface ArticleEditPageProps {

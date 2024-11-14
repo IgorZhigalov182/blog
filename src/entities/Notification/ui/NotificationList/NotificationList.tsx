@@ -1,7 +1,7 @@
-import { useGetNotificationsQuery } from '../../api/notificationApi';
-import cls from './NotificationList.module.scss';
 import { memo, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useGetNotificationsQuery } from '../../api/notificationApi';
+import cls from './NotificationList.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
 import { NotificationItem } from '../NotificationItem/NotificationItem';

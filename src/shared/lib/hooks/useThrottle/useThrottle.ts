@@ -14,6 +14,6 @@ export function useThrottle(callback: (...args: any[]) => void, ms: number) {
         }, ms);
       }
     },
-    [callback, ms]
+    [callback, ms],
   );
 }

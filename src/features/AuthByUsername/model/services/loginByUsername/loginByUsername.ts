@@ -22,7 +22,10 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
 
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
       dispatch(userActions.setAuthData(response.data));
-      extra.navigate ? extra.navigate('/profile') : null;
+
+      if (extra.navigate) {
+        extra.navigate('/profile');
+      }
 
       return response.data;
     } catch (error) {
