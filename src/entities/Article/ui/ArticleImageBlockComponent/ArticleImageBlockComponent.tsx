@@ -1,5 +1,4 @@
 import { memo, type PropsWithChildren } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ArticleImageBlock } from '../../model/types/article';
 import cls from './ArticleImageBlockComponent.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';

@@ -1,5 +1,5 @@
 import {
-  ChangeEvent, memo, useMemo, type PropsWithChildren,
+  ChangeEvent, useMemo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';

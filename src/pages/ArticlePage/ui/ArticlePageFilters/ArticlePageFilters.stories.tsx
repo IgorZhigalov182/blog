@@ -1,4 +1,3 @@
-import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticlePageFilters } from './ArticlePageFilters';
 

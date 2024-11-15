@@ -1,4 +1,4 @@
-import { HTMLAttributeAnchorTarget, memo, useCallback, type PropsWithChildren } from 'react';
+import { HTMLAttributeAnchorTarget, memo, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import EyeIcon from '@/shared/assets/icons/EyeIcon.svg';
