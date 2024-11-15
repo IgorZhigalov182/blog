@@ -2,8 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetArticleRecommendationListQuery } from '../../api/articleRecommendationsApi';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text/Text';
+import { VStack, Text } from '@/shared/ui';
 import { ArticleList } from '@/entities/Article';
 
 interface ArticleRecommendationListProps {

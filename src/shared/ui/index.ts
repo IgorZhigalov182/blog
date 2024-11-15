@@ -3,7 +3,7 @@ export { ListBox } from './Popups/ui/ListBox/ListBox';
 export { Popover } from './Popups/ui/Popover/Popover';
 export { type DropdownDirection } from './Popups/styles/mapper';
 export { type TabItem, Tabs } from './Tabs/Tabs';
-export { Text } from './Text/Text';
+export { Text, TextTheme, TextAlign, TextSize } from './Text/Text';
 export { StarRaiting } from './StarRaiting/StarRaiting';
 export { HStack, VStack } from './Stack';
 export { Skeleton } from './Skeleton/Skeleton';

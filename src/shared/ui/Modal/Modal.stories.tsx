@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { Modal } from './Modal';
 
 export default {
@@ -11,7 +11,7 @@ export default {
   },
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+const Template: ComponentStory<typeof Modal> = args => <Modal {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

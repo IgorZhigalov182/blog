@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useGetNotificationsQuery } from '../../api/notificationApi';
 import cls from './NotificationList.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack, Skeleton } from '@/shared/ui';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+
 
 interface NotificationListProps {
   className?: string;

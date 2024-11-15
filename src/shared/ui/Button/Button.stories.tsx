@@ -1,8 +1,4 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Button, ButtonSize, ThemeButton } from './Button';
 
 export default {
@@ -13,7 +9,7 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -99,3 +95,4 @@ Disabled.args = {
   theme: ThemeButton.OUTLINE,
   disabled: true,
 };
+

@@ -5,12 +5,7 @@ import { Page } from '@/widgets/Page';
 const MainPage = () => {
   const { t } = useTranslation();
 
-  return (
-    <Page>
-      {t('Главная страница')}
-      <RaitingCard title={t('Оцените статью')} feedbackTitle={t('Оставьте свой отзыв')} />
-    </Page>
-  );
+  return <Page>{t('Главная страница')}</Page>;
 };
 
 export default MainPage;

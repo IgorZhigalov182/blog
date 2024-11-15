@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getCanEditArticle } from '../../../model/selectors/getCanEditArticle';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
-import { HStack } from '@/shared/ui/Stack';
+import { Button, ThemeButton, HStack } from '@/shared/ui';
+
+import { RoutePath } from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;

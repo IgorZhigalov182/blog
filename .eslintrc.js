@@ -75,6 +75,7 @@ module.exports = {
       'error',
       { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'] },
     ],
+    'fsd-arch-path/layer-imports': ['error', { alias: '@', testFilesPatterns: ['**/StoreDecorator'] }],
   },
   globals: {
     __IS_DEV__: true,

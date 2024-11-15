@@ -1,11 +1,11 @@
 import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme, Button, ThemeButton, Input } from '@/shared/ui';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
-import { Input } from '@/shared/ui/Input/Input';
+
+
 import {
   DynamicModuleLoader,
   ReducersList,

@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { RaitingCard } from './RaitingCard';
+import { Theme } from '@/shared/const/theme';
 
 export default {
   title: 'entities/RaitingCard',
@@ -36,3 +36,4 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 // onCancel?: (starsCount: number) => void;
 // onAccept?: (starsCount: number, feedback?: string) => void;
 // rate?: number;
+

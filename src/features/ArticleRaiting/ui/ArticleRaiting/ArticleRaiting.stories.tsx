@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 import ArticleRaiting from './ArticleRaiting';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
@@ -21,7 +21,7 @@ export default {
   ],
 } as ComponentMeta<typeof ArticleRaiting>;
 
-const Template: ComponentStory<typeof ArticleRaiting> = (args) => <ArticleRaiting {...args} />;
+const Template: ComponentStory<typeof ArticleRaiting> = args => <ArticleRaiting {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -46,3 +46,4 @@ Normal.decorators = [];
 export const WithoutRate = Template.bind({});
 WithoutRate.args = {};
 WithoutRate.decorators = [ThemeDecorator(Theme.DARK)];
+

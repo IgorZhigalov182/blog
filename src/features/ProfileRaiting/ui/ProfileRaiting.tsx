@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { RaitingCard } from '@/entities/Raiting';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { useGetProfileRaitingQuery, useRateProfileMutation } from '../model/api/profileRaitingApi';
 import cls from './ProfileRaiting.module.scss';
+import { Skeleton } from '@/shared/ui';
 
 interface ProfileRaitingProps {
   className?: string;
@@ -19,6 +19,8 @@ export const ProfileRaiting = memo((props: PropsWithChildren<ProfileRaitingProps
 
   const { data, isLoading } = useGetProfileRaitingQuery({ profileId, userId });
   const rating = data?.[0];
+
+  console.log(data);
 
   const [rateProfile] = useRateProfileMutation();
 
@@ -45,6 +47,10 @@ export const ProfileRaiting = memo((props: PropsWithChildren<ProfileRaitingProps
 
   if (isLoading) {
     return <Skeleton width="100%" height="130px" className={cls.ProfileRaiting} />;
+  }
+
+  if (!data || !data?.length) {
+    return null;
   }
 
   return (

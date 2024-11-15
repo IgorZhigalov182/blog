@@ -14,11 +14,11 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { HStack } from '@/shared/ui/Stack';
-import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
+import { Avatar, Icon, Skeleton, HStack, Text, TextAlign, TextSize } from '@/shared/ui';
+
+
+
+
 import { ArticleBlockType } from '../../model/contst/articleConsts';
 import {
   getArticleDetailsData,

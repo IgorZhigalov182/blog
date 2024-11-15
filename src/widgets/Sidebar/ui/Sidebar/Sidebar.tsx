@@ -1,13 +1,12 @@
 import { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonSize, ThemeButton } from '@/shared/ui/Button/Button';
-import { VStack } from '@/shared/ui/Stack';
+import { Button, ButtonSize, ThemeButton, VStack } from '@/shared/ui';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
-import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
-import { LangSwitcher } from '@/widgets/LangSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 
 interface SidebarProps {
   className?: string;
@@ -22,7 +21,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   };
 
   return (
-    <aside data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+    <aside
+      data-testid="sidebar"
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
       <Button
         data-testid="sidebar-toggle"
         onClick={onToggle}

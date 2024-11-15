@@ -2,8 +2,8 @@ import { memo, type PropsWithChildren } from 'react';
 import ArticlesGrid from '@/shared/assets/icons/ArticlesGrid.svg';
 import ArticlesList from '@/shared/assets/icons/ArticlesList.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Button, ThemeButton, Icon } from '@/shared/ui';
+
 import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '../../model/contst/articleConsts';
 

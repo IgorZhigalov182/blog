@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { memo, type PropsWithChildren } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui';
 import {
   getArticlePageIsError,
   getArticlePageIsLoading,

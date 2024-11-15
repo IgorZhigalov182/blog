@@ -1,6 +1,6 @@
 import { Suspense, type PropsWithChildren } from 'react';
-import { Loader } from '@/shared/ui/Loader/Loader';
-import { Modal } from '@/shared/ui/Modal/Modal';
+import { Loader, Modal } from '@/shared/ui';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './LoginModal.module.scss';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';

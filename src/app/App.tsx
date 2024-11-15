@@ -6,8 +6,8 @@ import { Navbar } from '@/widgets/Navbar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInited, userActions } from '@/entities/User';
-import { useTheme } from './providers/ThemeProvider';
 import { PageLoader } from '@/widgets/PageLoader';
+import { useTheme } from '@/shared/lib/hooks';
 
 function App() {
   const { theme } = useTheme();

@@ -5,13 +5,10 @@ import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotifciationButton } from '@/features/notificationButton';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
-import { HStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text/Text';
+import { AppLink, AppLinkTheme, Button, ThemeButton, HStack, Text } from '@/shared/ui';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
   className?: string;
@@ -56,3 +53,4 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     </header>
   );
 });
+

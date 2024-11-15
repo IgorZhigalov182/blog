@@ -20,10 +20,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types/SortOrder';
-import { Card } from '@/shared/ui/Card/Card';
-import { Input } from '@/shared/ui/Input/Input';
+import { Card, Input, HStack } from '@/shared/ui';
+
 import cls from './ArticlePageFilters.module.scss';
-import { HStack } from '@/shared/ui/Stack';
+
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 

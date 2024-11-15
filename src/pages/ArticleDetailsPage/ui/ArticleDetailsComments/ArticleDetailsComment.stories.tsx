@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ArticleDetailsComment } from './ArticleDetailsComment';
@@ -13,7 +13,7 @@ export default {
   decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ArticleDetailsComment>;
 
-const Template: ComponentStory<typeof ArticleDetailsComment> = (args) => <ArticleDetailsComment {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsComment> = args => <ArticleDetailsComment {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

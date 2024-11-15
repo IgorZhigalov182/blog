@@ -2,12 +2,12 @@ import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, getUserIsAdmin, getUserIsManager, userActions } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar, Dropdown } from '@/shared/ui';
 import cls from './AvatarDropdown.module.scss';
-import { Dropdown } from '@/shared/ui';
+
+import { RoutePath } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
   className?: string;
