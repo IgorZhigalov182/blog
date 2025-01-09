@@ -19,4 +19,4 @@ export { Card, CardTheme } from './Card/Card';
 export { Avatar } from './Avatar/Avatar';
 export { Portal } from './Portal/Portal';
 export { AppLinkTheme, AppLink } from './AppLink/AppLink';
-export { Button, ThemeButton } from './Button/Button';
+export { Button, ThemeButton, ButtonSize } from './Button/Button';

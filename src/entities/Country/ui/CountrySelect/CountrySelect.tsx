@@ -1,5 +1,5 @@
-import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
+import { memo, useCallback, type PropsWithChildren } from 'react';
 import { Country } from '../../model/types/country';
 import { ListBox } from '@/shared/ui';
 

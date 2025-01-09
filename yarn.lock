@@ -7359,10 +7359,10 @@ eslint-module-utils@^2.7.2:
     debug "^3.2.7"
     find-up "^2.1.0"
 
-eslint-plugin-fsd-arch-path@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.npmjs.org/eslint-plugin-fsd-arch-path/-/eslint-plugin-fsd-arch-path-0.0.10.tgz"
-  integrity sha512-3VuB80mnvK9AjphUqU9VpXUnBkZbMFMEaLdyaxoAK2rm/GdRX4J3KDEsxag+67/SunwgFGpVtR2pv+M03JEp7w==
+eslint-plugin-fsd-arch-path@0.0.11:
+  version "0.0.11"
+  resolved "https://registry.npmjs.org/eslint-plugin-fsd-arch-path/-/eslint-plugin-fsd-arch-path-0.0.11.tgz"
+  integrity sha512-+iIFrbGyvnEeP4GDziHD9NV1gHl+GZoDzpmEHk0NAg4APj+krQm1qqLPGZZRZtc0CjnhMgppUicFbHTShkBrKQ==
   dependencies:
     micromatch "^4.0.8"
     requireindex "^1.2.0"
