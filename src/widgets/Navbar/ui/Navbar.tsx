@@ -8,7 +8,7 @@ import { NotifciationButton } from '@/features/notificationButton';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme, Button, ThemeButton, HStack, Text } from '@/shared/ui';
 import cls from './Navbar.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleCreate, getRouteMain } from '@/shared/const/router';
 
 interface NavbarProps {
   className?: string;
@@ -30,10 +30,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-        <AppLink to={RoutePath.main} className={cls.mainLink} theme={AppLinkTheme.INVERTED}>
+        <AppLink to={getRouteMain()} className={cls.mainLink} theme={AppLinkTheme.INVERTED}>
           <Text title={t('Igor182')} />
         </AppLink>
-        <AppLink to={RoutePath.article_create} theme={AppLinkTheme.INVERTED}>
+        <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.INVERTED}>
           {t('Создать статью')}
         </AppLink>
         <HStack gap="16" className={cls.actions}>

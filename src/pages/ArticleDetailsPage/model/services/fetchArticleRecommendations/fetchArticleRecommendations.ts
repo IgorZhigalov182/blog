@@ -5,7 +5,7 @@ import { Article } from '@/entities/Article';
 export const fetchArticleRecommendations = createAsyncThunk<Article[], void, ThunkConfig<string>>(
   'articleDetailsPage/fetchArticleRecommendations',
   async (props, thunkApi) => {
-    const { extra, rejectWithValue, getState } = thunkApi;
+    const { extra, rejectWithValue } = thunkApi;
 
     try {
       const response = await extra.api.get<Article[]>('/articles', {
@@ -19,8 +19,9 @@ export const fetchArticleRecommendations = createAsyncThunk<Article[], void, Thu
       }
 
       return response.data;
-    } catch (error) {
-      return rejectWithValue('Неверный логин или пароль');
+    } catch (e) {
+      return rejectWithValue('error');
     }
-  },
+  }
 );
+

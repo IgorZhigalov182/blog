@@ -1,3 +1,5 @@
+export { ArticleBlockType } from './model/contst/articleConsts';
+export { getArticleDetailsData } from '../Comment';
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleView, ArticleSortField } from './model/contst/articleConsts';

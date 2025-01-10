@@ -5,3 +5,4 @@ export interface ArticleDetailsCommentsSchema extends EntityState<Comment> {
   isLoading?: boolean;
   error?: string;
 }
+

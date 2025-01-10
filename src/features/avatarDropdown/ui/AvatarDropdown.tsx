@@ -7,7 +7,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Avatar, Dropdown } from '@/shared/ui';
 import cls from './AvatarDropdown.module.scss';
 
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -27,12 +27,16 @@ export const AvatarDropdown = memo((props: PropsWithChildren<AvatarDropdownProps
 
   const isUserAdminOrManager = isUserAdmin || isUserManager;
 
+  if (!authData) {
+    return null;
+  }
+
   return (
     <Dropdown
       className={classNames(cls.AvatarDropdown, {}, [className])}
       items={[
-        ...(isUserAdminOrManager ? [{ content: t('Админка'), href: RoutePath.admin }] : []),
-        { content: t('Профиль'), href: `${RoutePath.profile}${authData?.id}` },
+        ...(isUserAdminOrManager ? [{ content: t('Админка'), href: getRouteAdmin() }] : []),
+        { content: t('Профиль'), href: `${getRouteProfile(authData.id)}` },
         { content: t('Выйти'), onClick: onLogout },
       ]}
       trigger={<Avatar size={30} src={authData?.avatar} />}

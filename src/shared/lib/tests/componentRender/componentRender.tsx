@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import i18nForTests from '@/shared/config/i18n/i18nForTests';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteMain } from '@/shared/const/router';
 
 export interface componentRenderOptions {
   route?: string;
@@ -14,7 +14,7 @@ export interface componentRenderOptions {
 }
 
 export function componentRender(component: ReactNode, options: componentRenderOptions = {}) {
-  const { route = RoutePath.main, initialState, asyncReducers } = options;
+  const { route = getRouteMain(), initialState, asyncReducers } = options;
 
   return render(
     <MemoryRouter initialEntries={[route]}>

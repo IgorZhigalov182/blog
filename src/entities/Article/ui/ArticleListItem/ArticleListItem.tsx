@@ -2,18 +2,18 @@ import { HTMLAttributeAnchorTarget, memo, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import EyeIcon from '@/shared/assets/icons/EyeIcon.svg';
+import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Card } from '@/shared/ui';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Text } from '@/shared/ui/Text/Text';
-import { Article, ArticleTextBlock } from '../../model/types/article';
-import cls from './ArticleListItem.module.scss';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { ArticleBlockType, ArticleView } from '../../model/contst/articleConsts';
-import { RoutePath } from '@/shared/const/router';
-import { Card } from '@/shared/ui';
+import { Article, ArticleTextBlock } from '../../model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
   className?: string;
@@ -53,7 +53,7 @@ export const ArticleListItem = memo((props: PropsWithChildren<ArticleListItemPro
           <img src={img} className={cls.image} alt={title} />
           {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
           <div className={cls.footer}>
-            <AppLink to={`${RoutePath.article}/${id}`}>
+            <AppLink to={getRouteArticleDetails(id)}>
               <Button theme={ThemeButton.OUTLINE}>{t('Читать далее')}</Button>
             </AppLink>
             {viewsCount}
@@ -66,7 +66,7 @@ export const ArticleListItem = memo((props: PropsWithChildren<ArticleListItemPro
   return (
     <AppLink
       target={target}
-      to={`${RoutePath.article}/${id}`}
+      to={getRouteArticleDetails(id)}
       className={classNames('', {}, [className, cls[view]])}>
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>

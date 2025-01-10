@@ -8,7 +8,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string | und
     const { extra, rejectWithValue } = thunkApi;
 
     if (!articleId) {
-      return rejectWithValue('Absent id');
+      return rejectWithValue('error');
     }
 
     try {
@@ -24,8 +24,9 @@ export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string | und
       }
 
       return response.data;
-    } catch (error) {
-      return rejectWithValue('Неверный логин или пароль');
+    } catch (e) {
+      return rejectWithValue('error');
     }
-  },
+  }
 );
+

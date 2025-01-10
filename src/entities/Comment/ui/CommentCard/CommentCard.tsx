@@ -1,13 +1,9 @@
 import { memo, type PropsWithChildren } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Avatar, Skeleton, Text, VStack } from '@/shared/ui';
-
-
-
 import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
-
-import { RoutePath } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentCardProps {
   className?: string;
@@ -36,7 +32,7 @@ export const CommentCard = memo((props: PropsWithChildren<CommentCardProps>) => 
 
   return (
     <VStack max className={classNames(cls.CommentCard, {}, [className])}>
-      <AppLink to={`${RoutePath.profile}${comment.user.id}`}>
+      <AppLink to={getRouteProfile(comment.user.id)}>
         <div className={cls.header}>
           {comment.user.avatar && <Avatar size={30} src={comment.user.avatar} />}
           <Text title={comment.user.username} />
