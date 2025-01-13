@@ -20,7 +20,7 @@ const ProfilePage = (props: PropsWithChildren<ProfilePageProps>) => {
   }
 
   return (
-    <Page className={classNames('', {}, [className])}>
+    <Page className={classNames('', {}, [className])} data-testid="ProfilePage">
       <EditableProfileCard id={id} />
       <ProfileRaiting profileId={id} />
     </Page>
