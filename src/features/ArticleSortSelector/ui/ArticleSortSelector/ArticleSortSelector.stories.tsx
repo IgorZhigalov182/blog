@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleSortSelector } from './ArticleSortSelector';
-import { ArticleSortField } from '../../model/contst/articleConsts';
+import { ArticleSortField } from '../../../../entities/Article/model/contst/articleConsts';
 
 export default {
   title: 'entities/article/ArticleSortSelector',
@@ -14,7 +14,7 @@ export default {
   },
 } as ComponentMeta<typeof ArticleSortSelector>;
 
-const Template: ComponentStory<typeof ArticleSortSelector> = (args) => <ArticleSortSelector {...args} />;
+const Template: ComponentStory<typeof ArticleSortSelector> = args => <ArticleSortSelector {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

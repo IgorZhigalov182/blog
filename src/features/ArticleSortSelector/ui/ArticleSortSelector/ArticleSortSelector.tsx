@@ -4,8 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types/SortOrder';
 import { Select, SelectOption, HStack } from '@/shared/ui';
 import cls from './ArticleSortSelector.module.scss';
-
-import { ArticleSortField } from '../../model/contst/articleConsts';
+import { ArticleSortField } from '@/entities/Article';
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -16,9 +15,7 @@ interface ArticleSortSelectorProps {
 }
 
 export const ArticleSortSelector = memo((props: PropsWithChildren<ArticleSortSelectorProps>) => {
-  const {
-    className, sort, order, onChangeOrder, onChangeSort,
-  } = props;
+  const { className, sort, order, onChangeOrder, onChangeSort } = props;
   const { t } = useTranslation();
 
   const orderOptions = useMemo<SelectOption<SortOrder>[]>(
@@ -32,7 +29,7 @@ export const ArticleSortSelector = memo((props: PropsWithChildren<ArticleSortSel
         content: t('убыванию'),
       },
     ],
-    [],
+    []
   );
 
   const sortOptions = useMemo<SelectOption<ArticleSortField>[]>(
@@ -50,7 +47,7 @@ export const ArticleSortSelector = memo((props: PropsWithChildren<ArticleSortSel
         content: t('количеству просмотров'),
       },
     ],
-    [],
+    []
   );
 
   return (

@@ -1,31 +1,24 @@
 import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import {
-  ArticleTypeTabs,
-  ArticleViewSelector,
-  ArticleSortField,
-  ArticleType,
-  ArticleView,
-  ArticleSortSelector,
-} from '@/entities/Article';
-
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { SortOrder } from '@/shared/types/SortOrder';
+import { Card, HStack, Input } from '@/shared/ui';
 import {
   getArticlePageOrder,
   getArticlePageSort,
   getArticlePageType,
   getArticlePageView,
 } from '../../model/selectors/articlePageSelectors';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { SortOrder } from '@/shared/types/SortOrder';
-import { Card, Input, HStack } from '@/shared/ui';
-
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import cls from './ArticlePageFilters.module.scss';
-
-import { articlePageActions } from '../../model/slice/articlePageSlice';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { articlePageActions } from '../../model/slice/articlePageSlice';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 interface ArticlePageFiltersProps {
   className?: string;
@@ -92,7 +85,12 @@ export const ArticlePageFilters = memo((props: PropsWithChildren<ArticlePageFilt
   return (
     <div className={classNames('', {}, [className])}>
       <HStack justify="between">
-        <ArticleSortSelector sort={sort} order={order} onChangeSort={onChangeSort} onChangeOrder={onChangeOrder} />
+        <ArticleSortSelector
+          sort={sort}
+          order={order}
+          onChangeSort={onChangeSort}
+          onChangeOrder={onChangeOrder}
+        />
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
       </HStack>
       <ArticleTypeTabs value={type} onChangeType={onChangeType} className={cls.tabs} />

@@ -77,6 +77,7 @@ module.exports = {
     'no-multiple-empty-lines': 'off',
     'react/jsx-closing-bracket-location': 'off',
     'arrow-parens': 'off',
+    'arrow-body-style': 'off',
     'react/no-array-index-key': 'off',
     'operator-linebreak': 'off',
     'react/jsx-no-useless-fragment': 'warn',

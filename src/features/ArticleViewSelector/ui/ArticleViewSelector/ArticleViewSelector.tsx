@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ThemeButton, Icon } from '@/shared/ui';
 
 import cls from './ArticleViewSelector.module.scss';
-import { ArticleView } from '../../model/contst/articleConsts';
+import { ArticleView } from '@/entities/Article';
 
 interface ArticleViewSelectorProps {
   className?: string;
@@ -33,7 +33,7 @@ export const ArticleViewSelector = memo((props: PropsWithChildren<ArticleViewSel
 
   return (
     <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-      {viewTypes.map((viewType) => (
+      {viewTypes.map(viewType => (
         <Button theme={ThemeButton.CLEAR} key={viewType.view} onClick={onClick(viewType.view)}>
           <Icon Svg={viewType.icon} className={classNames('', { [cls.selected]: viewType.view === view })} />
         </Button>
@@ -41,3 +41,4 @@ export const ArticleViewSelector = memo((props: PropsWithChildren<ArticleViewSel
     </div>
   );
 });
+

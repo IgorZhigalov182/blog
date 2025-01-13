@@ -1,11 +1,9 @@
-import {
-  memo, useCallback, useMemo, type PropsWithChildren,
-} from 'react';
+import { memo, useCallback, useMemo, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { TabItem, Tabs } from '@/shared/ui';
 import cls from './ArticleTypeTabs.module.scss';
-import { ArticleType } from '../../model/contst/articleConsts';
+import { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
   className?: string;
@@ -36,7 +34,7 @@ export const ArticleTypeTabs = memo((props: PropsWithChildren<ArticleTypeTabsPro
         content: t('Наука'),
       },
     ],
-    [],
+    []
   );
 
   const onTabClick = useCallback((tab: TabItem) => {
@@ -52,3 +50,4 @@ export const ArticleTypeTabs = memo((props: PropsWithChildren<ArticleTypeTabsPro
     />
   );
 });
+
