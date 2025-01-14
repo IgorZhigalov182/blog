@@ -9,7 +9,6 @@ import {
   getArticlePageView,
 } from '../../model/selectors/articlePageSelectors';
 import { getArticles } from '../../model/slice/articlePageSlice';
-import cls from './ArticleInfiniteList.module.scss';
 import { ArticleList } from '@/entities/Article';
 
 interface ArticleInfiniteListProps {
@@ -27,10 +26,7 @@ export const ArticleInfiniteList = memo((props: PropsWithChildren<ArticleInfinit
 
   if (isError) {
     return (
-      <Text
-        text={t('Произошла ошибка при загрузке статей')}
-        className={classNames(cls.ArticlePage, {}, [className])}
-      />
+      <Text text={t('Произошла ошибка при загрузке статей')} className={classNames('', {}, [className])} />
     );
   }
 

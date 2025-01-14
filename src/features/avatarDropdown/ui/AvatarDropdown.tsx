@@ -5,7 +5,6 @@ import { getUserAuthData, getUserIsAdmin, getUserIsManager, userActions } from '
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar, Dropdown } from '@/shared/ui';
-import cls from './AvatarDropdown.module.scss';
 
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 
@@ -33,7 +32,7 @@ export const AvatarDropdown = memo((props: PropsWithChildren<AvatarDropdownProps
 
   return (
     <Dropdown
-      className={classNames(cls.AvatarDropdown, {}, [className])}
+      className={classNames('', {}, [className])}
       items={[
         ...(isUserAdminOrManager ? [{ content: t('Админка'), href: getRouteAdmin() }] : []),
         { content: t('Профиль'), href: `${getRouteProfile(authData.id)}` },
