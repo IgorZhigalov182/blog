@@ -5,9 +5,6 @@ import { Currency, CurrencySelect } from '@/entities/Currency';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Avatar, Input, Loader, HStack, VStack, Text, TextAlign, TextTheme } from '@/shared/ui';
 
-
-
-
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
