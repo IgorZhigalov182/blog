@@ -1,16 +1,16 @@
 .Icon {
-  fill: none;
-  cursor: pointer;
+    fill: none;
+    cursor: pointer;
 }
 
 .hovered {
-  fill: var(--primary-color);
+    fill: var(--primary-color);
 }
 
 .normal {
-  fill: none;
+    fill: none;
 }
 
 .selected {
-  cursor: default;
+    cursor: default;
 }
