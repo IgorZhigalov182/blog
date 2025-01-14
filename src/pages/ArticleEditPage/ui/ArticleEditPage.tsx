@@ -14,7 +14,7 @@ const ArticleEditPage = memo((props: PropsWithChildren<ArticleEditPageProps>) =>
   const isArticleExist = Boolean(id);
 
   return (
-    <div className={classNames(cls.ArticleEditPage, {}, [className])}>
+    <div className={classNames('', {}, [className])}>
       {isArticleExist ? t('Редактирование статьи') : t('Создание статьи')}
     </div>
   );
