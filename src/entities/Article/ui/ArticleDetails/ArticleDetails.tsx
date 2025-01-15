@@ -10,7 +10,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Avatar, HStack, Icon, Skeleton, Text, TextAlign, TextSize } from '@/shared/ui';
+import { Avatar, HStack, Icon, Skeleton, Text, TextAlign, TextSize, VStack } from '@/shared/ui';
 import { ArticleBlockType } from '../../model/contst/articleConsts';
 import {
   getArticleDetailsData,
@@ -79,16 +79,18 @@ export const ArticleDetails = memo((props: PropsWithChildren<ArticleDetailsProps
         <HStack justify="center">
           <Avatar size={200} src={article?.img} className={cls.avatar} />
         </HStack>
-        <Text title={article?.title} text={article?.subtitle} size={TextSize.L} className={cls.title} />
-        <HStack gap="8">
-          <Icon Svg={EyeIcon} />
-          <Text text={String(article?.views)} />
-        </HStack>
-        <HStack gap="8">
-          <Icon Svg={CalendarIcon} />
-          <Text text={article?.createdAt} />
-        </HStack>
-        {article?.blocks?.map(renderBlock)}
+        <VStack gap="4" max data-testid="ArticleDetails.Info">
+          <Text title={article?.title} text={article?.subtitle} size={TextSize.L} className={cls.title} />
+          <HStack gap="8">
+            <Icon Svg={EyeIcon} />
+            <Text text={String(article?.views)} />
+          </HStack>
+          <HStack gap="8">
+            <Icon Svg={CalendarIcon} />
+            <Text text={article?.createdAt} />
+          </HStack>
+          {article?.blocks?.map(renderBlock)}
+        </VStack>
       </>
     );
   }

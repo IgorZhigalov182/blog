@@ -1,9 +1,18 @@
-import {
-  memo, PropsWithChildren, useCallback, useState,
-} from 'react';
+import { memo, PropsWithChildren, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
-import { Button, ThemeButton, Card, Drawer, Input, Modal, HStack, VStack, StarRaiting, Text } from '@/shared/ui';
+import {
+  Button,
+  ThemeButton,
+  Card,
+  Drawer,
+  Input,
+  Modal,
+  HStack,
+  VStack,
+  StarRaiting,
+  Text,
+} from '@/shared/ui';
 
 interface RaitingProps {
   className?: string;
@@ -16,9 +25,7 @@ interface RaitingProps {
 }
 
 export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
-  const {
-    className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate = 0,
-  } = props;
+  const { className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate = 0 } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
@@ -48,12 +55,18 @@ export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
   const content = (
     <>
       <Text title={feedbackTitle} />
-      <Input value={feedback} onChange={setFeedback} autoFocus placeholder={t('Ваш отзыв')} />
+      <Input
+        value={feedback}
+        onChange={setFeedback}
+        autoFocus
+        placeholder={t('Ваш отзыв')}
+        data-testid="RatingCard.Input"
+      />
     </>
   );
 
   return (
-    <Card className={className}>
+    <Card className={className} max data-testid="RatingCard">
       <VStack align="center" gap="32">
         <Text title={starsCount ? t('Спасибо за оценку') : title} />
         <StarRaiting selectedStars={starsCount} size={40} onSelect={onSelectStars} />
@@ -63,10 +76,12 @@ export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
           <VStack max gap="32">
             {content}
             <HStack max gap="16" justify="end">
-              <Button onClick={handleCancel} theme={ThemeButton.OUTLINE_RED}>
+              <Button onClick={handleCancel} theme={ThemeButton.OUTLINE_RED} data-testid="RatingCard.Close">
                 {t('Отмена')}
               </Button>
-              <Button onClick={handleAccept}>{t('Отправить')}</Button>
+              <Button onClick={handleAccept} data-testid="RatingCard.Send">
+                {t('Отправить')}
+              </Button>
             </HStack>
           </VStack>
         </Modal>
@@ -84,3 +99,4 @@ export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
     </Card>
   );
 });
+

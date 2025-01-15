@@ -81,6 +81,7 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'operator-linebreak': 'off',
     'react/jsx-no-useless-fragment': 'warn',
+    'no-return-assign': 'off',
     // 'fsd-arch-path/path-checker': ['warn', { alias: '@' }],
     // 'fsd-arch-path/public-api-imports': [
     //   'error',

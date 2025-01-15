@@ -1,6 +1,4 @@
-import {
-  DetailedHTMLProps, HTMLAttributes, memo, type PropsWithChildren,
-} from 'react';
+import { DetailedHTMLProps, HTMLAttributes, memo, type PropsWithChildren } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
@@ -51,7 +49,14 @@ export interface FlexProps extends Omit<DivProps, 'ref'> {
 
 export const Flex = memo((props: PropsWithChildren<FlexProps>) => {
   const {
-    className, children, justify = 'start', align = 'center', direction = 'row', gap, max,
+    className,
+    children,
+    justify = 'start',
+    align = 'center',
+    direction = 'row',
+    gap,
+    max,
+    ...otherProps
   } = props;
 
   const classes = [
@@ -66,5 +71,9 @@ export const Flex = memo((props: PropsWithChildren<FlexProps>) => {
     [cls.max]: max,
   };
 
-  return <div className={classNames(cls.flex, mode, classes)}>{children}</div>;
+  return (
+    <div className={classNames(cls.flex, mode, classes)} {...otherProps}>
+      {children}
+    </div>
+  );
 });
