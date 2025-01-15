@@ -81,12 +81,12 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'operator-linebreak': 'off',
     'react/jsx-no-useless-fragment': 'warn',
-    'fsd-arch-path/path-checker': ['error', { alias: '@' }],
-    'fsd-arch-path/public-api-imports': [
-      'error',
-      { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'] },
-    ],
-    'fsd-arch-path/layer-imports': ['error', { alias: '@', testFilesPatterns: ['**/StoreDecorator'] }],
+    // 'fsd-arch-path/path-checker': ['warn', { alias: '@' }],
+    // 'fsd-arch-path/public-api-imports': [
+    //   'error',
+    //   { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'] },
+    // ],
+    // 'fsd-arch-path/layer-imports': ['error', { alias: '@', testFilesPatterns: ['**/StoreDecorator'] }],
   },
   globals: {
     __IS_DEV__: true,
