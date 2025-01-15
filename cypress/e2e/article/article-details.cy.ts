@@ -26,7 +26,9 @@ describe('User goes to the article page', () => {
     cy.getByTestId('CommentCard.Content').should('have.length', 1);
   });
 
+  // Пример на фикстурах (стабах)
   it('User send star feedback', () => {
+    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
     cy.getByTestId('ArticleDetails.Info').should('exist');
     cy.getByTestId('RatingCard').scrollIntoView();
     cy.setRating(4, 'feedback');
