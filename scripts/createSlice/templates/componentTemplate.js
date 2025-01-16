@@ -1,6 +1,6 @@
 const firstCharToUppercase = require('../firstCharUpperCase');
 
-module.exports = componentName => {
+module.exports = (componentName) => {
   const upperName = firstCharToUppercase(componentName);
 
   return `

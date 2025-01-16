@@ -14,7 +14,9 @@ export default {
   decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof NotifciationButton>;
 
-const Template: ComponentStory<typeof NotifciationButton> = (args) => <NotifciationButton {...args} />;
+const Template: ComponentStory<typeof NotifciationButton> = (args) => (
+  <NotifciationButton {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};

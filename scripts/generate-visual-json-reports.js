@@ -25,7 +25,7 @@ const diffDir = joinPath(lokiDir, 'difference');
       diffItems: diffs,
       actualDir: relative(lokiDir, actualDir),
       expectedDir: relative(lokiDir, expectedDir),
-      diffDir: relative(lokiDir, diffDir)
-    })
+      diffDir: relative(lokiDir, diffDir),
+    }),
   );
 })();

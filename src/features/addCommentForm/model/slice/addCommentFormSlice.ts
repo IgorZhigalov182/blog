@@ -16,7 +16,7 @@ export const addCommentFormSlice = createSlice({
       state.text = action.payload;
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder.addCase(addCommentForArticle.pending, (state, action) => {
       // state.isLoading = true;
       state.error = undefined;

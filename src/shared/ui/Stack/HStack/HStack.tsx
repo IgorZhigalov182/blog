@@ -5,4 +5,9 @@ type HStackProps = Omit<FlexProps, 'direction'> & {
   className?: string;
 };
 
-export const HStack = (props: PropsWithChildren<HStackProps>) => <Flex direction="row" {...props} />;
+export const HStack = (props: PropsWithChildren<HStackProps>) => (
+  <Flex
+    direction="row"
+    {...props}
+  />
+);

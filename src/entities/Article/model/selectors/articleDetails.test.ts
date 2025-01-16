@@ -1,5 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { getArticleDetailsData, getArticleDetailsIsLoading } from './articleDetails';
+import {
+  getArticleDetailsData,
+  getArticleDetailsIsLoading,
+} from './articleDetails';
 
 describe('articleDetails', () => {
   test('should return data', () => {

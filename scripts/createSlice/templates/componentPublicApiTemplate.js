@@ -1,8 +1,10 @@
 const firstCharUpperCase = require('../firstCharUpperCase');
 
-module.exports = sliceName => {
+module.exports = (sliceName) => {
   return `
 export {${sliceName}Slice} from './model/slices/${sliceName}Slice';
-export {${firstCharUpperCase(sliceName)}Schema} from './model/types/${sliceName}Schema';
+export {${firstCharUpperCase(
+    sliceName,
+  )}Schema} from './model/types/${sliceName}Schema';
 `;
 };

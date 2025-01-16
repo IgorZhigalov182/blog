@@ -8,9 +8,15 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, Input, HStack } from '@/shared/ui';
-import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import {
+  getAddCommentFormError,
+  getAddCommentFormText,
+} from '../../model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
+import {
+  addCommentFormActions,
+  addCommentFormReducer,
+} from '../../model/slice/addCommentFormSlice';
 
 export interface AddCommentFormProps {
   className?: string;
@@ -32,7 +38,7 @@ const AddCommentForm = memo((props: PropsWithChildren<AddCommentFormProps>) => {
     (value: string) => {
       dispatch(addCommentFormActions.setText(value));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onSendDecorator = useCallback(() => {
@@ -46,7 +52,8 @@ const AddCommentForm = memo((props: PropsWithChildren<AddCommentFormProps>) => {
         justify="between"
         max
         className={classNames(cls.AddCommentForm, {}, [className])}
-        data-testid="AddCommentForm">
+        data-testid="AddCommentForm"
+      >
         <Input
           placeholder={t('Введите текст комментария')}
           value={text}
@@ -54,7 +61,10 @@ const AddCommentForm = memo((props: PropsWithChildren<AddCommentFormProps>) => {
           className={cls.input}
           data-testid="AddCommentForm.Input"
         />
-        <Button onClick={onSendDecorator} data-testid="AddCommentForm.Button">
+        <Button
+          onClick={onSendDecorator}
+          data-testid="AddCommentForm.Button"
+        >
           {t('Отправить')}
         </Button>
       </HStack>

@@ -15,20 +15,32 @@ interface ArticleInfiniteListProps {
   className?: string;
 }
 
-export const ArticleInfiniteList = memo((props: PropsWithChildren<ArticleInfiniteListProps>) => {
-  const { className } = props;
-  const { t } = useTranslation();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlePageIsLoading);
-  const view = useSelector(getArticlePageView);
+export const ArticleInfiniteList = memo(
+  (props: PropsWithChildren<ArticleInfiniteListProps>) => {
+    const { className } = props;
+    const { t } = useTranslation();
+    const articles = useSelector(getArticles.selectAll);
+    const isLoading = useSelector(getArticlePageIsLoading);
+    const view = useSelector(getArticlePageView);
 
-  const isError = useSelector(getArticlePageIsError);
+    const isError = useSelector(getArticlePageIsError);
 
-  if (isError) {
+    if (isError) {
+      return (
+        <Text
+          text={t('Произошла ошибка при загрузке статей')}
+          className={classNames('', {}, [className])}
+        />
+      );
+    }
+
     return (
-      <Text text={t('Произошла ошибка при загрузке статей')} className={classNames('', {}, [className])} />
+      <ArticleList
+        isLoading={isLoading}
+        view={view}
+        articles={articles}
+        className={className}
+      />
     );
-  }
-
-  return <ArticleList isLoading={isLoading} view={view} articles={articles} className={className} />;
-});
+  },
+);

@@ -15,7 +15,11 @@ interface ModalProps {
 
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props;
-  const { close, isMounted, isClosing } = useModal({ isOpen, onClose, animationDelay: 300 });
+  const { close, isMounted, isClosing } = useModal({
+    isOpen,
+    onClose,
+    animationDelay: 300,
+  });
 
   const mods: Mods = {
     [cls.opened]: isOpen,

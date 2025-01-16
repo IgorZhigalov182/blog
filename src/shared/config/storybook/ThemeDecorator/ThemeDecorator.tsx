@@ -10,4 +10,3 @@ export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) =>
       </div>
     </ThemeProvider>
   );
-

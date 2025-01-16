@@ -14,51 +14,61 @@ interface ArticleSortSelectorProps {
   onChangeSort: (newSort: ArticleSortField) => void;
 }
 
-export const ArticleSortSelector = memo((props: PropsWithChildren<ArticleSortSelectorProps>) => {
-  const { className, sort, order, onChangeOrder, onChangeSort } = props;
-  const { t } = useTranslation();
+export const ArticleSortSelector = memo(
+  (props: PropsWithChildren<ArticleSortSelectorProps>) => {
+    const { className, sort, order, onChangeOrder, onChangeSort } = props;
+    const { t } = useTranslation();
 
-  const orderOptions = useMemo<SelectOption<SortOrder>[]>(
-    () => [
-      {
-        value: 'asc',
-        content: t('возрастанию'),
-      },
-      {
-        value: 'desc',
-        content: t('убыванию'),
-      },
-    ],
-    []
-  );
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+      () => [
+        {
+          value: 'asc',
+          content: t('возрастанию'),
+        },
+        {
+          value: 'desc',
+          content: t('убыванию'),
+        },
+      ],
+      [],
+    );
 
-  const sortOptions = useMemo<SelectOption<ArticleSortField>[]>(
-    () => [
-      {
-        value: ArticleSortField.CREATED,
-        content: t('дате создания'),
-      },
-      {
-        value: ArticleSortField.TITLE,
-        content: t('заголовку'),
-      },
-      {
-        value: ArticleSortField.VIEWS,
-        content: t('количеству просмотров'),
-      },
-    ],
-    []
-  );
+    const sortOptions = useMemo<SelectOption<ArticleSortField>[]>(
+      () => [
+        {
+          value: ArticleSortField.CREATED,
+          content: t('дате создания'),
+        },
+        {
+          value: ArticleSortField.TITLE,
+          content: t('заголовку'),
+        },
+        {
+          value: ArticleSortField.VIEWS,
+          content: t('количеству просмотров'),
+        },
+      ],
+      [],
+    );
 
-  return (
-    <HStack gap="8" className={classNames(cls.ArticleSortSelector, {}, [className])}>
-      <Select<ArticleSortField>
-        onChange={onChangeSort}
-        label={t('Сортировать по')}
-        options={sortOptions}
-        value={sort}
-      />
-      <Select<SortOrder> onChange={onChangeOrder} label={t('по')} options={orderOptions} value={order} />
-    </HStack>
-  );
-});
+    return (
+      <HStack
+        gap="8"
+        className={classNames(cls.ArticleSortSelector, {}, [className])}
+      >
+        <Select<ArticleSortField>
+          onChange={onChangeSort}
+          label={t('Сортировать по')}
+          options={sortOptions}
+          value={sort}
+        />
+        <Select<SortOrder>
+          onChange={onChangeOrder}
+          label={t('по')}
+          options={orderOptions}
+          value={order}
+        />
+      </HStack>
+    );
+  },
+);

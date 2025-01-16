@@ -1,4 +1,10 @@
-import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react';
+import {
+  MutableRefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 interface useModalProps {
   isOpen?: boolean;
@@ -34,7 +40,7 @@ export function useModal({ isOpen, onClose, animationDelay }: useModalProps) {
         close();
       }
     },
-    [close]
+    [close],
   );
 
   useEffect(() => {

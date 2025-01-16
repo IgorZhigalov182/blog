@@ -36,4 +36,3 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 // onCancel?: (starsCount: number) => void;
 // onAccept?: (starsCount: number, feedback?: string) => void;
 // rate?: number;
-

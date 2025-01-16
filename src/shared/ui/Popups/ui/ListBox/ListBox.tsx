@@ -26,7 +26,16 @@ interface IListBox {
 }
 
 export const ListBox = memo((props: PropsWithChildren<IListBox>) => {
-  const { items, className, value, defaultValue, onChange, readonly, direction = 'bottom left', label } = props;
+  const {
+    items,
+    className,
+    value,
+    defaultValue,
+    onChange,
+    readonly,
+    direction = 'bottom left',
+    label,
+  } = props;
 
   return (
     <HStack gap="4">
@@ -36,15 +45,37 @@ export const ListBox = memo((props: PropsWithChildren<IListBox>) => {
         disabled={readonly}
         className={classNames(cls.listBox, {}, [className, popupCls.popup])}
         value={value}
-        onChange={onChange}>
-        <HListBox.Button disabled={readonly} className={popupCls.trigger}>
-          <Button disabled={readonly}>{value ?? defaultValue ?? (t('Выберите значение') as string)}</Button>
+        onChange={onChange}
+      >
+        <HListBox.Button
+          disabled={readonly}
+          className={popupCls.trigger}
+        >
+          <Button disabled={readonly}>
+            {value ?? defaultValue ?? (t('Выберите значение') as string)}
+          </Button>
         </HListBox.Button>
-        <HListBox.Options className={classNames(cls.options, {}, [mapDirection[direction]])}>
+        <HListBox.Options
+          className={classNames(cls.options, {}, [mapDirection[direction]])}
+        >
           {items?.map(({ value, content, disabled }) => (
-            <HListBox.Option as={Fragment} key={value} value={value} disabled={disabled}>
+            <HListBox.Option
+              as={Fragment}
+              key={value}
+              value={value}
+              disabled={disabled}
+            >
               {({ active, selected }) => (
-                <li className={classNames(cls.item, { [popupCls.active]: active, [popupCls.disabled]: disabled }, [])}>
+                <li
+                  className={classNames(
+                    cls.item,
+                    {
+                      [popupCls.active]: active,
+                      [popupCls.disabled]: disabled,
+                    },
+                    [],
+                  )}
+                >
                   {selected && '>'}
                   <span>{content}</span>
                 </li>

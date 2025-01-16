@@ -3,7 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { RaitingCard } from '@/entities/Raiting';
-import { useGetArticleRaitingQuery, useRateArticleMutation } from '../../model/api/articleRaitingApi';
+import {
+  useGetArticleRaitingQuery,
+  useRateArticleMutation,
+} from '../../model/api/articleRaitingApi';
 import { Skeleton } from '@/shared/ui';
 
 export interface ArticleRaitingProps {
@@ -15,7 +18,10 @@ const ArticleRaiting = memo((props: ArticleRaitingProps) => {
   const { className, articleId } = props;
   const userId = useSelector(getUserAuthData)?.id;
   const { t } = useTranslation();
-  const { data, isLoading } = useGetArticleRaitingQuery({ userId: userId ?? '', articleId });
+  const { data, isLoading } = useGetArticleRaitingQuery({
+    userId: userId ?? '',
+    articleId,
+  });
   const [postRate] = useRateArticleMutation();
   const rating = data?.[0];
 
@@ -50,7 +56,12 @@ const ArticleRaiting = memo((props: ArticleRaitingProps) => {
   );
 
   if (isLoading) {
-    return <Skeleton height={120} width="100%" />;
+    return (
+      <Skeleton
+        height={120}
+        width="100%"
+      />
+    );
   }
 
   return (

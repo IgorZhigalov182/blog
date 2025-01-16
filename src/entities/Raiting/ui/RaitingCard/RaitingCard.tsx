@@ -25,7 +25,15 @@ interface RaitingProps {
 }
 
 export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
-  const { className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate = 0 } = props;
+  const {
+    className,
+    title,
+    feedbackTitle,
+    hasFeedback,
+    onCancel,
+    onAccept,
+    rate = 0,
+  } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
@@ -66,20 +74,48 @@ export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
   );
 
   return (
-    <Card className={className} max data-testid="RatingCard">
-      <VStack align="center" gap="32">
+    <Card
+      className={className}
+      max
+      data-testid="RatingCard"
+    >
+      <VStack
+        align="center"
+        gap="32"
+      >
         <Text title={starsCount ? t('Спасибо за оценку') : title} />
-        <StarRaiting selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+        <StarRaiting
+          selectedStars={starsCount}
+          size={40}
+          onSelect={onSelectStars}
+        />
       </VStack>
       <BrowserView>
-        <Modal isOpen={isModalOpen} lazy>
-          <VStack max gap="32">
+        <Modal
+          isOpen={isModalOpen}
+          lazy
+        >
+          <VStack
+            max
+            gap="32"
+          >
             {content}
-            <HStack max gap="16" justify="end">
-              <Button onClick={handleCancel} theme={ThemeButton.OUTLINE_RED} data-testid="RatingCard.Close">
+            <HStack
+              max
+              gap="16"
+              justify="end"
+            >
+              <Button
+                onClick={handleCancel}
+                theme={ThemeButton.OUTLINE_RED}
+                data-testid="RatingCard.Close"
+              >
                 {t('Отмена')}
               </Button>
-              <Button onClick={handleAccept} data-testid="RatingCard.Send">
+              <Button
+                onClick={handleAccept}
+                data-testid="RatingCard.Send"
+              >
                 {t('Отправить')}
               </Button>
             </HStack>
@@ -87,10 +123,19 @@ export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
         </Modal>
       </BrowserView>
       <MobileView>
-        <Drawer isOpen={isModalOpen} lazy>
-          <VStack gap="32" max>
+        <Drawer
+          isOpen={isModalOpen}
+          lazy
+        >
+          <VStack
+            gap="32"
+            max
+          >
             {content}
-            <Button maxWidth onClick={handleAccept}>
+            <Button
+              maxWidth
+              onClick={handleAccept}
+            >
               {t('Отправить')}
             </Button>
           </VStack>
@@ -99,4 +144,3 @@ export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
     </Card>
   );
 });
-

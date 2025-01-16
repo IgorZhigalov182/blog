@@ -10,22 +10,35 @@ interface NotificationItemProps {
   item: Notification;
 }
 
-export const NotificationItem = memo((props: PropsWithChildren<NotificationItemProps>) => {
-  const { className, item } = props;
+export const NotificationItem = memo(
+  (props: PropsWithChildren<NotificationItemProps>) => {
+    const { className, item } = props;
 
-  const content = (
-    <Card theme={CardTheme.OUTLINE} className={classNames(cls.NotificationItem, {}, [className])}>
-      <Text title={item.title} text={item.description} />
-    </Card>
-  );
-
-  if (item.href) {
-    return (
-      <a className={classNames(cls.link, {}, [])} target="_blank" href={item.href} rel="noreferrer">
-        {content}
-      </a>
+    const content = (
+      <Card
+        theme={CardTheme.OUTLINE}
+        className={classNames(cls.NotificationItem, {}, [className])}
+      >
+        <Text
+          title={item.title}
+          text={item.description}
+        />
+      </Card>
     );
-  }
 
-  return content;
-});
+    if (item.href) {
+      return (
+        <a
+          className={classNames(cls.link, {}, [])}
+          target="_blank"
+          href={item.href}
+          rel="noreferrer"
+        >
+          {content}
+        </a>
+      );
+    }
+
+    return content;
+  },
+);

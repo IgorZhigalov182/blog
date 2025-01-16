@@ -13,4 +13,3 @@ export const ArticleViewSelectorSlice = createSlice({
 
 export const { actions: ArticleViewSelectorActions } = ArticleViewSelectorSlice;
 export const { reducer: ArticleViewSelectorReducer } = ArticleViewSelectorSlice;
-

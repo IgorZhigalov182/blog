@@ -12,7 +12,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = args => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+  <ArticleDetailsPage {...args} />
+);
 
 const article: Article = {
   id: '1',
@@ -63,4 +65,3 @@ Normal.decorators = [
     },
   }),
 ];
-

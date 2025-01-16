@@ -1,6 +1,6 @@
 const firstCharUpperCase = require('../firstCharUpperCase');
 
-module.exports = sliceName => {
+module.exports = (sliceName) => {
   return `
 export interface ${firstCharUpperCase(sliceName)}Schema {
   isLoading: boolean;

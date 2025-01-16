@@ -28,7 +28,11 @@ describe('validateProfileData.test', () => {
   });
 
   test('No firstname or lastname', async () => {
-    const result = validateProfileData({ ...data, firstname: undefined, lastname: 'Zhigalov' });
+    const result = validateProfileData({
+      ...data,
+      firstname: undefined,
+      lastname: 'Zhigalov',
+    });
 
     expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
   });

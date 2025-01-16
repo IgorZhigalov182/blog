@@ -4,7 +4,8 @@ const createReduxSliceTemplate = require('./createReduxSliceTemplate');
 const schemaTemplate = require('./schemaTemplate');
 
 module.exports = async (layer, sliceName) => {
-  const resolveModelPath = (...segments) => resolveRoot('src', layer, sliceName, 'model', ...segments);
+  const resolveModelPath = (...segments) =>
+    resolveRoot('src', layer, sliceName, 'model', ...segments);
 
   try {
     await fs.mkdir(resolveModelPath());
@@ -17,18 +18,24 @@ module.exports = async (layer, sliceName) => {
     console.error(`Не удалось создать директорию для слайса ${sliceName}`);
   }
 
-  const createReduxSlice = async sliceName => {
+  const createReduxSlice = async (sliceName) => {
     try {
-      await fs.writeFile(resolveModelPath('slices', `${sliceName}Slice.ts`), createReduxSliceTemplate(sliceName));
+      await fs.writeFile(
+        resolveModelPath('slices', `${sliceName}Slice.ts`),
+        createReduxSliceTemplate(sliceName),
+      );
     } catch (error) {
       console.log(error.message);
       console.log(`Не удалось создать redux slice для слайса ${sliceName}`);
     }
   };
 
-  const createSchema = async sliceName => {
+  const createSchema = async (sliceName) => {
     try {
-      await fs.writeFile(resolveModelPath('types', `${sliceName}Schema.ts`), schemaTemplate(sliceName));
+      await fs.writeFile(
+        resolveModelPath('types', `${sliceName}Schema.ts`),
+        schemaTemplate(sliceName),
+      );
     } catch (error) {
       console.log(error.message);
       console.log(`Не удалось создать schema для слайса ${sliceName}`);

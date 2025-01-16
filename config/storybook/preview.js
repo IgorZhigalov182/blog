@@ -28,4 +28,3 @@ addDecorator(StyleDecorator);
 addDecorator(SuspenseDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
-

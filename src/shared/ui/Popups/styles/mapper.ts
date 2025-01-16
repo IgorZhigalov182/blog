@@ -1,6 +1,10 @@
 import cls from './popup.module.scss';
 
-export type DropdownDirection = 'top left' | 'top right' | 'bottom left' | 'bottom right';
+export type DropdownDirection =
+  | 'top left'
+  | 'top right'
+  | 'bottom left'
+  | 'bottom right';
 
 export const mapDirection: Record<DropdownDirection, string> = {
   'top left': cls.optionTopLeft,

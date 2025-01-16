@@ -9,6 +9,7 @@ module.exports = {
     'airbnb',
     'plugin:i18next/recommended',
     'plugin:react-hooks/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -18,12 +19,18 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'fsd-arch-path', 'unused-imports'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'i18next',
+    'fsd-arch-path',
+    'unused-imports',
+  ],
   rules: {
-    'react/jsx-indent': [2, 2],
-    'react/jsx-indent-props': [2, 2],
-    indent: [2, 2],
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.tsx'] },
+    ],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'off',
@@ -82,12 +89,23 @@ module.exports = {
     'operator-linebreak': 'off',
     'react/jsx-no-useless-fragment': 'warn',
     'no-return-assign': 'off',
-    // 'fsd-arch-path/path-checker': ['warn', { alias: '@' }],
-    // 'fsd-arch-path/public-api-imports': [
-    //   'error',
-    //   { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'] },
-    // ],
-    // 'fsd-arch-path/layer-imports': ['error', { alias: '@', testFilesPatterns: ['**/StoreDecorator'] }],
+    'fsd-arch-path/path-checker': ['warn', { alias: '@' }],
+    'fsd-arch-path/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFilesPatterns: [
+          '**/*.test.*',
+          '**/*.stories.*',
+          '**/StoreDecorator.tsx',
+        ],
+      },
+    ],
+    'fsd-arch-path/layer-imports': [
+      'error',
+      { alias: '@', testFilesPatterns: ['**/StoreDecorator'] },
+    ],
+    'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
   },
   globals: {
     __IS_DEV__: true,
@@ -104,4 +122,3 @@ module.exports = {
     },
   ],
 };
-

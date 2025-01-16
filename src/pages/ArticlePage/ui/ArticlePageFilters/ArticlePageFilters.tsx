@@ -24,79 +24,91 @@ interface ArticlePageFiltersProps {
   className?: string;
 }
 
-export const ArticlePageFilters = memo((props: PropsWithChildren<ArticlePageFiltersProps>) => {
-  const { className } = props;
-  const { t } = useTranslation();
-  const dispatch = useAppDispatch();
-  const view = useSelector(getArticlePageView);
-  const sort = useSelector(getArticlePageSort);
-  const order = useSelector(getArticlePageOrder);
-  const type = useSelector(getArticlePageType);
+export const ArticlePageFilters = memo(
+  (props: PropsWithChildren<ArticlePageFiltersProps>) => {
+    const { className } = props;
+    const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+    const view = useSelector(getArticlePageView);
+    const sort = useSelector(getArticlePageSort);
+    const order = useSelector(getArticlePageOrder);
+    const type = useSelector(getArticlePageType);
 
-  const fetchData = useCallback(() => {
-    dispatch(fetchArticlesList({ replace: true }));
-  }, []);
+    const fetchData = useCallback(() => {
+      dispatch(fetchArticlesList({ replace: true }));
+    }, []);
 
-  const debouncedFetchData = useDebounce(fetchData, 500);
+    const debouncedFetchData = useDebounce(fetchData, 500);
 
-  const onChangeView = useCallback(
-    (newView: ArticleView) => {
-      dispatch(articlePageActions.setView(newView));
-    },
-    [dispatch]
-  );
+    const onChangeView = useCallback(
+      (newView: ArticleView) => {
+        dispatch(articlePageActions.setView(newView));
+      },
+      [dispatch],
+    );
 
-  const onChangeSort = useCallback(
-    (newSort: ArticleSortField) => {
-      dispatch(articlePageActions.setSort(newSort));
-      dispatch(articlePageActions.setPage(1));
-      fetchData();
-    },
-    [dispatch]
-  );
+    const onChangeSort = useCallback(
+      (newSort: ArticleSortField) => {
+        dispatch(articlePageActions.setSort(newSort));
+        dispatch(articlePageActions.setPage(1));
+        fetchData();
+      },
+      [dispatch],
+    );
 
-  const onChangeOrder = useCallback(
-    (newOrder: SortOrder) => {
-      dispatch(articlePageActions.setOrder(newOrder));
-      dispatch(articlePageActions.setPage(1));
-      fetchData();
-    },
-    [dispatch]
-  );
+    const onChangeOrder = useCallback(
+      (newOrder: SortOrder) => {
+        dispatch(articlePageActions.setOrder(newOrder));
+        dispatch(articlePageActions.setPage(1));
+        fetchData();
+      },
+      [dispatch],
+    );
 
-  const onChangeSearch = useCallback(
-    (e: string) => {
-      dispatch(articlePageActions.setSearch(e));
-      dispatch(articlePageActions.setPage(1));
-      debouncedFetchData();
-    },
-    [dispatch]
-  );
+    const onChangeSearch = useCallback(
+      (e: string) => {
+        dispatch(articlePageActions.setSearch(e));
+        dispatch(articlePageActions.setPage(1));
+        debouncedFetchData();
+      },
+      [dispatch],
+    );
 
-  const onChangeType = useCallback(
-    (value: ArticleType) => {
-      dispatch(articlePageActions.setType(value));
-      dispatch(articlePageActions.setPage(1));
-      fetchData();
-    },
-    [dispatch]
-  );
+    const onChangeType = useCallback(
+      (value: ArticleType) => {
+        dispatch(articlePageActions.setType(value));
+        dispatch(articlePageActions.setPage(1));
+        fetchData();
+      },
+      [dispatch],
+    );
 
-  return (
-    <div className={classNames('', {}, [className])}>
-      <HStack justify="between">
-        <ArticleSortSelector
-          sort={sort}
-          order={order}
-          onChangeSort={onChangeSort}
-          onChangeOrder={onChangeOrder}
+    return (
+      <div className={classNames('', {}, [className])}>
+        <HStack justify="between">
+          <ArticleSortSelector
+            sort={sort}
+            order={order}
+            onChangeSort={onChangeSort}
+            onChangeOrder={onChangeOrder}
+          />
+          <ArticleViewSelector
+            view={view}
+            onViewClick={onChangeView}
+          />
+        </HStack>
+        <ArticleTypeTabs
+          value={type}
+          onChangeType={onChangeType}
+          className={cls.tabs}
         />
-        <ArticleViewSelector view={view} onViewClick={onChangeView} />
-      </HStack>
-      <ArticleTypeTabs value={type} onChangeType={onChangeType} className={cls.tabs} />
-      <Card className={cls.search}>
-        <Input placeholder={t('Поиск')} onChange={onChangeSearch} />
-      </Card>
-    </div>
-  );
-});
+        <Card className={cls.search}>
+          <Input
+            placeholder={t('Поиск')}
+            onChange={onChangeSearch}
+          />
+        </Card>
+      </div>
+    );
+  },
+);

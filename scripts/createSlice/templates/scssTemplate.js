@@ -1,3 +1,3 @@
-module.exports = sliceName => {
+module.exports = (sliceName) => {
   return `.${sliceName} {}`;
 };

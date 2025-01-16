@@ -16,7 +16,9 @@ interface EditableProfileCardHeaderProps {
   className?: string;
 }
 
-export const EditableProfileCardHeader = (props: PropsWithChildren<EditableProfileCardHeaderProps>) => {
+export const EditableProfileCardHeader = (
+  props: PropsWithChildren<EditableProfileCardHeaderProps>,
+) => {
   const { className } = props;
   const { t } = useTranslation();
 
@@ -39,7 +41,11 @@ export const EditableProfileCardHeader = (props: PropsWithChildren<EditableProfi
   }, [dispatch]);
 
   return (
-    <HStack max justify="between" className={classNames(cls.profilePageHeader, {}, [className])}>
+    <HStack
+      max
+      justify="between"
+      className={classNames(cls.profilePageHeader, {}, [className])}
+    >
       <Text title={t('Профиль')} />
       {isCanEdit && (
         <>
@@ -48,7 +54,8 @@ export const EditableProfileCardHeader = (props: PropsWithChildren<EditableProfi
               className={classNames(cls.editBtn)}
               theme={ThemeButton.OUTLINE}
               onClick={onEdit}
-              data-testid="EditableProfileCardHeader.EditBtn">
+              data-testid="EditableProfileCardHeader.EditBtn"
+            >
               {t('Редактировать')}
             </Button>
           ) : (
@@ -57,14 +64,16 @@ export const EditableProfileCardHeader = (props: PropsWithChildren<EditableProfi
                 className={classNames(cls.editBtn)}
                 theme={ThemeButton.OUTLINE_RED}
                 onClick={onCancelEdit}
-                data-testid="EditableProfileCardHeader.CancelBtn">
+                data-testid="EditableProfileCardHeader.CancelBtn"
+              >
                 {t('Отменить')}
               </Button>
               <Button
                 className={classNames(cls.saveBtn)}
                 theme={ThemeButton.OUTLINE}
                 onClick={onSave}
-                data-testid="EditableProfileCardHeader.SaveBtn">
+                data-testid="EditableProfileCardHeader.SaveBtn"
+              >
                 {t('Сохранить')}
               </Button>
             </>

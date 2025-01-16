@@ -12,7 +12,9 @@ export default {
   decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ArticleRecommendationList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationList> = () => <ArticleRecommendationList />;
+const Template: ComponentStory<typeof ArticleRecommendationList> = () => (
+  <ArticleRecommendationList />
+);
 
 const article: Article = {
   id: '1',
@@ -25,7 +27,8 @@ const article: Article = {
   user: {
     id: '1',
     username: 'admin',
-    avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/Kotik-300x169.jpg',
+    avatar:
+      'https://xakep.ru/wp-content/uploads/2018/05/171485/Kotik-300x169.jpg',
   },
   blocks: [],
 };
@@ -47,4 +50,3 @@ Default.parameters = {
     },
   ],
 };
-

@@ -13,7 +13,7 @@ export default {
   decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof EditableProfileCardHeader>;
 
-const Template: ComponentStory<typeof EditableProfileCardHeader> = args => (
+const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => (
   <EditableProfileCardHeader {...args} />
 );
 

@@ -19,7 +19,9 @@ export default {
   ],
 } as ComponentMeta<typeof ArticleRaiting>;
 
-const Template: ComponentStory<typeof ArticleRaiting> = args => <ArticleRaiting {...args} />;
+const Template: ComponentStory<typeof ArticleRaiting> = (args) => (
+  <ArticleRaiting {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -44,4 +46,3 @@ Normal.decorators = [];
 export const WithoutRate = Template.bind({});
 WithoutRate.args = {};
 WithoutRate.decorators = [ThemeDecorator(Theme.DARK)];
-

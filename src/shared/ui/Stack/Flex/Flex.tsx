@@ -1,4 +1,9 @@
-import { DetailedHTMLProps, HTMLAttributes, memo, type PropsWithChildren } from 'react';
+import {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  memo,
+  type PropsWithChildren,
+} from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
@@ -36,7 +41,10 @@ const flexGapClassesMap: Record<FlexGap, string> = {
   128: cls.gap128,
 };
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
 
 export interface FlexProps extends Omit<DivProps, 'ref'> {
   className?: string;
@@ -72,7 +80,10 @@ export const Flex = memo((props: PropsWithChildren<FlexProps>) => {
   };
 
   return (
-    <div className={classNames(cls.flex, mode, classes)} {...otherProps}>
+    <div
+      className={classNames(cls.flex, mode, classes)}
+      {...otherProps}
+    >
       {children}
     </div>
   );

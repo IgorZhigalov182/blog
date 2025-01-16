@@ -61,7 +61,9 @@ describe('features/EditableProfileCard', () => {
     const cancelBtn = screen.getByTestId('EditableProfileCardHeader.CancelBtn');
     await userEvent.click(cancelBtn);
 
-    expect(inputFirstname).toHaveValue(options.initialState.profile.data.firstname);
+    expect(inputFirstname).toHaveValue(
+      options.initialState.profile.data.firstname,
+    );
   });
 
   test('Validations should be triggered', async () => {
@@ -78,7 +80,9 @@ describe('features/EditableProfileCard', () => {
     const saveBtn = screen.getByTestId('EditableProfileCardHeader.SaveBtn');
     await userEvent.click(saveBtn);
 
-    expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument();
+    expect(
+      screen.getByTestId('EditableProfileCard.Error.Paragraph'),
+    ).toBeInTheDocument();
   });
 
   test('Success update user profile', async () => {

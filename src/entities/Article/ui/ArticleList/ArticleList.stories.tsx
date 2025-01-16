@@ -14,7 +14,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+  <ArticleList {...args} />
+);
 
 const article = {
   id: '1',
@@ -89,26 +91,34 @@ const article = {
 
 export const Grid = Template.bind({});
 Grid.args = {
-  articles: new Array(16).fill(0).map((_, index) => ({ ...article, id: String(index) })),
+  articles: new Array(16)
+    .fill(0)
+    .map((_, index) => ({ ...article, id: String(index) })),
   view: ArticleView.GRID,
 };
 
 export const List = Template.bind({});
 List.args = {
-  articles: new Array(16).fill(0).map((_, index) => ({ ...article, id: String(index) })),
+  articles: new Array(16)
+    .fill(0)
+    .map((_, index) => ({ ...article, id: String(index) })),
   view: ArticleView.LIST,
 };
 
 export const GridSkeleton = Template.bind({});
 GridSkeleton.args = {
-  articles: new Array(16).fill(0).map((_, index) => ({ ...article, id: String(index) })),
+  articles: new Array(16)
+    .fill(0)
+    .map((_, index) => ({ ...article, id: String(index) })),
   view: ArticleView.GRID,
   isLoading: true,
 };
 
 export const ListSkeleton = Template.bind({});
 ListSkeleton.args = {
-  articles: new Array(16).fill(0).map((_, index) => ({ ...article, id: String(index) })),
+  articles: new Array(16)
+    .fill(0)
+    .map((_, index) => ({ ...article, id: String(index) })),
   view: ArticleView.LIST,
   isLoading: true,
 };

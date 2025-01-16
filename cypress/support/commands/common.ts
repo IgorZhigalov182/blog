@@ -1,8 +1,11 @@
-import { selectByTestId } from 'cypress/helpers/selectByTestId';
+import { selectByTestId } from '../../helpers/selectByTestId';
 import { User } from '@/entities/User';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 
-export const login = (username: string = 'testuser', password: string = '123') => {
+export const login = (
+  username: string = 'testuser',
+  password: string = '123',
+) => {
   return cy
     .request({
       method: 'POST',

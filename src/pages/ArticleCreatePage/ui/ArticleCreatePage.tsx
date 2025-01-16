@@ -6,11 +6,15 @@ interface ArticleCreatePageProps {
   className?: string;
 }
 
-const ArticleCreatePage = memo((props: PropsWithChildren<ArticleCreatePageProps>) => {
-  const { className } = props;
-  const { t } = useTranslation();
+const ArticleCreatePage = memo(
+  (props: PropsWithChildren<ArticleCreatePageProps>) => {
+    const { className } = props;
+    const { t } = useTranslation();
 
-  return <div className={classNames('', {}, [className])}>{t('CREATE PAGE')}</div>;
-});
+    return (
+      <div className={classNames('', {}, [className])}>{t('CREATE PAGE')}</div>
+    );
+  },
+);
 
 export default ArticleCreatePage;

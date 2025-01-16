@@ -12,24 +12,26 @@ interface SidebarItemProps {
   collapsed?: boolean;
 }
 
-export const SidebarItem = memo((props: PropsWithChildren<SidebarItemProps>) => {
-  const { item, collapsed } = props;
-  const { t } = useTranslation();
+export const SidebarItem = memo(
+  (props: PropsWithChildren<SidebarItemProps>) => {
+    const { item, collapsed } = props;
+    const { t } = useTranslation();
 
-  const isAuth = useSelector(getUserAuthData);
+    const isAuth = useSelector(getUserAuthData);
 
-  if (item.authOnly && !isAuth) {
-    return null;
-  }
+    if (item.authOnly && !isAuth) {
+      return null;
+    }
 
-  return (
-    <AppLink
-      theme={AppLinkTheme.INVERTED}
-      to={item.path}
-      className={classNames(cls.item, { [cls.collapsed]: collapsed }, [])}
-    >
-      <item.Icon className={cls.icon} />
-      <span className={cls.link}>{t(item.text)}</span>
-    </AppLink>
-  );
-});
+    return (
+      <AppLink
+        theme={AppLinkTheme.INVERTED}
+        to={item.path}
+        className={classNames(cls.item, { [cls.collapsed]: collapsed }, [])}
+      >
+        <item.Icon className={cls.icon} />
+        <span className={cls.link}>{t(item.text)}</span>
+      </AppLink>
+    );
+  },
+);

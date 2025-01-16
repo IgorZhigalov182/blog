@@ -10,38 +10,44 @@ interface ArticleTypeTabsProps {
   onChangeType: (type: ArticleType) => void;
 }
 
-export const ArticleTypeTabs = memo((props: PropsWithChildren<ArticleTypeTabsProps>) => {
-  const { className, value, onChangeType } = props;
-  const { t } = useTranslation();
+export const ArticleTypeTabs = memo(
+  (props: PropsWithChildren<ArticleTypeTabsProps>) => {
+    const { className, value, onChangeType } = props;
+    const { t } = useTranslation();
 
-  const tabs = useMemo<TabItem[]>(
-    () => [
-      {
-        value: ArticleType.ALL,
-        content: t('Всё'),
-      },
-      {
-        value: ArticleType.IT,
-        content: t('IT'),
-      },
-      {
-        value: ArticleType.ECONOMICS,
-        content: t('Экономика'),
-      },
-      {
-        value: ArticleType.SCIENCE,
-        content: t('Наука'),
-      },
-    ],
-    []
-  );
+    const tabs = useMemo<TabItem[]>(
+      () => [
+        {
+          value: ArticleType.ALL,
+          content: t('Всё'),
+        },
+        {
+          value: ArticleType.IT,
+          content: t('IT'),
+        },
+        {
+          value: ArticleType.ECONOMICS,
+          content: t('Экономика'),
+        },
+        {
+          value: ArticleType.SCIENCE,
+          content: t('Наука'),
+        },
+      ],
+      [],
+    );
 
-  const onTabClick = useCallback((tab: TabItem) => {
-    onChangeType(tab.value as ArticleType);
-  }, []);
+    const onTabClick = useCallback((tab: TabItem) => {
+      onChangeType(tab.value as ArticleType);
+    }, []);
 
-  return (
-    <Tabs onTabClick={onTabClick} tabs={tabs} value={value} className={classNames('', {}, [className])} />
-  );
-});
-
+    return (
+      <Tabs
+        onTabClick={onTabClick}
+        tabs={tabs}
+        value={value}
+        className={classNames('', {}, [className])}
+      />
+    );
+  },
+);

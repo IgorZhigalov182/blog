@@ -23,11 +23,24 @@ export const Avatar = (props: PropsWithChildren<AvatarProps>) => {
       width: size || 100,
       height: size || 100,
     }),
-    [size]
+    [size],
   );
 
-  const fallback = <Skeleton border="50%" width={size} height={size} />;
-  const errorFallback = <Icon isInvertedColor={fallbackInverted} Svg={UserIcon} width={size} height={size} />;
+  const fallback = (
+    <Skeleton
+      border="50%"
+      width={size}
+      height={size}
+    />
+  );
+  const errorFallback = (
+    <Icon
+      isInvertedColor={fallbackInverted}
+      Svg={UserIcon}
+      width={size}
+      height={size}
+    />
+  );
 
   return (
     <AppImage

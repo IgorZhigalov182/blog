@@ -1,0 +1,12 @@
+{
+  "id": "1",
+  "first": "test",
+  "lastname": "user",
+  "age": 25,
+  "currency": "RUB",
+  "country": "USA",
+  "city": "San Francisco",
+  "username": "testuser",
+  "avatar": "https://www.film.ru/sites/default/files/images/1-21(15).jpg",
+  "firstname": "test"
+}

@@ -3,7 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { Country, CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Avatar, Input, Loader, HStack, VStack, Text, TextAlign, TextTheme } from '@/shared/ui';
+import {
+  Avatar,
+  Input,
+  Loader,
+  HStack,
+  VStack,
+  Text,
+  TextAlign,
+  TextTheme,
+} from '@/shared/ui';
 
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
@@ -45,7 +54,11 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
 
   if (isLoading) {
     return (
-      <HStack justify="center" max className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+      <HStack
+        justify="center"
+        max
+        className={classNames(cls.profileCard, {}, [className, cls.loading])}
+      >
         <Loader />
       </HStack>
     );
@@ -53,7 +66,10 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
 
   if (error) {
     return (
-      <HStack justify="center" className={classNames(cls.profileCard, {}, [className, cls.error])}>
+      <HStack
+        justify="center"
+        className={classNames(cls.profileCard, {}, [className, cls.error])}
+      >
         <Text
           theme={TextTheme.ERROR}
           title={t('Произошла ошибка при загрузке профиля')}
@@ -69,9 +85,16 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
   };
 
   return (
-    <VStack max gap="16" className={classNames(cls.profileCard, mods, [className])}>
+    <VStack
+      max
+      gap="16"
+      className={classNames(cls.profileCard, mods, [className])}
+    >
       {data?.avatar && (
-        <HStack justify="center" max>
+        <HStack
+          justify="center"
+          max
+        >
           <Avatar src={data?.avatar} />
         </HStack>
       )}

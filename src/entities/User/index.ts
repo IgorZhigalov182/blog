@@ -2,7 +2,11 @@ import { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthDa
 import { UserSchema, User } from './model/types/user';
 import { userReducer, userActions } from './model/slice/userSlice';
 import { getUserInited } from './model/selectors/getUserInited/getUserInited';
-import { getUserIsAdmin, getUserIsManager, getUserRoles } from './model/selectors/getUserRoles.ts/getUserRoles';
+import {
+  getUserIsAdmin,
+  getUserIsManager,
+  getUserRoles,
+} from './model/selectors/getUserRoles.ts/getUserRoles';
 import { UserRole } from './model/consts/userRole';
 
 export {
