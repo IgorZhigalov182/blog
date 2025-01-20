@@ -106,6 +106,7 @@ module.exports = {
       { alias: '@', testFilesPatterns: ['**/StoreDecorator'] },
     ],
     'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+    'react/no-unstable-nested-components': 'off',
   },
   globals: {
     __IS_DEV__: true,
