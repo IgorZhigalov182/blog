@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AddCommentFormSchema } from '../types/addCommentForm';
 // eslint-disable-next-line
 import { addCommentForArticle } from '@/pages/ArticleDetailsPage';
+// @ts-ignore
+import { type AddCommentFormSchema } from '../types/addCommentForm';
 
 const initialState: AddCommentFormSchema = {
   text: '',

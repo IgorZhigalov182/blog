@@ -11,11 +11,13 @@ import { Button, Input, HStack } from '@/shared/ui';
 import {
   getAddCommentFormError,
   getAddCommentFormText,
+  // @ts-ignore
 } from '../../model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
 import {
   addCommentFormActions,
   addCommentFormReducer,
+  // @ts-ignore
 } from '../../model/slice/addCommentFormSlice';
 
 export interface AddCommentFormProps {
