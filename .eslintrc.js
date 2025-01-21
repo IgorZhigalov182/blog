@@ -53,6 +53,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'comma-dangle': 'off',
+    'consistent-return': 'off',
     'i18next/no-literal-string': [
       'error',
       {
@@ -67,6 +68,7 @@ module.exports = {
           'as',
           'justify',
           'border',
+          'feature',
         ],
       },
     ],
