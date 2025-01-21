@@ -9,6 +9,8 @@ import {
 } from './model/selectors/getUserRoles.ts/getUserRoles';
 import { UserRole } from './model/consts/userRole';
 
+export { saveJsonSettings } from './model/services/saveJsonSettings';
+
 export {
   getUserIsManager,
   getUserIsAdmin,
@@ -19,5 +21,7 @@ export {
   getUserRoles,
   UserRole,
 };
+
+export { useJsonSettings } from './model/selectors/jsonSettings/jsonSettings';
 
 export type { UserSchema, User };
