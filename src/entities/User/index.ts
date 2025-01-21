@@ -9,6 +9,7 @@ import {
 } from './model/selectors/getUserRoles.ts/getUserRoles';
 import { UserRole } from './model/consts/userRole';
 
+export { initAuthData } from './model/services/initAuthData';
 export { saveJsonSettings } from './model/services/saveJsonSettings';
 
 export {
