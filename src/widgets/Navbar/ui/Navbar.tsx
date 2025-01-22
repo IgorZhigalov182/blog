@@ -16,6 +16,7 @@ import {
   ThemeButton,
 } from '@/shared/ui';
 import cls from './Navbar.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
   className?: string;
@@ -36,29 +37,70 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.Navbar, {}, [className])}>
-        <AppLink
-          to={getRouteMain()}
-          className={cls.mainLink}
-          theme={AppLinkTheme.INVERTED}
-        >
-          <Text title={t('Igor182')} />
-        </AppLink>
-        <AppLink
-          to={getRouteArticleCreate()}
-          theme={AppLinkTheme.INVERTED}
-        >
-          {t('Создать статью')}
-        </AppLink>
-        <HStack
-          gap="16"
-          className={cls.actions}
-        >
-          <NotifciationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+            <HStack
+              gap="16"
+              className={cls.actions}
+            >
+              <NotifciationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+        off={
+          <header className={classNames(cls.Navbar, {}, [className])}>
+            <AppLink
+              to={getRouteMain()}
+              className={cls.mainLink}
+              theme={AppLinkTheme.INVERTED}
+            >
+              <Text title={t('Igor182')} />
+            </AppLink>
+            <AppLink
+              to={getRouteArticleCreate()}
+              theme={AppLinkTheme.INVERTED}
+            >
+              {t('Создать статью')}
+            </AppLink>
+            <HStack
+              gap="16"
+              className={cls.actions}
+            >
+              <NotifciationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+      />
     );
+
+    // return (
+    // <header className={classNames(cls.Navbar, {}, [className])}>
+    //   <AppLink
+    //     to={getRouteMain()}
+    //     className={cls.mainLink}
+    //     theme={AppLinkTheme.INVERTED}
+    //   >
+    //     <Text title={t('Igor182')} />
+    //   </AppLink>
+    //   <AppLink
+    //     to={getRouteArticleCreate()}
+    //     theme={AppLinkTheme.INVERTED}
+    //   >
+    //     {t('Создать статью')}
+    //   </AppLink>
+    //   <HStack
+    //     gap="16"
+    //     className={cls.actions}
+    //   >
+    //     <NotifciationButton />
+    //     <AvatarDropdown />
+    //   </HStack>
+    // </header>
+    // );
   }
 
   return (

@@ -1,3 +1,4 @@
+export { AppLogo } from './AppLogo/AppLogo';
 export { AppImage } from './AppImage/AppImage';
 export { AppLink, AppLinkTheme } from './AppLink/AppLink';
 export { Avatar } from './Avatar/Avatar';

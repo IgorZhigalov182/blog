@@ -1465,10 +1465,11 @@
       "avatar": "https://sun9-78.userapi.com/c5776/u43743957/-14/x_36e2b530.jpg",
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_deep_purple_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageHasBeenOpen": true
