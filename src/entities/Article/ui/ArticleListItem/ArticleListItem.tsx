@@ -3,12 +3,8 @@ import { useTranslation } from 'react-i18next';
 import EyeIcon from '@/shared/assets/icons/EyeIcon.svg';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppImage, Card, Skeleton } from '@/shared/ui';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import { Text } from '@/shared/ui/Text/Text';
+import { AppImage, Avatar, Card, Icon, Skeleton, Text } from '@/shared/ui';
+import { Button, ThemeButton } from '@/shared/ui/deprecated/Button/Button';
 import {
   ArticleBlockType,
   ArticleView,
@@ -16,6 +12,7 @@ import {
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
+import { AppLink } from '@/shared/ui/redesigned/AppLink/AppLink';
 
 interface ArticleListItemProps {
   className?: string;

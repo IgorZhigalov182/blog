@@ -11,7 +11,7 @@ export default {
   args: {
     to: '/',
   },
-  decorators: [StoreDecorator({})],
+  decorators: [],
 } as ComponentMeta<typeof NotificationItem>;
 
 const Template: ComponentStory<typeof NotificationItem> = (args) => (

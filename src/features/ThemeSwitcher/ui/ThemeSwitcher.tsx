@@ -1,9 +1,16 @@
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
-import { Button, Icon, ThemeButton } from '@/shared/ui';
+import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
+import ThemeIcon from '@/shared/assets/icons/theme.svg';
+import {
+  Button as ButtonDeprecated,
+  Icon as IconDeprecated,
+  ThemeButton,
+} from '@/shared/ui';
 import { useAppDispatch, useTheme } from '@/shared/lib/hooks';
 import { saveJsonSettings } from '@/entities/User';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Icon } from '@/shared/ui/redesigned';
 
 interface ThemeSwitcherProps {
   className?: string;
@@ -20,17 +27,29 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   }, [toggleTheme, dispatch]);
 
   return (
-    <Button
-      theme={ThemeButton.CLEAR}
-      className={classNames('', {}, [className])}
-      onClick={onToggleHandler}
-    >
-      <Icon
-        Svg={ThemeIcon}
-        width={40}
-        height={40}
-        isInvertedColor
-      />
-    </Button>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      off={
+        <ButtonDeprecated
+          theme={ThemeButton.CLEAR}
+          className={classNames('', {}, [className])}
+          onClick={onToggleHandler}
+        >
+          <IconDeprecated
+            Svg={ThemeIconDeprecated}
+            width={40}
+            height={40}
+            isInvertedColor
+          />
+        </ButtonDeprecated>
+      }
+      on={
+        <Icon
+          Svg={ThemeIcon}
+          onClick={onToggleHandler}
+          clickable
+        />
+      }
+    />
   );
 });
