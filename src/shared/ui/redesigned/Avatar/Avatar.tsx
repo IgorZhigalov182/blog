@@ -4,22 +4,17 @@ import cls from './Avatar.module.scss';
 import { AppImage } from '../../redesigned/AppImage/AppImage';
 import UserIcon from '../../../assets/icons/user-filled.svg';
 import { Icon } from '../Icon/Icon';
-import { Skeleton } from '../Skeleton/Skeleton';
+import { Skeleton } from '../../deprecated/Skeleton/Skeleton';
 
 interface AvatarProps {
   className?: string;
   src?: string;
   size?: number;
   alt?: string;
-  fallbackInverted?: boolean;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const Avatar = (props: PropsWithChildren<AvatarProps>) => {
-  const { className, src, size, alt, fallbackInverted } = props;
+  const { className, src, size, alt } = props;
   const mods: Mods = {};
 
   const styles = useMemo<CSSProperties>(
@@ -39,7 +34,6 @@ export const Avatar = (props: PropsWithChildren<AvatarProps>) => {
   );
   const errorFallback = (
     <Icon
-      isInvertedColor={fallbackInverted}
       Svg={UserIcon}
       width={size}
       height={size}

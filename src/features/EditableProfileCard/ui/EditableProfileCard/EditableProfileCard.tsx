@@ -10,7 +10,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack, Text, TextTheme } from '@/shared/ui';
+import { VStack, TextDeprecated, TextTheme } from '@/shared/ui';
 import { ValidateProfileError } from '../../model/contst/validateProfileError';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
@@ -124,7 +124,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         <EditableProfileCardHeader />
         {validateErrors?.length &&
           validateErrors.map((err: ValidateProfileError) => (
-            <Text
+            <TextDeprecated
               key={err}
               theme={TextTheme.ERROR}
               text={validateErrorTranslate[err]}

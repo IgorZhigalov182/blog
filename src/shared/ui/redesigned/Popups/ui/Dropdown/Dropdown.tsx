@@ -21,10 +21,6 @@ interface DropdownProps {
   direction?: DropdownDirection;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const Dropdown = (props: DropdownProps) => {
   const { className, items, trigger, direction = 'bottom left' } = props;
 
@@ -37,7 +33,10 @@ export const Dropdown = (props: DropdownProps) => {
         {trigger}
       </Menu.Button>
       <Menu.Items
-        className={classNames(cls.menu, {}, [mapDirection[direction]])}
+        className={classNames(cls.menu, {}, [
+          mapDirection[direction],
+          popupCls.menu,
+        ])}
       >
         {items.map(({ content, disabled, onClick, href }, index) => {
           const node = ({ active }: { active: boolean }) => (

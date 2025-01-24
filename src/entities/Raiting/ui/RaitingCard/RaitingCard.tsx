@@ -11,7 +11,7 @@ import {
   HStack,
   VStack,
   StarRaiting,
-  Text,
+  TextDeprecated,
 } from '@/shared/ui';
 
 interface RaitingProps {
@@ -62,7 +62,7 @@ export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
 
   const content = (
     <>
-      <Text title={feedbackTitle} />
+      <TextDeprecated title={feedbackTitle} />
       <Input
         value={feedback}
         onChange={setFeedback}
@@ -83,7 +83,7 @@ export const RaitingCard = memo((props: PropsWithChildren<RaitingProps>) => {
         align="center"
         gap="32"
       >
-        <Text title={starsCount ? t('Спасибо за оценку') : title} />
+        <TextDeprecated title={starsCount ? t('Спасибо за оценку') : title} />
         <StarRaiting
           selectedStars={starsCount}
           size={40}

@@ -12,7 +12,7 @@ import {
   AppLinkTheme,
   Button,
   HStack,
-  Text,
+  TextDeprecated,
   ThemeButton,
 } from '@/shared/ui';
 import cls from './Navbar.module.scss';
@@ -57,7 +57,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
               className={cls.mainLink}
               theme={AppLinkTheme.INVERTED}
             >
-              <Text title={t('Igor182')} />
+              <TextDeprecated title={t('Igor182')} />
             </AppLink>
             <AppLink
               to={getRouteArticleCreate()}

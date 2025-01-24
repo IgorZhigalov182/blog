@@ -12,10 +12,6 @@ interface PopoverProps {
   children: ReactNode;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const Popover = ({
   className,
   trigger,
@@ -32,7 +28,10 @@ export const Popover = ({
       {trigger}
     </HPopover.Button>
     <HPopover.Panel
-      className={classNames(cls.panel, {}, [mapDirection[direction]])}
+      className={classNames(cls.panel, {}, [
+        mapDirection[direction],
+        popupCls.menu,
+      ])}
     >
       {children}
     </HPopover.Panel>

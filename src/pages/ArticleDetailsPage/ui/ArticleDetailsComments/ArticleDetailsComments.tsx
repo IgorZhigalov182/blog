@@ -9,7 +9,7 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { Loader, Text, TextSize, VStack } from '@/shared/ui';
+import { Loader, TextDeprecated, TextSize, VStack } from '@/shared/ui';
 import { useAppDispatch } from '@/shared/lib/hooks';
 
 interface ArticleDetailsCommentsProps {
@@ -42,7 +42,7 @@ export const ArticleDetailsComments = memo(
         max
         className={classNames('', {}, [className])}
       >
-        <Text
+        <TextDeprecated
           size={TextSize.L}
           title={t('Комментарии')}
         />

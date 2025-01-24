@@ -9,7 +9,7 @@ import {
   Loader,
   HStack,
   VStack,
-  Text,
+  TextDeprecated,
   TextAlign,
   TextTheme,
 } from '@/shared/ui';
@@ -70,7 +70,7 @@ export const ProfileCard = (props: PropsWithChildren<ProfileCardProps>) => {
         justify="center"
         className={classNames(cls.profileCard, {}, [className, cls.error])}
       >
-        <Text
+        <TextDeprecated
           theme={TextTheme.ERROR}
           title={t('Произошла ошибка при загрузке профиля')}
           text={t('Попробуйте обновить страницу')}

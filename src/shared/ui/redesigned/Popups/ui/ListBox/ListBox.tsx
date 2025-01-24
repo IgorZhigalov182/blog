@@ -25,10 +25,6 @@ interface IListBox {
   label?: string;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const ListBox = memo((props: PropsWithChildren<IListBox>) => {
   const {
     items,
@@ -60,7 +56,10 @@ export const ListBox = memo((props: PropsWithChildren<IListBox>) => {
           </Button>
         </HListBox.Button>
         <HListBox.Options
-          className={classNames(cls.options, {}, [mapDirection[direction]])}
+          className={classNames(cls.options, {}, [
+            mapDirection[direction],
+            popupCls.menu,
+          ])}
         >
           {items?.map(({ value, content, disabled }) => (
             <HListBox.Option

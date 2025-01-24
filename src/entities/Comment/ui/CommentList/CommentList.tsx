@@ -1,7 +1,7 @@
 import { memo, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, VStack } from '@/shared/ui';
+import { TextDeprecated, VStack } from '@/shared/ui';
 import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 import cls from './CommentList.module.scss';
@@ -47,7 +47,7 @@ export const CommentList = memo(
             />
           ))
         ) : (
-          <Text text={t('Комментариев нет')} />
+          <TextDeprecated text={t('Комментариев нет')} />
         )}
       </VStack>
     );

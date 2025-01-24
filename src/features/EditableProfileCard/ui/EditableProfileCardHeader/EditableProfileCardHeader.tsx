@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ThemeButton, HStack, Text } from '@/shared/ui';
+import { Button, ThemeButton, HStack, TextDeprecated } from '@/shared/ui';
 
 import cls from './EditableProfileCardHeader.module.scss';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -46,7 +46,7 @@ export const EditableProfileCardHeader = (
       justify="between"
       className={classNames(cls.profilePageHeader, {}, [className])}
     >
-      <Text title={t('Профиль')} />
+      <TextDeprecated title={t('Профиль')} />
       {isCanEdit && (
         <>
           {readonly ? (

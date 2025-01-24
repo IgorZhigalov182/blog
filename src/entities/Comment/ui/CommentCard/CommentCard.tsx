@@ -1,6 +1,6 @@
 import { memo, type PropsWithChildren } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, Avatar, Skeleton, Text, VStack } from '@/shared/ui';
+import { AppLink, Avatar, Skeleton, TextDeprecated, VStack } from '@/shared/ui';
 import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
 import { getRouteProfile } from '@/shared/const/router';
@@ -60,10 +60,10 @@ export const CommentCard = memo(
                 src={comment.user.avatar}
               />
             )}
-            <Text title={comment.user.username} />
+            <TextDeprecated title={comment.user.username} />
           </div>
         </AppLink>
-        <Text
+        <TextDeprecated
           text={comment.text}
           className={cls.text}
         />

@@ -15,7 +15,7 @@ import {
   HStack,
   Icon,
   Skeleton,
-  Text,
+  TextDeprecated,
   TextAlign,
   TextSize,
   VStack,
@@ -122,7 +122,7 @@ export const ArticleDetails = memo(
       );
     } else if (error) {
       content = (
-        <Text
+        <TextDeprecated
           align={TextAlign.CENTER}
           title={t('Произошла ошибка при загрузке страницы')}
         />
@@ -142,7 +142,7 @@ export const ArticleDetails = memo(
             max
             data-testid="ArticleDetails.Info"
           >
-            <Text
+            <TextDeprecated
               title={article?.title}
               text={article?.subtitle}
               size={TextSize.L}
@@ -150,11 +150,11 @@ export const ArticleDetails = memo(
             />
             <HStack gap="8">
               <Icon Svg={EyeIcon} />
-              <Text text={String(article?.views)} />
+              <TextDeprecated text={String(article?.views)} />
             </HStack>
             <HStack gap="8">
               <Icon Svg={CalendarIcon} />
-              <Text text={article?.createdAt} />
+              <TextDeprecated text={article?.createdAt} />
             </HStack>
             {article?.blocks?.map(renderBlock)}
           </VStack>
