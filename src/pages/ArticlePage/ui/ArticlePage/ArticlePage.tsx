@@ -15,6 +15,10 @@ import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import cls from './ArticlePage.module.scss';
 import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
+import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -37,20 +41,46 @@ const ArticlePage = (props: PropsWithChildren<ArticleDetailsPageProps>) => {
     dispatch(initArticlesPage(searchParams));
   });
 
+  const content = (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      off={
+        <Page
+          onScrollEnd={onLoadNextPart}
+          className={classNames(cls.ArticlePage, {}, [className])}
+          data-testid="ArticlePage"
+        >
+          <ArticlePageFilters />
+          <ArticleInfiniteList className={classNames(cls.list)} />
+          <ArticlePageGreeting />
+        </Page>
+      }
+      on={
+        <StickyContentLayout
+          left={<ViewSelectorContainer />}
+          right={<FiltersContainer />}
+          content={
+            <Page
+              onScrollEnd={onLoadNextPart}
+              className={classNames(cls.ArticlePage, {}, [className])}
+              data-testid="ArticlePage"
+            >
+              {/* <ArticlePageFilters /> */}
+              <ArticleInfiniteList className={classNames(cls.list)} />
+              <ArticlePageGreeting />
+            </Page>
+          }
+        />
+      }
+    />
+  );
+
   return (
     <DynamicModuleLoader
       reducers={reducers}
       removeAfterUnmount={false}
     >
-      <Page
-        onScrollEnd={onLoadNextPart}
-        className={classNames(cls.ArticlePage, {}, [className])}
-        data-testid="ArticlePage"
-      >
-        <ArticlePageFilters />
-        <ArticleInfiniteList className={classNames(cls.list)} />
-        <ArticlePageGreeting />
-      </Page>
+      {content}
     </DynamicModuleLoader>
   );
 };

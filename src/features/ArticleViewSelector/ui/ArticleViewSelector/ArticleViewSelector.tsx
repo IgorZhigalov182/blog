@@ -1,11 +1,21 @@
 import { memo, type PropsWithChildren } from 'react';
-import ArticlesGrid from '@/shared/assets/icons/ArticlesGrid.svg';
-import ArticlesList from '@/shared/assets/icons/ArticlesList.svg';
+import ArticlesGridDeprecated from '@/shared/assets/icons/ArticlesGrid.svg';
+import ArticlesListDeprecated from '@/shared/assets/icons/ArticlesList.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ThemeButton, Icon } from '@/shared/ui';
+import {
+  Button as ButtonDeprecated,
+  ThemeButton,
+  Icon as IconDeprecated,
+  Card,
+  HStack,
+} from '@/shared/ui';
+import ArticlesList from '@/shared/assets/icons/burger.svg';
+import ArticlesGrid from '@/shared/assets/icons/tile.svg';
 
 import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '@/entities/Article';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Icon } from '@/shared/ui/redesigned';
 
 interface ArticleViewSelectorProps {
   className?: string;
@@ -16,11 +26,19 @@ interface ArticleViewSelectorProps {
 const viewTypes = [
   {
     view: ArticleView.LIST,
-    icon: ArticlesList,
+    icon: toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => ArticlesList,
+      off: () => ArticlesListDeprecated,
+    }),
   },
   {
     view: ArticleView.GRID,
-    icon: ArticlesGrid,
+    icon: toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => ArticlesGrid,
+      off: () => ArticlesGridDeprecated,
+    }),
   },
 ];
 
@@ -33,24 +51,51 @@ export const ArticleViewSelector = memo(
     };
 
     return (
-      <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-        {viewTypes.map((viewType) => (
-          <Button
-            theme={ThemeButton.CLEAR}
-            key={viewType.view}
-            onClick={onClick(viewType.view)}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={
+          <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
+            {viewTypes.map((viewType) => (
+              <ButtonDeprecated
+                theme={ThemeButton.CLEAR}
+                key={viewType.view}
+                onClick={onClick(viewType.view)}
+              >
+                <IconDeprecated
+                  width={24}
+                  height={24}
+                  Svg={viewType.icon}
+                  className={classNames('', {
+                    [cls.selected]: viewType.view === view,
+                  })}
+                />
+              </ButtonDeprecated>
+            ))}
+          </div>
+        }
+        on={
+          <Card
+            padding="8"
+            border="round"
+            className={classNames(cls.ArticleViewSelectorRedesigned, {}, [
+              className,
+            ])}
           >
-            <Icon
-              width={24}
-              height={24}
-              Svg={viewType.icon}
-              className={classNames('', {
-                [cls.selected]: viewType.view === view,
-              })}
-            />
-          </Button>
-        ))}
-      </div>
+            <HStack gap="8">
+              {viewTypes.map((viewType) => (
+                <Icon
+                  clickable
+                  onClick={onClick(viewType.view)}
+                  Svg={viewType.icon}
+                  className={classNames('', {
+                    [cls.notSelected]: viewType.view !== view,
+                  })}
+                />
+              ))}
+            </HStack>
+          </Card>
+        }
+      />
     );
   },
 );

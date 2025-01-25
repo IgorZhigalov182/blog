@@ -37,7 +37,15 @@ export const Page = memo((props: PropsWithChildren<PageProps>) => {
     wrapperRef.current.scrollTop = scrollPosition;
   });
 
-  useInfiniteScroll({ callback: onScrollEnd, triggerRef, wrapperRef });
+  useInfiniteScroll({
+    callback: onScrollEnd,
+    triggerRef,
+    wrapperRef: toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => undefined,
+      off: () => wrapperRef,
+    }),
+  });
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
     dispatch(
       scrollActions.setScrollPosition({

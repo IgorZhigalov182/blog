@@ -10,7 +10,8 @@ export { Card as CardDeprecated, CardTheme } from './deprecated/Card/Card';
 export { Code } from './deprecated/Code/Code';
 export { Drawer } from './deprecated/Drawer/Drawer';
 export { Icon } from './deprecated/Icon/Icon';
-export { Input } from './deprecated/Input/Input';
+export { Input as InputDeprecated } from './deprecated/Input/Input';
+export { Input } from './redesigned/Input/Input';
 export { Loader } from './deprecated/Loader/Loader';
 export { Modal } from './deprecated/Modal/Modal';
 export { Overlay } from './redesigned/Overlay/Overlay';
@@ -24,7 +25,8 @@ export { Select, type SelectOption } from './deprecated/Select/Select';
 export { Skeleton } from './deprecated/Skeleton/Skeleton';
 export { HStack, VStack } from './redesigned/Stack';
 export { StarRaiting } from './deprecated/StarRaiting/StarRaiting';
-export { Tabs, type TabItem } from './deprecated/Tabs/Tabs';
+export { Tabs as TabsDeprecated, type TabItem } from './deprecated/Tabs/Tabs';
+export { Tabs } from './redesigned/Tabs/Tabs';
 export {
   Text as TextDeprecated,
   TextAlign,
