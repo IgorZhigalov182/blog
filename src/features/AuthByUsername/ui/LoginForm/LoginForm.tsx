@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import {
   TextDeprecated,
   TextTheme,
-  Button,
+  ButtonDeprecated as Button,
   ThemeButton,
   Input,
 } from '@/shared/ui';

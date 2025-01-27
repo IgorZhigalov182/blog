@@ -3,7 +3,7 @@ import ArticlesGridDeprecated from '@/shared/assets/icons/ArticlesGrid.svg';
 import ArticlesListDeprecated from '@/shared/assets/icons/ArticlesList.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-  Button as ButtonDeprecated,
+  ButtonDeprecated,
   ThemeButton,
   Icon as IconDeprecated,
   Card,

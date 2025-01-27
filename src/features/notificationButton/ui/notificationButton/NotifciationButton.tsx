@@ -5,17 +5,17 @@ import NotificationDeprecated from '@/shared/assets/icons/notification-20-20.svg
 import Notification from '@/shared/assets/icons/nofification.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-  Button as ButtonDeprecated,
+  ButtonDeprecated,
   ThemeButton,
   Drawer,
-  Icon as IconDeprecated,
+  IconDeprecated,
+  Icon,
   PopoverDeprecated,
   Popover,
 } from '@/shared/ui';
 
 import cls from './NotifciationButton.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Icon } from '@/shared/ui/redesigned';
 
 interface NotifciationButtonProps {
   className?: string;

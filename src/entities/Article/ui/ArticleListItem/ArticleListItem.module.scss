@@ -1,3 +1,14 @@
+.ArticleListItemRedesigned {
+    &.LIST {
+        width: 100%;
+    }
+
+    &.GRID {
+      width: 240px;  
+      height: 250px;  
+    }
+}
+
 .LIST {
     .views {
         margin-left: auto;

@@ -10,7 +10,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   AppLink,
   AppLinkTheme,
-  Button,
+  ButtonDeprecated as Button,
   HStack,
   TextDeprecated,
   ThemeButton,

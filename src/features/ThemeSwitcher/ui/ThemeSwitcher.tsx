@@ -3,14 +3,14 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
 import ThemeIcon from '@/shared/assets/icons/theme.svg';
 import {
-  Button as ButtonDeprecated,
-  Icon as IconDeprecated,
+  ButtonDeprecated,
+  IconDeprecated,
   ThemeButton,
+  Icon,
 } from '@/shared/ui';
 import { useAppDispatch, useTheme } from '@/shared/lib/hooks';
 import { saveJsonSettings } from '@/entities/User';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Icon } from '@/shared/ui/redesigned';
 
 interface ThemeSwitcherProps {
   className?: string;

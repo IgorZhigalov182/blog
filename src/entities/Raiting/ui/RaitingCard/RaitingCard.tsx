@@ -2,7 +2,7 @@ import { memo, PropsWithChildren, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { useTranslation } from 'react-i18next';
 import {
-  Button,
+  ButtonDeprecated as Button,
   ThemeButton,
   Card,
   Drawer,

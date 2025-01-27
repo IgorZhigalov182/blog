@@ -4,7 +4,12 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ThemeButton, HStack, TextDeprecated } from '@/shared/ui';
+import {
+  ButtonDeprecated as Button,
+  ThemeButton,
+  HStack,
+  TextDeprecated,
+} from '@/shared/ui';
 
 import cls from './EditableProfileCardHeader.module.scss';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

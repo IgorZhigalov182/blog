@@ -1,9 +1,15 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card, Skeleton } from '@/shared/ui';
+import {
+  CardDeprecated,
+  Card as CardRedesigned,
+  SkeletonDeprecated,
+  Skeleton as SkeletonRedesigned,
+} from '@/shared/ui';
 
 import cls from './ArticleListItem.module.scss';
 import { ArticleView } from '../../model/contst/articleConsts';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -14,15 +20,31 @@ export const ArticleListItemSkeleton = memo(
   (props: ArticleListItemSkeletonProps) => {
     const { className, view } = props;
 
+    const mainClass = toggleFeatures({
+      name: 'isAppRedesigned',
+      off: () => cls.ArticleListItem,
+      on: () => cls.ArticleListItemRedesigned,
+    });
+
+    const Skeleton = toggleFeatures({
+      name: 'isAppRedesigned',
+      off: () => SkeletonDeprecated,
+      on: () => SkeletonRedesigned,
+    });
+
+    const Card = toggleFeatures({
+      name: 'isAppRedesigned',
+      off: () => CardDeprecated,
+      on: () => CardRedesigned,
+    });
+
     if (view === ArticleView.LIST) {
       return (
-        <div
-          className={classNames(cls.ArticleListItem, {}, [
-            className,
-            cls[view],
-          ])}
-        >
-          <Card className={cls.card}>
+        <div className={classNames(mainClass, {}, [className, cls[view]])}>
+          <Card
+            className={cls.card}
+            padding="24"
+          >
             <div className={cls.header}>
               <Skeleton
                 border="50%"
@@ -61,9 +83,7 @@ export const ArticleListItemSkeleton = memo(
     }
 
     return (
-      <div
-        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-      >
+      <div className={classNames(mainClass, {}, [className, cls[view]])}>
         <Card className={cls.card}>
           <div className={cls.imageWrapper}>
             <Skeleton

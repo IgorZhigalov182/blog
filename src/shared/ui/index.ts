@@ -1,3 +1,4 @@
+export { Button } from './redesigned';
 export { ListBox } from './redesigned/Popups/ui/ListBox/ListBox';
 export { Text } from './redesigned/Text/Text';
 export { Card } from './redesigned/Card/Card';
@@ -6,11 +7,16 @@ export { AppImage } from './redesigned/AppImage/AppImage';
 export { AppLink, AppLinkTheme } from './deprecated/AppLink/AppLink';
 export { Avatar as AvatarDeprecated } from './deprecated/Avatar/Avatar';
 export { Avatar } from './redesigned/Avatar/Avatar';
-export { Button, ButtonSize, ThemeButton } from './deprecated/Button/Button';
+export {
+  Button as ButtonDeprecated,
+  ButtonSize,
+  ThemeButton,
+} from './deprecated/Button/Button';
 export { Card as CardDeprecated, CardTheme } from './deprecated/Card/Card';
 export { Code } from './deprecated/Code/Code';
 export { Drawer } from './deprecated/Drawer/Drawer';
-export { Icon } from './deprecated/Icon/Icon';
+export { Icon as IconDeprecated } from './deprecated/Icon/Icon';
+export { Icon } from './redesigned/Icon/Icon';
 export { Input as InputDeprecated } from './deprecated/Input/Input';
 export { Input } from './redesigned/Input/Input';
 export { Loader } from './deprecated/Loader/Loader';
@@ -23,7 +29,8 @@ export { Popover as PopoverDeprecated } from './deprecated/Popups/ui/Popover/Pop
 export { Popover } from './redesigned/Popups/ui/Popover/Popover';
 export { Portal } from './redesigned/Portal/Portal';
 export { Select, type SelectOption } from './deprecated/Select/Select';
-export { Skeleton } from './deprecated/Skeleton/Skeleton';
+export { Skeleton as SkeletonDeprecated } from './deprecated/Skeleton/Skeleton';
+export { Skeleton } from './redesigned/Skeleton/Skeleton';
 export { HStack, VStack } from './redesigned/Stack';
 export { StarRaiting } from './deprecated/StarRaiting/StarRaiting';
 export { Tabs as TabsDeprecated, type TabItem } from './deprecated/Tabs/Tabs';
