@@ -1,7 +1,8 @@
 import { memo, useCallback, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Currency } from '../../model/types/currency';
-import { ListBox } from '@/shared/ui';
+import { ListBoxDeprecated, ListBox } from '@/shared/ui';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface CurrencySelectProps {
   className?: string;
@@ -28,15 +29,22 @@ export const CurrencySelect = memo(
       [onChange],
     );
 
+    const childrenProps = {
+      className,
+      value,
+      defaultValue: t('Укажите валюту'),
+      label: t('Укажите валюту'),
+      items: options,
+      onChange: onChangeHandler,
+      readonly,
+      direction: 'top right' as const,
+    };
+
     return (
-      <ListBox
-        items={options}
-        defaultValue={t('Укажите валюту')}
-        value={value}
-        onChange={onChangeHandler}
-        className={className}
-        readonly={readonly}
-        label={t('Укажите валюту')}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={<ListBoxDeprecated {...childrenProps} />}
+        on={<ListBox {...childrenProps} />}
       />
     );
   },

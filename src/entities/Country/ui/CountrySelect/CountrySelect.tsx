@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, type PropsWithChildren } from 'react';
 import { Country } from '../../model/types/country';
-import { ListBox } from '@/shared/ui';
+import { ListBox, ListBoxDeprecated } from '@/shared/ui';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface CountrySelectProps {
   className?: string;
@@ -30,16 +31,22 @@ export const CountrySelect = memo(
       [onChange],
     );
 
+    const childrenProps = {
+      items: options,
+      value,
+      defaultValue: t('Укажите страну'),
+      onChange: onChangeCountry,
+      readonly,
+      className,
+      direction: 'top right' as const,
+      label: t('Укажите страну'),
+    };
+
     return (
-      <ListBox
-        items={options}
-        value={value}
-        defaultValue={t('Укажите страну')}
-        onChange={onChangeCountry}
-        readonly={readonly}
-        className={className}
-        direction="top right"
-        label={t('Укажите страну')}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={<ListBoxDeprecated {...childrenProps} />}
+        on={<ListBox {...childrenProps} />}
       />
     );
   },

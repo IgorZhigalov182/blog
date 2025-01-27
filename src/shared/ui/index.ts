@@ -1,3 +1,4 @@
+export { ListBox } from './redesigned/Popups/ui/ListBox/ListBox';
 export { Text } from './redesigned/Text/Text';
 export { Card } from './redesigned/Card/Card';
 export { AppLogo } from './redesigned/AppLogo/AppLogo';
@@ -17,7 +18,7 @@ export { Modal } from './deprecated/Modal/Modal';
 export { Overlay } from './redesigned/Overlay/Overlay';
 export { type DropdownDirection } from './deprecated/Popups/styles/mapper';
 export { Dropdown as DropdownDeprecated } from './deprecated/Popups/ui/Dropdown/Dropdown';
-export { ListBox } from './deprecated/Popups/ui/ListBox/ListBox';
+export { ListBox as ListBoxDeprecated } from './deprecated/Popups/ui/ListBox/ListBox';
 export { Popover as PopoverDeprecated } from './deprecated/Popups/ui/Popover/Popover';
 export { Popover } from './redesigned/Popups/ui/Popover/Popover';
 export { Portal } from './redesigned/Portal/Portal';
