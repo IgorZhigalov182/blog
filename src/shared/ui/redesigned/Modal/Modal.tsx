@@ -1,9 +1,10 @@
 import { ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
-import { Overlay } from '../../redesigned/Overlay/Overlay';
+import { Overlay } from '../Overlay/Overlay';
 import cls from './Modal.module.scss';
-import { Portal } from '../../redesigned/Portal/Portal';
+import { Portal } from '../Portal/Portal';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface ModalProps {
   className?: string;
@@ -13,10 +14,6 @@ interface ModalProps {
   lazy?: boolean;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props;
   const { close, isMounted, isClosing } = useModal({
@@ -35,8 +32,18 @@ export const Modal = (props: ModalProps) => {
   }
 
   return (
-    <Portal>
-      <div className={classNames(cls.modal, mods, [className, 'app_modal'])}>
+    <Portal element={document?.getElementById('app') ?? document.body}>
+      <div
+        className={classNames(cls.modal, mods, [
+          className,
+          'app_modal',
+          toggleFeatures({
+            name: 'isAppRedesigned',
+            off: () => cls.modalOld,
+            on: () => cls.modalNew,
+          }),
+        ])}
+      >
         <Overlay onClick={close} />
         <div className={cls.content}>{children}</div>
       </div>

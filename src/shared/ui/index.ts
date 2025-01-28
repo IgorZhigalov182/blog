@@ -1,3 +1,4 @@
+export { Drawer } from './redesigned/Drawer/Drawer';
 export { Button } from './redesigned';
 export { ListBox } from './redesigned/Popups/ui/ListBox/ListBox';
 export { Text } from './redesigned/Text/Text';
@@ -14,13 +15,12 @@ export {
 } from './deprecated/Button/Button';
 export { Card as CardDeprecated, CardTheme } from './deprecated/Card/Card';
 export { Code } from './deprecated/Code/Code';
-export { Drawer } from './deprecated/Drawer/Drawer';
 export { Icon as IconDeprecated } from './deprecated/Icon/Icon';
 export { Icon } from './redesigned/Icon/Icon';
 export { Input as InputDeprecated } from './deprecated/Input/Input';
 export { Input } from './redesigned/Input/Input';
 export { Loader } from './deprecated/Loader/Loader';
-export { Modal } from './deprecated/Modal/Modal';
+export { Modal } from './redesigned/Modal/Modal';
 export { Overlay } from './redesigned/Overlay/Overlay';
 export { type DropdownDirection } from './deprecated/Popups/styles/mapper';
 export { Dropdown as DropdownDeprecated } from './deprecated/Popups/ui/Dropdown/Dropdown';
