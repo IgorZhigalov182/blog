@@ -15,7 +15,10 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRaiting } from '@/features/ArticleRaiting';
 import { ArticleRecommendationList } from '@/features/ArticleRecommendationList';
-import { getFeatureFlag } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -25,47 +28,58 @@ const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
 };
 
-const CounterRedesigned = () => {
-  // eslint-disable-next-line
-  return <h1>ss</h1>;
-};
-const Counter = () => {
-  // eslint-disable-next-line
-  return <h1>ssc</h1>;
-};
-
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props;
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
 
-  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-  const isCounterEnabled = getFeatureFlag('isCounterEnabled');
-
   if (!id) {
     return null;
   }
-
-  const articleRatingCard = <ArticleRaiting articleId={id} />;
 
   return (
     <DynamicModuleLoader
       reducers={reducers}
       removeAfterUnmount
     >
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <VStack
-          gap="16"
-          max
-        >
-          <ArticleDetailsPageHeader />
-          <ArticleDetails id={id} />
-          {articleRatingCard}
-          <ArticleRaiting articleId={id} />
-          <ArticleRecommendationList />
-          <ArticleDetailsComments id={id} />
-        </VStack>
-      </Page>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={
+          <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <VStack
+              gap="16"
+              max
+            >
+              <ArticleDetailsPageHeader />
+              <ArticleDetails id={id} />
+              <ArticleRaiting articleId={id} />
+              <ArticleRecommendationList />
+              <ArticleDetailsComments id={id} />
+            </VStack>
+          </Page>
+        }
+        on={
+          <StickyContentLayout
+            content={
+              <Page
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+              >
+                <VStack
+                  gap="16"
+                  max
+                >
+                  {/* <ArticleDetails id={id} /> */}
+                  <DetailsContainer />
+                  <ArticleRaiting articleId={id} />
+                  <ArticleRecommendationList />
+                  <ArticleDetailsComments id={id} />
+                </VStack>
+              </Page>
+            }
+            right={<AdditionalInfoContainer />}
+          />
+        }
+      />
     </DynamicModuleLoader>
   );
 };

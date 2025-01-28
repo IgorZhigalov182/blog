@@ -16,5 +16,7 @@
   "Форма авторизации": "Auth Form",
   "Выйти": "Log out",
   "Неверный логин или пароль": "Uncorrect username or password",
-  "Страница профиля": "Profile page"
+  "Страница профиля": "Profile page",
+  "{{count}} просмотров_other": "{{count}} views",
+  "{{count}} просмотров_one": "{{count}} view"
 }
