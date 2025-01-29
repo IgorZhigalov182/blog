@@ -14,7 +14,7 @@ export const DetailsContainer = ({ className }: DetailsContainerProps) => {
       max
       className={className}
       padding="24"
-      border="round"
+      border="partial"
     >
       <ArticleDetails id={id} />
     </Card>

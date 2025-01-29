@@ -4,6 +4,7 @@
     padding: 8px 16px;
     display: flex;
     align-items: center;
+    border: 2px;
 
     &:hover {
         color: var(--accent-redesigned);
@@ -34,12 +35,23 @@
 }
 
 .outline {
-    border: 1px solid var(--icon-redesigned);
     background: none;
     border-radius: 34px;
 
     &:hover {
         border-color: var(--accent-redesigned);
+    }
+
+    &.normal {
+        border: 2px solid var(--icon-redesigned);
+    }
+
+    &.error {
+        border: 2px solid var(--cancel-redesigned);
+    }
+
+    &.success {
+        border: 2px solid var(--save-redesigned);
     }
 }
 
@@ -91,3 +103,4 @@
 .maxWidth {
     width: 100%;
 }
+

@@ -25,7 +25,7 @@ export const AdditionalInfoContainer = () => {
   return (
     <Card
       padding="24"
-      border="round"
+      border="partial"
       className={cls.card}
     >
       <ArticleAdditionalInfo

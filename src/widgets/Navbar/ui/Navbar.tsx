@@ -8,15 +8,16 @@ import { NotifciationButton } from '@/features/NotificationButton';
 import { getRouteArticleCreate, getRouteMain } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-  AppLink,
+  AppLinkDeprecated,
   AppLinkTheme,
-  ButtonDeprecated as Button,
+  ButtonDeprecated,
+  Button,
   HStack,
   TextDeprecated,
   ThemeButton,
 } from '@/shared/ui';
 import cls from './Navbar.module.scss';
-import { ToggleFeatures } from '@/shared/lib/features';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
   className?: string;
@@ -35,6 +36,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     setIsAuthModal(() => true);
   }, []);
 
+  const mainClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    off: () => cls.Navbar,
+    on: () => cls.NavbarRedesigned,
+  });
+
   if (authData) {
     return (
       <ToggleFeatures
@@ -52,19 +59,19 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         }
         off={
           <header className={classNames(cls.Navbar, {}, [className])}>
-            <AppLink
+            <AppLinkDeprecated
               to={getRouteMain()}
               className={cls.mainLink}
               theme={AppLinkTheme.INVERTED}
             >
               <TextDeprecated title={t('Igor182')} />
-            </AppLink>
-            <AppLink
+            </AppLinkDeprecated>
+            <AppLinkDeprecated
               to={getRouteArticleCreate()}
               theme={AppLinkTheme.INVERTED}
             >
               {t('Создать статью')}
-            </AppLink>
+            </AppLinkDeprecated>
             <HStack
               gap="16"
               className={cls.actions}
@@ -76,42 +83,31 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         }
       />
     );
-
-    // return (
-    // <header className={classNames(cls.Navbar, {}, [className])}>
-    //   <AppLink
-    //     to={getRouteMain()}
-    //     className={cls.mainLink}
-    //     theme={AppLinkTheme.INVERTED}
-    //   >
-    //     <Text title={t('Igor182')} />
-    //   </AppLink>
-    //   <AppLink
-    //     to={getRouteArticleCreate()}
-    //     theme={AppLinkTheme.INVERTED}
-    //   >
-    //     {t('Создать статью')}
-    //   </AppLink>
-    //   <HStack
-    //     gap="16"
-    //     className={cls.actions}
-    //   >
-    //     <NotifciationButton />
-    //     <AvatarDropdown />
-    //   </HStack>
-    // </header>
-    // );
   }
 
   return (
-    <header className={classNames(cls.Navbar, {}, [className])}>
-      <Button
-        theme={ThemeButton.CLEAR_INVERTED}
-        className={cls.enterBtn}
-        onClick={onShowModal}
-      >
-        {t('Войти')}
-      </Button>
+    <header className={classNames(mainClass, {}, [className])}>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={
+          <ButtonDeprecated
+            theme={ThemeButton.CLEAR_INVERTED}
+            className={cls.enterBtn}
+            onClick={onShowModal}
+          >
+            {t('Войти')}
+          </ButtonDeprecated>
+        }
+        on={
+          <Button
+            variant="clear"
+            className={cls.enterBtn}
+            onClick={onShowModal}
+          >
+            {t('Войти')}
+          </Button>
+        }
+      />
       {isAuthModal && (
         <LoginModal
           onClose={onClose}

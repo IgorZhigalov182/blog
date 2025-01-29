@@ -130,12 +130,13 @@ export const ArticleListItemRedesigned = memo(
       >
         <Card
           className={cls.card}
-          border="round"
+          border="partial"
+          padding="0"
         >
           <AppImage
             fallback={
               <Skeleton
-                width={200}
+                width="100%"
                 height={200}
               />
             }
@@ -166,7 +167,12 @@ export const ArticleListItemRedesigned = memo(
                 />
                 {viewsCount}
               </HStack>
-              <HStack gap="4">{userInfo}</HStack>
+              <HStack
+                gap="8"
+                className={cls.avatar}
+              >
+                {userInfo}
+              </HStack>
             </VStack>
           </VStack>
         </Card>

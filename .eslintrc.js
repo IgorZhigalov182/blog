@@ -91,8 +91,8 @@ module.exports = {
     'arrow-body-style': 'off',
     'react/no-array-index-key': 'off',
     'operator-linebreak': 'off',
-    'react/jsx-no-useless-fragment': 'warn',
     'no-return-assign': 'off',
+    'react/jsx-no-useless-fragment': 'off',
     'react/button-has-type': 'off',
     'fsd-arch-path/path-checker': ['warn', { alias: '@' }],
     'fsd-arch-path/public-api-imports': [

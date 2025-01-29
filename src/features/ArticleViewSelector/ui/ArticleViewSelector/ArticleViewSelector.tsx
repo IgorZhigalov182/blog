@@ -8,14 +8,13 @@ import {
   Icon as IconDeprecated,
   Card,
   HStack,
+  Icon,
 } from '@/shared/ui';
 import ArticlesList from '@/shared/assets/icons/burger.svg';
 import ArticlesGrid from '@/shared/assets/icons/tile.svg';
-
 import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '@/entities/Article';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
-import { Icon } from '@/shared/ui/redesigned';
 
 interface ArticleViewSelectorProps {
   className?: string;

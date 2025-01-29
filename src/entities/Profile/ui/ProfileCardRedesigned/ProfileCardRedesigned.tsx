@@ -113,6 +113,7 @@ export const ProfileCardRedesigned = (
     <Card
       max
       padding="24"
+      border="partial"
       className={className}
     >
       <VStack gap="32">

@@ -9,8 +9,9 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { Loader, TextDeprecated, TextSize, VStack } from '@/shared/ui';
+import { Loader, Text, TextDeprecated, TextSize, VStack } from '@/shared/ui';
 import { useAppDispatch } from '@/shared/lib/hooks';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleDetailsCommentsProps {
   className?: string;
@@ -42,9 +43,20 @@ export const ArticleDetailsComments = memo(
         max
         className={classNames('', {}, [className])}
       >
-        <TextDeprecated
-          size={TextSize.L}
-          title={t('Комментарии')}
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          off={
+            <TextDeprecated
+              size={TextSize.L}
+              title={t('Комментарии')}
+            />
+          }
+          on={
+            <Text
+              size="l"
+              title={t('Комментарии')}
+            />
+          }
         />
         <Suspense fallback={<Loader />}>
           <AddCommentForm onSendComment={onSendComment} />

@@ -5,6 +5,7 @@ import { HStack, ListBox, Skeleton, Text } from '@/shared/ui';
 import { getFeatureFlag, updateFeatureFlag } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { getUserAuthData } from '@/entities/User';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 
 export const UiDesignSwitcher = memo(() => {
   const { t } = useTranslation();
@@ -12,6 +13,7 @@ export const UiDesignSwitcher = memo(() => {
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);
   const [isLoading, setIsLoading] = useState(false);
+  const forceUpdate = useForceUpdate();
 
   const items = [
     {
@@ -39,6 +41,7 @@ export const UiDesignSwitcher = memo(() => {
     }
 
     setIsLoading(false);
+    forceUpdate();
   };
 
   return (

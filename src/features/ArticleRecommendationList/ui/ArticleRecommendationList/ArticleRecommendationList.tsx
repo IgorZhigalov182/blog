@@ -2,8 +2,9 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetArticleRecommendationListQuery } from '../../api/articleRecommendationsApi';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack, Text } from '@/shared/ui';
+import { VStack, TextDeprecated, Text, TextSize } from '@/shared/ui';
 import { ArticleList } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleRecommendationListProps {
   className?: string;
@@ -21,7 +22,7 @@ export const ArticleRecommendationList = memo(
 
     if (isLoading) {
       return (
-        <Text
+        <TextDeprecated
           className=""
           title={t('Загрузка рекоммендаций')}
         />
@@ -30,7 +31,7 @@ export const ArticleRecommendationList = memo(
 
     if (error || !articles) {
       return (
-        <Text
+        <TextDeprecated
           className=""
           title={t('Не удалось загрузить рекоммендации')}
         />
@@ -43,10 +44,24 @@ export const ArticleRecommendationList = memo(
         className={classNames('', {}, [className])}
         data-testid="ArticleRecommendationList"
       >
-        <Text
-          className=""
-          title={t('Рекомендуем')}
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          off={
+            <TextDeprecated
+              size={TextSize.L}
+              className=""
+              title={t('Рекомендуем')}
+            />
+          }
+          on={
+            <Text
+              size="l"
+              className=""
+              title={t('Рекомендуем')}
+            />
+          }
         />
+
         <ArticleList
           target="_blank"
           className=""

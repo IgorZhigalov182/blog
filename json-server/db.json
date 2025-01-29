@@ -1495,6 +1495,30 @@
       "userId": "1",
       "text": "xw",
       "id": "nOQMce2"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est id fugiat fugit voluptatem quidem similique aliquam natus corporis deserunt earum alias molestiae ab eveniet magni minima itaque omnis, atque obcaecati.",
+      "id": "zDzdcKQ"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "<TextDeprecated           align={TextAlign.CENTER}           title={t('Произошла ошибка при загрузке страницы')}         />",
+      "id": "Jay0Tw9"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "<TextDeprecated           align={TextAlign.CENTER}           title={t('Произошла ошибка при загрузке страницы')}         />",
+      "id": "ZAYBJKT"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "s",
+      "id": "tj0CT6B"
     }
   ],
   "users": [
@@ -1512,7 +1536,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageHasBeenOpen": true

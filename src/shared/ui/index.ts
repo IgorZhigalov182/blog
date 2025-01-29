@@ -1,11 +1,15 @@
 export { Drawer } from './redesigned/Drawer/Drawer';
-export { Button } from './redesigned';
+export { Button } from './redesigned/Button/Button';
 export { ListBox } from './redesigned/Popups/ui/ListBox/ListBox';
 export { Text } from './redesigned/Text/Text';
 export { Card } from './redesigned/Card/Card';
 export { AppLogo } from './redesigned/AppLogo/AppLogo';
 export { AppImage } from './redesigned/AppImage/AppImage';
-export { AppLink, AppLinkTheme } from './deprecated/AppLink/AppLink';
+export { AppLink } from './redesigned/AppLink/AppLink';
+export {
+  AppLink as AppLinkDeprecated,
+  AppLinkTheme,
+} from './deprecated/AppLink/AppLink';
 export { Avatar as AvatarDeprecated } from './deprecated/Avatar/Avatar';
 export { Avatar } from './redesigned/Avatar/Avatar';
 export {
@@ -14,7 +18,7 @@ export {
   ThemeButton,
 } from './deprecated/Button/Button';
 export { Card as CardDeprecated, CardTheme } from './deprecated/Card/Card';
-export { Code } from './deprecated/Code/Code';
+export { Code } from './redesigned/Code/Code';
 export { Icon as IconDeprecated } from './deprecated/Icon/Icon';
 export { Icon } from './redesigned/Icon/Icon';
 export { Input as InputDeprecated } from './deprecated/Input/Input';
@@ -41,3 +45,6 @@ export {
   TextSize,
   TextTheme,
 } from './deprecated/Text/Text';
+
+// export { Icon } from './Icon/Icon';
+// export { AppLink } from './AppLink/AppLink';

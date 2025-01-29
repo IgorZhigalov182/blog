@@ -1,14 +1,13 @@
 import { memo, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
-import { Card, Input, VStack } from '@/shared/ui';
+import { Card, Input, VStack, Icon } from '@/shared/ui';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesFilters.module.scss';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/SortOrder';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import SearchIcon from '@/shared/assets/icons/search.svg';
-import { Icon } from '@/shared/ui/redesigned';
 
 interface ArticlesFiltersProps {
   className?: string;

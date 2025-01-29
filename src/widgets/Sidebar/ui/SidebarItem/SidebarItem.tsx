@@ -2,12 +2,11 @@ import { memo, type PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink as AppLinkDeprecated, AppLinkTheme } from '@/shared/ui';
+import { AppLinkDeprecated, AppLinkTheme, AppLink, Icon } from '@/shared/ui';
 import cls from './SidebarItem.module.scss';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLink, Icon } from '@/shared/ui/redesigned';
 
 interface SidebarItemProps {
   item: SidebarItemType;
