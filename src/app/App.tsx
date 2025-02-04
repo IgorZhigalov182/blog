@@ -10,11 +10,14 @@ import { PageLoader } from '@/widgets/PageLoader';
 import { Sidebar } from '@/widgets/Sidebar';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { useAppToolbar } from './lib/useAppToolbar';
 
 function App() {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
+  const toolbar = useAppToolbar();
 
   useEffect(() => {
     if (!inited) {
@@ -23,7 +26,20 @@ function App() {
   }, [dispatch, inited]);
 
   if (!inited) {
-    return <PageLoader />;
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={<PageLoader />}
+        on={
+          <div
+            id="app"
+            className={classNames('app_redesigned', {}, [theme])}
+          >
+            <AppLoaderLayout />
+          </div>
+        }
+      />
+    );
   }
 
   return (
@@ -53,7 +69,7 @@ function App() {
               content={<AppRouter />}
               header={<Navbar />}
               sidebar={<Sidebar />}
-              toolbar={<div>123</div>}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>

@@ -113,3 +113,16 @@
         text-overflow: ellipsis;
     }
 }
+
+.ArticleListItemRedesigned {
+    &.LIST {
+        width: 100%;
+    }
+
+    &.GRID {
+        .card {
+            width: 240px;
+            height: 350px;
+        }
+    }
+}
