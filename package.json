@@ -10,7 +10,7 @@
     "build:prod": "webpack  --env mode=production",
     "build:dev": "webpack  --env mode=development",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
-    "lint:ts": "eslint \"**/*.{ts,tsx}\"",
+    "lint:ts": "eslint \"./src/**/*.{ts,tsx}\"",
     "lint:ts:err": "eslint \"**/*.{ts,tsx}\" --quiet",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -34,7 +34,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "7.17.5",
+    "@babel/core": "7.22.0",
     "@babel/plugin-transform-runtime": "7.18.10",
     "@babel/plugin-transform-typescript": "7.18.12",
     "@babel/preset-env": "7.16.11",

@@ -6,7 +6,7 @@ import ArticleIconDeprecated from '@/shared/assets/icons/article-20-20.svg';
 
 import MainIcon from '@/shared/assets/icons/home.svg';
 import ArticleIcon from '@/shared/assets/icons/article.svg';
-import AboutIcon from '@/shared/assets/icons/info.svg';
+import AboutIcon from '@/shared/assets/icons/Info.svg';
 import ProfileIcon from '@/shared/assets/icons/avatar.svg';
 
 import { getUserAuthData } from '@/entities/User';
