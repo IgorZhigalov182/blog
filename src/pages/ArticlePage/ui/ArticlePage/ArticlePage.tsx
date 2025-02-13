@@ -65,7 +65,6 @@ const ArticlePage = (props: PropsWithChildren<ArticleDetailsPageProps>) => {
               className={classNames(cls.ArticlePage, {}, [className])}
               data-testid="ArticlePage"
             >
-              {/* <ArticlePageFilters /> */}
               <ArticleInfiniteList className={classNames(cls.list)} />
               <ArticlePageGreeting />
             </Page>

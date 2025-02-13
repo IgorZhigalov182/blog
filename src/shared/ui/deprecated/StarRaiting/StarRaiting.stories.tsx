@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StarRaiting } from './StarRaiting';
 
 export default {
-  title: 'shared/StarRaiting',
+  title: 'shared/deprecated/StarRaiting',
   component: StarRaiting,
   argTypes: {
     backgroundColor: { control: 'color' },

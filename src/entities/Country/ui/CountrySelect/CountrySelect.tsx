@@ -22,7 +22,7 @@ const options = [
 export const CountrySelect = memo(
   (props: PropsWithChildren<CountrySelectProps>) => {
     const { className, onChange, value, readonly } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     const onChangeCountry = useCallback(
       (value: string) => {

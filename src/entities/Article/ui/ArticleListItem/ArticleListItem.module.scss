@@ -1,14 +1,3 @@
-.ArticleListItemRedesigned {
-    &.LIST {
-        width: 100%;
-    }
-
-    &.GRID {
-      width: 240px;  
-      height: 250px;  
-    }
-}
-
 .LIST {
     .views {
         margin-left: auto;
@@ -115,6 +104,10 @@
 }
 
 .ArticleListItemRedesigned {
+    .cardSkeleton {
+        padding: 20px;
+    }
+
     &.LIST {
         width: 100%;
     }
@@ -123,6 +116,7 @@
         .card {
             width: 240px;
             height: 350px;
+            padding: 0;
         }
     }
 }

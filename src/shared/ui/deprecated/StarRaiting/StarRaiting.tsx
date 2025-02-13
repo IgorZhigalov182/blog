@@ -80,6 +80,7 @@ export const StarRaiting = memo(
           return (
             <ToggleFeatures
               feature="isAppRedesigned"
+              key={starNumber}
               off={<IconDeprecated {...commonProps} />}
               on={
                 <Icon

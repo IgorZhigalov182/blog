@@ -1,87 +1,76 @@
-// import { ComponentMeta, ComponentStory } from '@storybook/react';
-// import { Theme } from '@/shared/const/theme';
-// import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-// import { Text, TextSize, TextTheme } from './Text';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Text } from './Text';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
-// export default {
-//   title: 'shared/Text',
-//   component: Text,
-//   argTypes: {
-//     backgroundColor: { control: 'color' },
-//   },
-// } as ComponentMeta<typeof Text>;
+export default {
+  title: 'shared/redesigned/Text',
+  component: Text,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof Text>;
 
-// const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
+const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 
-// export const Primary = Template.bind({});
-// Primary.args = {
-//   title: 'Title',
-//   text: 'Text',
-// };
+export const Primary = Template.bind({});
+Primary.args = {
+  title: 'Title',
+  text: 'Text',
+};
 
-// export const PrimaryDark = Template.bind({});
-// PrimaryDark.args = {
-//   title: 'Title',
-//   text: 'Text',
-// };
-// PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark = Template.bind({});
+Dark.args = {
+  title: 'Title',
+  text: 'Text',
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
-// export const OnlyTitle = Template.bind({});
-// OnlyTitle.args = {
-//   title: 'Title',
-// };
+export const Error = Template.bind({});
+Error.args = {
+  title: 'Title',
+  text: 'Text',
+  variant: 'error',
+};
 
-// export const OnlyTitleDark = Template.bind({});
-// OnlyTitleDark.args = {
-//   title: 'Title',
-// };
-// OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Accent = Template.bind({});
+Accent.args = {
+  title: 'Title',
+  text: 'Text',
+  variant: 'accent',
+};
 
-// export const OnlyText = Template.bind({});
-// OnlyText.args = {
-//   text: 'text',
-// };
+export const SText = Template.bind({});
+SText.args = {
+  title: 'Title',
+  text: 'Text',
+  size: 's',
+};
 
-// export const OnlyTextDark = Template.bind({});
-// OnlyTextDark.args = {
-//   text: 'text',
-// };
-// OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const MText = Template.bind({});
+MText.args = {
+  title: 'Title',
+  text: 'Text',
+  size: 'm',
+};
 
-// export const Error = Template.bind({});
-// Error.args = {
-//   title: 'Title',
-//   text: 'text',
-//   theme: TextTheme.ERROR,
-// };
+export const LText = Template.bind({});
+LText.args = {
+  title: 'Title',
+  text: 'Text',
+  size: 'l',
+};
 
-// export const ErrorDark = Template.bind({});
-// ErrorDark.args = {
-//   title: 'Title',
-//   text: 'text',
-//   theme: TextTheme.ERROR,
-// };
-// ErrorDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const CenterAlign = Template.bind({});
+CenterAlign.args = {
+  title: 'Title',
+  text: 'Text',
+  align: 'center',
+};
 
-// export const STextSize = Template.bind({});
-// STextSize.args = {
-//   title: 'Title m size',
-//   text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus architecto ad nihil quod a dolores dignissimos ullam',
-//   size: TextSize.S,
-// };
-
-// export const MTextSize = Template.bind({});
-// MTextSize.args = {
-//   title: 'Title m size',
-//   text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus architecto ad nihil quod a dolores dignissimos ullam',
-//   size: TextSize.M,
-// };
-
-// export const LTextSize = Template.bind({});
-// LTextSize.args = {
-//   title: 'Title l size',
-//   text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus architecto ad nihil quod a dolores dignissimos ullam',
-//   size: TextSize.L,
-// };
-
-export {};
+export const RightAlign = Template.bind({});
+RightAlign.args = {
+  title: 'Title',
+  text: 'Text',
+  align: 'right',
+};

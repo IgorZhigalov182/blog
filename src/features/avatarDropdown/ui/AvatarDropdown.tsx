@@ -44,7 +44,7 @@ export const AvatarDropdown = memo(
 
     const items = [
       ...(isUserAdminOrManager
-        ? [{ content: t('Админка'), href: getRouteAdmin() }]
+        ? [{ content: t('Админ.Панель'), href: getRouteAdmin() }]
         : []),
       { content: t('Профиль'), href: `${getRouteProfile(authData.id)}` },
       { content: t('Настройки'), href: `${getRouteSettings()}` },

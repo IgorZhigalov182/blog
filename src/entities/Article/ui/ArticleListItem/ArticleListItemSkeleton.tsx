@@ -32,15 +32,15 @@ export const ArticleListItemSkeleton = memo(
       on: () => SkeletonRedesigned,
     });
 
-    const Card = toggleFeatures({
-      name: 'isAppRedesigned',
-      off: () => CardDeprecated,
-      on: () => CardRedesigned,
-    });
+    // const Card = toggleFeatures({
+    //   name: 'isAppRedesigned',
+    //   off: () => CardDeprecated,
+    //   on: () => CardRedesigned,
+    // });
 
     if (view === ArticleView.LIST) {
       const cardContent = (
-        <>
+        <div className={cls.cardSkeleton}>
           <div className={cls.header}>
             <Skeleton
               border="50%"
@@ -65,7 +65,7 @@ export const ArticleListItemSkeleton = memo(
           />
           <Skeleton
             height={200}
-            className={cls.img}
+            className={cls.image}
           />
           <div className={cls.footer}>
             <Skeleton
@@ -73,7 +73,7 @@ export const ArticleListItemSkeleton = memo(
               width={200}
             />
           </div>
-        </>
+        </div>
       );
 
       return (
@@ -107,7 +107,7 @@ export const ArticleListItemSkeleton = memo(
               width="100%"
               height={150}
               border="32px"
-              className={cls.img}
+              className={cls.image}
             />
           }
           off={
@@ -115,7 +115,7 @@ export const ArticleListItemSkeleton = memo(
               <Skeleton
                 width={200}
                 height={200}
-                className={cls.img}
+                className={cls.image}
               />
             </div>
           }

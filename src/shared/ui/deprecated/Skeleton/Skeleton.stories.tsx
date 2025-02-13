@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Skeleton } from './Skeleton';
 
 export default {
-  title: 'shared/Skeleton',
+  title: 'shared/deprecated/Skeleton',
   component: Skeleton,
   argTypes: {
     backgroundColor: { control: 'color' },

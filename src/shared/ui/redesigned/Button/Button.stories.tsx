@@ -1,98 +1,139 @@
-// import { ComponentMeta, ComponentStory } from '@storybook/react';
-// import { Button, ButtonSize, ThemeButton } from './Button';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+import { Button } from './Button';
+import { Icon } from '../Icon/Icon';
+import Avatar from '@/shared/assets/icons/avatar.svg';
 
-// export default {
-//   title: 'shared/Button',
-//   component: Button,
-//   argTypes: {
-//     backgroundColor: { control: 'color' },
-//   },
-// } as ComponentMeta<typeof Button>;
+export default {
+  title: 'shared/redesigned/Button',
+  component: Button,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+  args: {
+    children: <span>Button</span>,
+  },
+} as ComponentMeta<typeof Button>;
 
-// const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args) => (
+  <div style={{ padding: '50px' }}>
+    <Button {...args} />
+  </div>
+);
 
-// export const Primary = Template.bind({});
-// Primary.args = {
-//   children: 'Text',
-// };
+export const Clear = Template.bind({});
+Clear.args = {
+  variant: 'clear',
+};
 
-// export const Clear = Template.bind({});
-// Clear.args = {
-//   children: 'Text',
-//   theme: ThemeButton.CLEAR,
-// };
+export const ClearDark = Template.bind({});
+ClearDark.args = {
+  variant: 'clear',
+};
+ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-// export const ClearInverted = Template.bind({});
-// ClearInverted.args = {
-//   children: 'Text',
-//   theme: ThemeButton.CLEAR_INVERTED,
-// };
+export const Outline = Template.bind({});
+Outline.args = {
+  variant: 'outline',
+};
 
-// export const Outline = Template.bind({});
-// Outline.args = {
-//   children: 'Text',
-//   theme: ThemeButton.OUTLINE,
-// };
+export const OutlineDark = Template.bind({});
+OutlineDark.args = {
+  variant: 'outline',
+};
+OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-// export const OutlineSizeL = Template.bind({});
-// OutlineSizeL.args = {
-//   children: 'Text',
-//   theme: ThemeButton.OUTLINE,
-//   size: ButtonSize.L,
-// };
+export const Fill = Template.bind({});
+Fill.args = {
+  variant: 'fill',
+};
 
-// export const OutlineSizeXL = Template.bind({});
-// OutlineSizeXL.args = {
-//   children: 'Text',
-//   theme: ThemeButton.OUTLINE,
-//   size: ButtonSize.XL,
-// };
+export const FillDark = Template.bind({});
+FillDark.args = {
+  variant: 'fill',
+};
+FillDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-// export const OutlineDark = Template.bind({});
-// OutlineDark.args = {
-//   children: 'Text',
-//   theme: ThemeButton.OUTLINE,
-// };
+export const OutlineSuccess = Template.bind({});
+OutlineSuccess.args = {
+  variant: 'outline',
+  color: 'success',
+};
 
-// export const BackgroundTheme = Template.bind({});
-// BackgroundTheme.args = {
-//   children: 'Text',
-//   theme: ThemeButton.BACKGROUND,
-// };
+export const OutlineSuccessDark = Template.bind({});
+OutlineSuccessDark.args = {
+  variant: 'outline',
+  color: 'success',
+};
+OutlineSuccessDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-// export const BackgroundInverted = Template.bind({});
-// BackgroundInverted.args = {
-//   children: 'Text',
-//   theme: ThemeButton.BACKGROUND_INVERTED,
-// };
+export const OutlineError = Template.bind({});
+OutlineError.args = {
+  variant: 'outline',
+  color: 'error',
+};
 
-// export const Square = Template.bind({});
-// Square.args = {
-//   children: '>',
-//   theme: ThemeButton.BACKGROUND_INVERTED,
-//   square: true,
-// };
+export const OutlineErrorDark = Template.bind({});
+OutlineErrorDark.args = {
+  variant: 'outline',
+  color: 'error',
+};
+OutlineErrorDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-// export const SquareL = Template.bind({});
-// SquareL.args = {
-//   children: '>',
-//   theme: ThemeButton.BACKGROUND_INVERTED,
-//   square: true,
-//   size: ButtonSize.L,
-// };
+export const MSize = Template.bind({});
+MSize.args = {
+  variant: 'fill',
+  size: 'm',
+};
+MSize.decorators = [ThemeDecorator(Theme.DARK)];
 
-// export const SquareXL = Template.bind({});
-// SquareXL.args = {
-//   children: '>',
-//   theme: ThemeButton.BACKGROUND_INVERTED,
-//   square: true,
-//   size: ButtonSize.XL,
-// };
+export const LSize = Template.bind({});
+LSize.args = {
+  variant: 'fill',
+  size: 'l',
+};
+LSize.decorators = [ThemeDecorator(Theme.DARK)];
 
-// export const Disabled = Template.bind({});
-// Disabled.args = {
-//   children: '>',
-//   theme: ThemeButton.OUTLINE,
-//   disabled: true,
-// };
-export {};
+export const XLSize = Template.bind({});
+XLSize.args = {
+  variant: 'fill',
+  size: 'xl',
+};
+XLSize.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Square = Template.bind({});
+Square.args = {
+  variant: 'fill',
+  square: true,
+  size: 'xl',
+};
+Square.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  variant: 'fill',
+  disabled: true,
+};
+Disabled.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const MaxWidth = Template.bind({});
+MaxWidth.args = {
+  variant: 'fill',
+  maxWidth: true,
+};
+MaxWidth.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const AddonLeft = Template.bind({});
+AddonLeft.args = {
+  variant: 'fill',
+  addonLeft: <Icon Svg={Avatar} />,
+};
+AddonLeft.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const AddonRight = Template.bind({});
+AddonRight.args = {
+  variant: 'fill',
+  addonRight: <Icon Svg={Avatar} />,
+};
+AddonRight.decorators = [ThemeDecorator(Theme.DARK)];

@@ -29,7 +29,7 @@ export const EditableProfileCardHeader = (
   props: PropsWithChildren<EditableProfileCardHeaderProps>,
 ) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   const readonly = useSelector(getProfileReadonly);
   const dispatch = useAppDispatch();

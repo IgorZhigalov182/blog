@@ -16,7 +16,6 @@ import {
   Card,
 } from '@/shared/ui';
 import {
-  getAddCommentFormError,
   getAddCommentFormText,
   // @ts-ignore
 } from '../../model/selectors/addCommentFormSelectors';
@@ -41,7 +40,6 @@ const AddCommentForm = memo((props: PropsWithChildren<AddCommentFormProps>) => {
   const { className, onSendComment } = props;
   const { t } = useTranslation();
   const text = useSelector(getAddCommentFormText);
-  const error = useSelector(getAddCommentFormError);
   const dispatch = useAppDispatch();
 
   const onCommentFormChange = useCallback(

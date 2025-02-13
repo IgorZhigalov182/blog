@@ -40,7 +40,7 @@ export const ArticleList = memo(
       isLoading,
       target,
     } = props;
-    const { t } = useTranslation('');
+    const { t } = useTranslation();
 
     if (articles.length === 0 && !isLoading) {
       return (

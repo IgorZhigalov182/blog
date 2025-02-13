@@ -17,5 +17,11 @@
   "Неккоректный возраст": "Uncorrect age",
   "Некорректный регион": "Uncorrect country",
   "Имя и фамилия обязательны": "firstname and lastname is required",
-  "Данные не указаны": "No data"
+  "Данные не указаны": "No data",
+  "Имя": "firstname",
+  "Фамилия": "Lastname",
+  "Возраст": "Age",
+  "Город": "City",
+  "Юзернейм": "Username",
+  "Ссылка на аватар": "Link to avatar"
 }

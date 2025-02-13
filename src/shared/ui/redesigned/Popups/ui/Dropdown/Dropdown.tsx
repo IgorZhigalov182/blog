@@ -41,6 +41,7 @@ export const Dropdown = (props: DropdownProps) => {
         {items.map(({ content, disabled, onClick, href }, index) => {
           const node = ({ active }: { active: boolean }) => (
             <Button
+              variant="clear"
               onClick={onClick}
               disabled={disabled}
               className={classNames(

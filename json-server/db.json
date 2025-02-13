@@ -1525,6 +1525,42 @@
       "userId": "1",
       "text": "121",
       "id": "OqqHxoH"
+    },
+    {
+      "articleId": "15",
+      "userId": "1",
+      "text": "s",
+      "id": "EkRsL4K"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": " ",
+      "id": "3Kfi6PM"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "lol",
+      "id": "-Wh0s18"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "mmm,",
+      "id": "C0x29yv"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": ",",
+      "id": "W6GGu5r"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "pppp",
+      "id": "FLZNXFb"
     }
   ],
   "users": [
@@ -1588,7 +1624,7 @@
       "first": "jgh",
       "lastname": "К.Шрут",
       "age": 42,
-      "currency": "RUB",
+      "currency": "EUR",
       "country": "Russia",
       "city": "Moscow",
       "username": "admin13",
@@ -1689,6 +1725,13 @@
       "rate": 2,
       "feedback": "=[",
       "id": "S1BfrmA"
+    },
+    {
+      "userId": "1",
+      "articleId": "15",
+      "rate": 3,
+      "feedback": "sa",
+      "id": "HS1nYTi"
     }
   ],
   "profile-ratings": [
