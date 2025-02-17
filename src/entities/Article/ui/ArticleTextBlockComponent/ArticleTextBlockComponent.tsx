@@ -1,5 +1,4 @@
 import { memo, type PropsWithChildren } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleTextBlockComponent.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -14,7 +13,6 @@ interface ArticleTextBlockComponentProps {
 export const ArticleTextBlockComponent = memo(
   (props: PropsWithChildren<ArticleTextBlockComponentProps>) => {
     const { className, block } = props;
-    const { t } = useTranslation();
 
     return (
       <div

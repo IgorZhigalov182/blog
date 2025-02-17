@@ -29,23 +29,23 @@ export const NotificationItem = memo(
             className={classNames(cls.NotificationItem, {}, [className])}
           >
             <TextDeprecated
-              title={item.title}
-              text={item.description}
+              title={item?.title}
+              text={item?.description}
             />
           </CardDeprecated>
         }
         on={
           <Card className={classNames(cls.NotificationItem, {}, [className])}>
             <Text
-              title={item.title}
-              text={item.description}
+              title={item?.title}
+              text={item?.description}
             />
           </Card>
         }
       />
     );
 
-    if (item.href) {
+    if (item?.href) {
       return (
         <a
           className={classNames(cls.link, {}, [])}

@@ -2,9 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleListItem } from './ArticleListItem';
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/contst/articleConsts';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-  title: 'entities/ArticleListItem/ArticleListItem',
+  title: 'entities/Article/ArticleListItem/ArticleListItem',
   component: ArticleListItem,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -100,3 +101,17 @@ ArticleListItemList.args = {
   article,
   view: ArticleView.LIST,
 };
+
+export const ArticleListItemGridRedesigned = Template.bind({});
+ArticleListItemGridRedesigned.args = {
+  article,
+  view: ArticleView.GRID,
+};
+ArticleListItemGridRedesigned.decorators = [NewDesignDecorator];
+
+export const ArticleListItemListRedesigned = Template.bind({});
+ArticleListItemListRedesigned.args = {
+  article,
+  view: ArticleView.LIST,
+};
+ArticleListItemListRedesigned.decorators = [NewDesignDecorator];

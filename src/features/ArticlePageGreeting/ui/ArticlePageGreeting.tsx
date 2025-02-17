@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { isMobile } from 'react-device-detect';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';

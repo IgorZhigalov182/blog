@@ -4,7 +4,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ArticleRecommendationList } from './ArticleRecommendationList';
 
 export default {
-  title: 'features/articleRecommendationList/ArticleRecommendationList',
+  title: 'features/ArticleRecommendationList',
   component: ArticleRecommendationList,
   argTypes: {
     backgroundColor: { control: 'color' },

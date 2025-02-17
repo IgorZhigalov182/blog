@@ -2,9 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleList } from './ArticleList';
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/contst/articleConsts';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-  title: 'entities/ArticleList',
+  title: 'entities/Article/ArticleList',
   component: ArticleList,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -122,3 +123,41 @@ ListSkeleton.args = {
   view: ArticleView.LIST,
   isLoading: true,
 };
+
+export const GridRedesigned = Template.bind({});
+GridRedesigned.args = {
+  articles: new Array(16)
+    .fill(0)
+    .map((_, index) => ({ ...article, id: String(index) })),
+  view: ArticleView.GRID,
+};
+GridRedesigned.decorators = [NewDesignDecorator];
+
+export const ListRedesigned = Template.bind({});
+ListRedesigned.args = {
+  articles: new Array(16)
+    .fill(0)
+    .map((_, index) => ({ ...article, id: String(index) })),
+  view: ArticleView.LIST,
+};
+ListRedesigned.decorators = [NewDesignDecorator];
+
+export const GridSkeletonRedesigned = Template.bind({});
+GridSkeletonRedesigned.args = {
+  articles: new Array(16)
+    .fill(0)
+    .map((_, index) => ({ ...article, id: String(index) })),
+  view: ArticleView.GRID,
+  isLoading: true,
+};
+GridSkeletonRedesigned.decorators = [NewDesignDecorator];
+
+export const ListSkeletonRedesigned = Template.bind({});
+ListSkeletonRedesigned.args = {
+  articles: new Array(16)
+    .fill(0)
+    .map((_, index) => ({ ...article, id: String(index) })),
+  view: ArticleView.LIST,
+  isLoading: true,
+};
+ListSkeletonRedesigned.decorators = [NewDesignDecorator];

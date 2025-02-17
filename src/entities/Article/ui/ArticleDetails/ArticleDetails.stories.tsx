@@ -7,9 +7,10 @@ import {
 } from '../../model/contst/articleConsts';
 import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-  title: 'entities/ArticleDetails',
+  title: 'entities/Article/ArticleDetails',
   component: ArticleDetails,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -121,4 +122,31 @@ Error.decorators = [
   StoreDecorator({
     articleDetails: { error: 'Error' },
   }),
+];
+
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = {};
+NormalRedesigned.decorators = [
+  StoreDecorator({
+    articleDetails: { data: article },
+  }),
+  NewDesignDecorator,
+];
+
+export const LoadingRedesigned = Template.bind({});
+LoadingRedesigned.args = {};
+LoadingRedesigned.decorators = [
+  StoreDecorator({
+    articleDetails: { isLoading: true },
+  }),
+  NewDesignDecorator,
+];
+
+export const ErrorRedesigned = Template.bind({});
+ErrorRedesigned.args = {};
+ErrorRedesigned.decorators = [
+  StoreDecorator({
+    articleDetails: { error: 'Error' },
+  }),
+  NewDesignDecorator,
 ];

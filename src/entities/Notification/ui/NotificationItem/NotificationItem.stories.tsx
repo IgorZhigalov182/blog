@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { NotificationItem } from './NotificationItem';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
   title: 'entities/Notification/NotificationItem',
@@ -19,7 +18,15 @@ const Template: ComponentStory<typeof NotificationItem> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  item: {
+    userId: '2',
+    href: 'https://',
+    id: '1',
+    title: 'Уведомление',
+    description: 'Поставь лайк и оставь комментарий под Ulbi TV',
+  },
+};
 Primary.parameters = {
   // mockData: [
   //   {
@@ -28,6 +35,8 @@ Primary.parameters = {
   //     status: 200,
   //     response: [
   //       {
+  //         userId: '2',
+  //         href: 'https://',
   //         id: '1',
   //         title: 'Уведомление',
   //         description: 'Поставь лайк и оставь комментарий под Ulbi TV',

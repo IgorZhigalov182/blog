@@ -6,7 +6,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-  title: 'entities/ProfileCard',
+  title: 'entities/Profile/ProfileCard',
   component: ProfileCard,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -44,7 +44,19 @@ WithError.args = {
   error: 'error message',
 };
 
+export const WithErrorRedesigned = Template.bind({});
+WithErrorRedesigned.args = {
+  error: 'error message',
+};
+WithErrorRedesigned.decorators = [NewDesignDecorator];
+
 export const Loading = Template.bind({});
 Loading.args = {
   isLoading: true,
 };
+
+export const LoadingRedesigned = Template.bind({});
+LoadingRedesigned.args = {
+  isLoading: true,
+};
+LoadingRedesigned.decorators = [NewDesignDecorator];
